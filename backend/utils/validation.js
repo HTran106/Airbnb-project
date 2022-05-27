@@ -1,4 +1,5 @@
-const { validationResult } = require('express-validator');
+const { validationResult, check } = require('express-validator');
+
 
 const handleValidationErrors = (req, _res, next) => {
   const validationErrors = validationResult(req);
@@ -21,4 +22,16 @@ const handleValidationErrors = (req, _res, next) => {
   next();
 };
 
-module.exports = { handleValidationErrors }
+
+const validateLogin = [
+  check('credential')
+    .exists({ checkFalsy: true })
+    .notEmpty()
+    .withMessage('Please provide a valid email.'),
+  check('password')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a password.'),
+  handleValidationErrors
+];
+
+module.exports = { handleValidationErrors, validateLogin }
