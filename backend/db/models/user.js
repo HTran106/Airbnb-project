@@ -48,7 +48,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      User.hasMany(models.Booking, { foreignKey: 'userId' })
+      User.hasMany(models.Spot, { foreignKey: 'userId' })
+      User.hasMany(models.Review, { foreignKey: 'userId' })
+      User.belongsToMany(models.Message, { through: 'UserMessage', foreignKey: 'recipientId', otherKey: 'senderId' })
     }
   }
   User.init({
@@ -80,18 +83,18 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
     defaultScope: {
-        attributes: {
-          exclude: ["hashedPassword", "email", "createdAt", "updatedAt"]
-        }
-      },
-      scopes: {
-        currentUser: {
-          attributes: { exclude: ["hashedPassword"] }
-        },
-        loginUser: {
-          attributes: {}
-        }
+      attributes: {
+        exclude: ["hashedPassword", "email", "createdAt", "updatedAt"]
       }
+    },
+    scopes: {
+      currentUser: {
+        attributes: { exclude: ["hashedPassword"] }
+      },
+      loginUser: {
+        attributes: {}
+      }
+    }
   });
   return User;
 };

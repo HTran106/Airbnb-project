@@ -1,36 +1,33 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Reviews', {
+    await queryInterface.createTable('UserMessages', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        allowNull: false,
+      senderId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users'
         },
         onDelete: 'CASCADE'
       },
-      spotId: {
-        allowNull: false,
+      recipientId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Spots'
+          model: 'Users'
         },
         onDelete: 'CASCADE'
       },
-      review: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      stars: {
-        allowNull: false,
-        type: Sequelize.INTEGER(5)
+      messageId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Messages'
+        },
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
@@ -45,6 +42,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Reviews');
+    await queryInterface.dropTable('UserMessages');
   }
 };
