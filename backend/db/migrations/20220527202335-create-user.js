@@ -27,6 +27,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING.BINARY
       },
+      profileImage: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       isHost: {
         type: Sequelize.BOOLEAN,
         defaultValue: false

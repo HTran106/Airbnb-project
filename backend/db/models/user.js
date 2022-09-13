@@ -76,6 +76,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING.BINARY
     },
+    profileImage: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     isHost: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
