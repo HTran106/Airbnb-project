@@ -5,32 +5,33 @@ const { validateLogin } = require('../../utils/validation');
 const router = express.Router();
 
 //login
-router.post('/', validateLogin, async (req, res, next) => {
-    const { credential, password } = req.body;
+router.post('/login', validateLogin, async (req, res, next) => {
+  const { credential, password } = req.body;
 
-    const user = await User.login({ credential, password });
+  const user = await User.login({ credential, password });
 
-    if (!user) {
-      const err = new Error('Login failed');
-      err.status = 401;
-      err.title = 'Login failed';
-      err.errors = ['The provided credentials were invalid.'];
-      return next(err);
-    }
-
-    await setTokenCookie(res, user);
-
-    return res.json({
-      user
-    });
+  if (!user) {
+    const err = new Error('Invalid credientials');
+    err.status = 401;
+    err.title = 'Invalid credentials';
+    err.errors = ['Invalid credentials'];
+    return next(err);
   }
+
+  const token = setTokenCookie(res, user);
+
+  return res.json({
+    user: user.toSafeObject(),
+    token
+  });
+}
 );
 
 //logout
 router.delete('/', (_req, res) => {
-    res.clearCookie('token');
-    return res.json({ message: 'success' });
-  }
+  res.clearCookie('token');
+  return res.json({ message: 'success' });
+}
 );
 
 // Restore session user

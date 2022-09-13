@@ -6,11 +6,11 @@ const handleValidationErrors = (req, _res, next) => {
   let errorObj = {}
   if (!validationErrors.isEmpty()) {
     const errors = validationErrors
-    .array()
-    // .map((error) => `${error.msg}`);
-    .forEach((error) => {
-      errorObj[error.param] = error.msg
-    })
+      .array()
+      // .map((error) => `${error.msg}`);
+      .forEach((error) => {
+        errorObj[error.param] = error.msg
+      })
 
 
     const err = Error('Validation error');
@@ -45,7 +45,7 @@ const validateSignup = [
     .withMessage('Please provide a valid first name with at least 2 characters'),
   check('lastName')
     .exists({ checkFalsy: true })
-    .isLength({ min: 2})
+    .isLength({ min: 2 })
     .withMessage('Please provide a valid last name with at least 2 characters'),
   check('password')
     .exists({ checkFalsy: true })

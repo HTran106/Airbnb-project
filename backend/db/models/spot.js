@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Spot.hasMany(models.Review, { foreignKey: 'spotId' })
       Spot.hasMany(models.Image, { foreignKey: 'reviewId' })
-      Spot.belongsTo(models.User, { foreignKey: 'userId' })
+      Spot.belongsTo(models.User, { foreignKey: 'ownerId' })
       Spot.hasMany(models.Booking, { foreignKey: 'spotId' })
     }
   }

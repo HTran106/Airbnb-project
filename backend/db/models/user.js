@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     validatePassword(password) {
-      return bcrypt.compareSync(password, this.hashedPassword.toString());
+      return bcrypt.compareSync(password, this.password.toString());
     }
 
     static getCurrentUserById(id) {
@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.hasMany(models.Booking, { foreignKey: 'userId' })
-      User.hasMany(models.Spot, { foreignKey: 'userId' })
+      User.hasMany(models.Spot, { foreignKey: 'ownerId' })
       User.hasMany(models.Review, { foreignKey: 'userId' })
       User.hasMany(models.Message, { foreignKey: 'senderId' })
       User.hasMany(models.Message, { foreignKey: 'recipientId' })
