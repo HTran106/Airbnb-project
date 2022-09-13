@@ -233,8 +233,8 @@ module.exports = {
         lat: 37.871666,
         lng: -122.272781,
         squareFt: 20154,
-        name: 'Laguna Heaven',
-        description: "Let us host your next event!  Our spacious warehouse offers all the space needed for any event.",
+        name: 'Contemporary West Indies villa on private beach',
+        description: "Ease into a lifestyle granting pure relaxation, unending adventure, lush landscapes, and a warm welcome island culture, all in this British West Indies-inspired manor.",
         price: 5850
       },
       {
@@ -259,7 +259,7 @@ module.exports = {
         lat: 37.871666,
         lng: -122.272781,
         squareFt: 20154,
-        name: 'Oceanside Home',
+        name: 'Moroccan-themed estate near Coachella grounds',
         description: "Let us host your next event!  Our spacious warehouse offers all the space needed for any event.",
         price: 1240
       },
