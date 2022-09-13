@@ -1,8 +1,8 @@
 const express = require('express');
 const { requireAuth, restoreUser, doesNotExist, unauthorized } = require('../../utils/auth');
-const { validateSpot } = require('../../utils/validation')
+const { validateSpot, validateReview } = require('../../utils/validation')
 // const { validateSignup } = require('../../utils/validation')
-const { Spot, User, Review } = require('../../db/models');
+const { Spot, User, Review, Image } = require('../../db/models');
 const router = express.Router();
 
 // GET ALL SPOTS
@@ -108,7 +108,7 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
     const { user } = req
     const { spotId } = req.params
 
-    const spot = Spot.findByPk(+spotId)
+    const spot = await Spot.findByPk(+spotId)
 
     if (spot) {
         if (spot.ownerId === +user.id) {
@@ -122,7 +122,73 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
     }
 })
 
+// GET ALL REVIEWS BY A SPOT'S ID
+router.get('/:spotId/reviews', async (req, res, next) => {
+    const { spotId } = req.params
 
+    const spot = Spot.findByPk(+spotId)
+
+    if (spot) {
+        const reviews = await Review.findAll({
+            where: {
+                spotId: +spotId
+            },
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'firstName', 'lastName']
+                },
+                {
+                    model: Image,
+                    as: 'images',
+                    attributes: ['url']
+                }
+            ]
+        })
+        res.status(200)
+        res.json({ Reviews: reviews })
+    } else {
+        doesNotExist(next, 'Spot')
+    }
+})
+
+// CREATE A REVIEW FOR A SPOT BASED ON THE SPOT ID
+router.post('/:spotId/reviews', requireAuth, validateReview, async (req, res, next) => {
+    const { user } = req
+    const { spotId } = req.params
+    const { review, stars } = req.body
+
+    const spot = await Spot.findByPk(+spotId)
+    const checkReview = await Review.findOne({
+        where: {
+            spotId: +spotId,
+            userId: +user.id
+        }
+    })
+
+    if (spot) {
+        if (checkReview) {
+            res.status(403);
+            const err = new Error("User already has a review for this spot");
+            err.message = "User already has a review for this spot";
+            err.status = 403;
+            next(err);
+        } else {
+            const newReview = await Review.create({
+                userId: +user.id,
+                spotId: +spot.id,
+                review,
+                stars,
+            })
+
+            res.status(200)
+            res.json(newReview)
+        }
+    } else {
+        doesNotExist(next, 'Spot')
+    }
+
+})
 
 
 
