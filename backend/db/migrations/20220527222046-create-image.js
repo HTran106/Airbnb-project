@@ -14,7 +14,7 @@ module.exports = {
         references: { model: 'Spots' }
       },
       reviewId: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
         references: { model: 'Reviews' }
       },

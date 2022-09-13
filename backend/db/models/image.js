@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     reviewId: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.INTEGER
     },
     imageType: {
