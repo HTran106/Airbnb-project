@@ -21,6 +21,14 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
+    senderId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
+    recipientId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
     messageId: DataTypes.INTEGER,
     body: DataTypes.STRING
   }, {

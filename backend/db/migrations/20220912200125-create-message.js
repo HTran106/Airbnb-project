@@ -8,6 +8,22 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      senderId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Users'
+        }
+      },
+      recipientId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Users'
+        }
+      },
       messageId: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -28,7 +44,7 @@ module.exports = {
       }
     });
   },
-  
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Messages');
   }
