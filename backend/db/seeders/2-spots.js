@@ -31,7 +31,7 @@ module.exports = {
       },
       {
         ownerId: 5,
-        address: '2688 Stanley Drive',
+        address: '2611 Awesome Dr',
         city: 'Berkeley',
         state: 'California',
         country: 'USA',
