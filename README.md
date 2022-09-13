@@ -53,7 +53,7 @@ Returns the information about the current user that is logged in.
 - Request
 
   - Method: Get
-  - URL: /users/me
+  - URL: /my/info
   - Body: none
 
 - Successful Response
