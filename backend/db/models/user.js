@@ -52,6 +52,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Spot, { foreignKey: 'userId' })
       User.hasMany(models.Review, { foreignKey: 'userId' })
       User.belongsToMany(models.Message, { through: 'UserMessage', foreignKey: 'recipientId', otherKey: 'senderId' })
+      User.belongsToMany(models.Message, { through: 'UserMessage', foreignKey: 'senderId', otherKey: 'recipientId' })
     }
   }
   User.init({

@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Message.belongsToMany(models.User, { through: 'UserMessage', foreignKey: 'senderId', otherKey: 'recipientId' })
+      Message.belongsToMany(models.User, { through: 'UserMessage', foreignKey: 'recipientId', otherKey: 'senderId' })
     }
   }
   Message.init({
