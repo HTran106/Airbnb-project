@@ -51,8 +51,8 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Booking, { foreignKey: 'userId' })
       User.hasMany(models.Spot, { foreignKey: 'userId' })
       User.hasMany(models.Review, { foreignKey: 'userId' })
-      User.belongsToMany(models.Message, { through: 'UserMessage', foreignKey: 'recipientId', otherKey: 'senderId' })
-      User.belongsToMany(models.Message, { through: 'UserMessage', foreignKey: 'senderId', otherKey: 'recipientId' })
+      User.hasMany(models.Message, { foreignKey: 'senderId' })
+      User.hasMany(models.Message, { foreignKey: 'recipientId' })
     }
   }
   User.init({

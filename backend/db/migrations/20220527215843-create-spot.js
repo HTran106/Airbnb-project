@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
+      ownerId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
@@ -51,6 +51,10 @@ module.exports = {
       price: {
         allowNull: false,
         type: Sequelize.DECIMAL
+      },
+      squareFt: {
+        allowNull: true,
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

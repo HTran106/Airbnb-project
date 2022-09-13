@@ -12,23 +12,61 @@ module.exports = {
         isHost: true
       },
       {
-        firstName: 'User 1',
-        lastName: 'Test',
+        firstName: 'James',
+        lastName: 'Tan',
         email: 'user1@user.io',
-        password: bcrypt.hashSync('password2'),
+        password: bcrypt.hashSync('password'),
       },
       {
-        firstName: 'User 2',
-        lastName: 'Test',
+        firstName: 'Anne',
+        lastName: 'Collins',
         email: 'user2@user.io',
-        password: bcrypt.hashSync('password3'),
+        password: bcrypt.hashSync('password'),
         isHost: true
       },
       {
-        firstName: 'User 3',
-        lastName: 'Test',
+        firstName: 'Kevin',
+        lastName: 'Nguyen',
         email: 'user3@user.io',
-        password: bcrypt.hashSync('password4'),
+        password: bcrypt.hashSync('password'),
+      },
+      {
+        firstName: 'Abby',
+        lastName: 'Hanes',
+        email: 'user4@user.io',
+        password: bcrypt.hashSync('password'),
+        isHost: true
+      },
+      {
+        firstName: 'John',
+        lastName: 'Smith',
+        email: 'user5@user.io',
+        password: bcrypt.hashSync('password'),
+        isHost: true
+      },
+      {
+        firstName: 'Jane',
+        lastName: 'Smith',
+        email: 'user6@user.io',
+        password: bcrypt.hashSync('password'),
+      },
+      {
+        firstName: 'Jennifer',
+        lastName: 'Taylor',
+        email: 'user7@user.io',
+        password: bcrypt.hashSync('password'),
+      },
+      {
+        firstName: 'Scarlet',
+        lastName: 'Chester',
+        email: 'user8@user.io',
+        password: bcrypt.hashSync('password'),
+      },
+      {
+        firstName: 'Leah',
+        lastName: 'Flay',
+        email: 'user9@user.io',
+        password: bcrypt.hashSync('password'),
       },
     ], {});
   },
@@ -36,7 +74,7 @@ module.exports = {
   down: async (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Users', {
-      firstName: { [Op.in]: ['Demo', 'User 1', 'User 2', 'User 3'] }
+      firstName: { [Op.in]: ['Demo', 'James', 'Anne', 'Kevin', 'Abby', 'John', 'Jane', 'Jennifer', 'Scarlet', 'Leah'] }
     }, {});
   }
 };

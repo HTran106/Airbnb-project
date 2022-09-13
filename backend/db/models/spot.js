@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    userId: {
+    ownerId: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
@@ -59,6 +59,10 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       allowNull: false,
       type: DataTypes.STRING
+    },
+    squareFt: {
+      allowNull: true,
+      type: DataTypes.INTEGER
     },
     price: {
       allowNull: false,
