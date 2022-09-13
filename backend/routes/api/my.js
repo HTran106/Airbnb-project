@@ -5,17 +5,27 @@ const { Spot } = require('../../db/models');
 const spot = require('../../db/models/spot');
 const router = express.Router();
 
-// router.get('/spots', async (req, res, next) => {
-//     const { user } = req;
 
-//     const spots = await Spot.findAll({
-//         where: {
-//             ownerId: user.id
-//         }
-//     })
+// GET ALL SPOTS OWNED BY THE CURRENT USER
+router.get('/spots', requireAuth, async (req, res, next) => {
+    const { user } = req;
 
-//     spots ? res.json({ Spots: spots }) : doesNotExist(next, 'Spots')
-// })
+    const spots = await Spot.findAll({
+        where: {
+            ownerId: user.id
+        }
+    })
+
+    if (spot) {
+        res.status(200)
+        return res.json({ Spots: spots })
+    } else {
+        doesNotExist(next, 'Spots')
+    }
+})
+
+
+
 
 
 
