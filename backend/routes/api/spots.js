@@ -200,10 +200,10 @@ router.put('/:spotId/reviews/:reviewId', requireAuth, validateReview, async (req
 
 
     if (spot) {
-        const review = await Review.findByPk(+reviewId)
-        if (review) {
-            if (review.userId === +user.id) {
-                review = await review.update({
+        const reviewToUpdate = await Review.findByPk(+reviewId)
+        if (reviewToUpdate) {
+            if (reviewToUpdate.userId === +user.id) {
+                reviewToUpdate = await reviewToUpdate.update({
                     review,
                     stars,
                 })
