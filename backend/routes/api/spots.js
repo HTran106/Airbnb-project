@@ -2,7 +2,7 @@ const express = require('express');
 const { requireAuth, restoreUser, doesNotExist, unauthorized } = require('../../utils/auth');
 const { validateSpot, validateReview } = require('../../utils/validation')
 // const { validateSignup } = require('../../utils/validation')
-const { Spot, User, Review, Image } = require('../../db/models');
+const { Spot, User, Review, Image, Booking } = require('../../db/models');
 const router = express.Router();
 
 // GET ALL SPOTS
@@ -187,6 +187,149 @@ router.post('/:spotId/reviews', requireAuth, validateReview, async (req, res, ne
     } else {
         doesNotExist(next, 'Spot')
     }
+
+})
+
+// EDIT A REVIEW
+router.put('/:spotId/reviews/:reviewId', requireAuth, validateReview, async (req, res, next) => {
+    const { user } = req
+    const { spotId, reviewId } = req.params
+    const { review, stars } = req.body
+
+    const spot = await Spot.findByPk(+spotId)
+
+
+    if (spot) {
+        const review = await Review.findByPk(+reviewId)
+        if (review) {
+            if (review.userId === +user.id) {
+                review = await review.update({
+                    review,
+                    stars,
+                })
+                res.status(200)
+                res.json(review)
+            } else {
+                unauthorized(next)
+            }
+        } else {
+            doesNotExist(next, 'Review')
+        }
+    } else {
+        doesNotExist(next, 'Spot')
+    }
+})
+
+// DELETE A REVIEW
+router.delete('/:spotId/reviews/:reviewId', requireAuth, async (req, res, next) => {
+    const { spotId, reviewId } = req.params
+    const { user } = req
+
+    const spot = await Spot.findByPk(+spotId)
+
+    if (spot) {
+        const review = await Review.findByPk(+reviewId)
+        if (review) {
+            if (review.userId === +user.id) {
+                await review.destroy();
+                res.json({ msg: 'Successfully deleted', statusCode: res.statusCode })
+            } else {
+                unauthorized(next)
+            }
+        } else {
+            doesNotExist(next, 'Review')
+        }
+    } else {
+        doesNotExist(next, 'Spot')
+    }
+})
+
+// GET ALL BOOKINGS FOR A SPOT BASED ON THE SPOT'S ID
+router.get('/:spotId/bookings', requireAuth, async (req, res, next) => {
+    const { spotId } = req.params
+    const { user } = req
+
+    const spot = await Spot.findByPk(+spotId)
+
+    if (spot) {
+        if (spot.ownerId === +user.id) {
+            const bookings = await Booking.findAll({
+                where: {
+                    userId: +spotId
+                },
+                include: {
+                    model: User,
+                    attributes: ['id', 'firstName', 'lastName']
+                }
+            })
+            res.status(200)
+            res.json({ Bookings: bookings })
+        } else {
+            const bookings = await Booking.findAll({
+                where: {
+                    spotId: +spotId
+                },
+                attributes: ['spotId', 'startDate', 'endDate']
+            })
+            res.status(200)
+            res.json({ Bookings: bookings })
+        }
+    } else {
+        doesNotExist(next, 'Spot')
+    }
+})
+
+// CREATE A BOOKING FROM A SPOT BASED ON THE SPOT'S ID
+router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
+    const { spotId } = req.params
+    const { startDate, endDate } = req.body
+    const { user } = req
+
+    const spot = await Spot.findByPk(+spotId)
+
+    if (spot) {
+        const bookings = await Booking.findAll({
+            where: {
+                spotId: +spotId
+            }
+        })
+
+        let isNotAvail;
+        bookings.forEach(booking => {
+            if ((startDate >= booking.startDate && startDate <= booking.endDate) || (endDate <= booking.endDate && endDate >= booking.startDate)) {
+                isNotAvail = true
+            }
+        })
+
+        if (isNotAvail) {
+            res.status(403);
+            const err = new Error("Sorry, this spot is already booked for the specified dates");
+            err.message = "Sorry, this spot is already booked for the specified dates";
+            err.errors = {
+                startDate: "Start date conflicts with an existing booking",
+                endDate: "End date conflicts with an existing booking"
+            };
+            err.status = 403;
+            next(err);
+        } else {
+            if (spot.ownerId !== +user.id) {
+                const booking = await Booking.create({
+                    spotId: +spotId,
+                    userId: +user.id,
+                    startDate,
+                    endDate
+                })
+
+                res.status(200)
+                res.json(booking)
+            } else {
+                unauthorized(next)
+            }
+        }
+    } else {
+        doesNotExist(next, 'Spot')
+    }
+
 
 })
 
