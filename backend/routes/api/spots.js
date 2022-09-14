@@ -357,6 +357,28 @@ router.post('/:spotId/images', requireAuth, async (req, res, next) => {
     }
 })
 
+// DELETE AN IMAGE BASED ON SPOT ID
+router.delete('/:spotId/images/:imageId', requireAuth, async (req, res, next) => {
+    const { user } = req
+    const { imageId, spotId } = req.params
+
+    const image = await Image.findByPk(+imageId)
+    const spot = await Spot.findByPk(+spotId)
+
+    if (spot) {
+        if (image) {
+            if (spot.ownerId === +user.id) {
+                await image.destroy()
+                res.status(200)
+                res.json({ message: "Successfully deleted", statusCode: 200 })
+            } else {
+                unauthorized(next)
+            }
+        } else {
+            doesNotExist(next, 'Image')
+        }
+    }
+})
 
 
 
