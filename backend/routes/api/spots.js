@@ -33,6 +33,14 @@ router.get('/:spotId', async (req, res, next) => {
     if (spot) {
         const reviews = await Review.count({ where: { spotId } })
         const stars = await Review.findAll({ where: { spotId } })
+        const images = await Image.findAll({
+            where: {
+                spotId: +spotId
+            },
+            attributes: ['url']
+        })
+
+        spot.dataValues.images = images
 
         let avgStar = 0
         stars.forEach(star => {
@@ -47,7 +55,6 @@ router.get('/:spotId', async (req, res, next) => {
     } else {
         doesNotExist(next, 'Spot')
     }
-
 })
 
 // CREATE A SPOT
