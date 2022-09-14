@@ -330,9 +330,27 @@ router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
         doesNotExist(next, 'Spot')
     }
 
-
 })
 
+// ADD AN IMAGE TO A SPOT BASED ON THE SPOT'S ID
+router.post('/:spotId/images', requireAuth, async (req, res, next) => {
+    const { spotId } = req.params
+    const { url } = req.body
+
+    const spot = await Spot.findByPk(+spotId)
+
+    if (spot) {
+        const newImage = await Image.create({
+            spotId: +spotId,
+            imageType: "Spot",
+            url,
+        })
+        res.status(200)
+        res.json(newImage)
+    } else {
+        doesNotExist(next, 'Spot')
+    }
+})
 
 
 

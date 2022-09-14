@@ -36,8 +36,8 @@ module.exports = {
       {
         userId: 2,
         spotId: 2,
-        review: "Some communication problems with the host but the place was very beautiful.",
-        stars: 3
+        review: "Best views!! Definitely worth it!!",
+        stars: 5
       },
       {
         userId: 2,
@@ -54,7 +54,7 @@ module.exports = {
       {
         userId: 3,
         spotId: 1,
-        review: "BEAUTIFUL home! Very clean! Great location! We loved our family time at this home. Had everything we needed and more! My family loved the pool and game room!",
+        review: "The house was amazing. It was so spacious and perfect for our extra large group! We can’t wait to come visit again!",
         stars: 5
       },
       {
@@ -66,7 +66,7 @@ module.exports = {
       {
         userId: 3,
         spotId: 3,
-        review: "Some communication problems with the host but the place was very beautiful.",
+        review: "Had an amazing time at this location!",
         stars: 3
       },
       {
