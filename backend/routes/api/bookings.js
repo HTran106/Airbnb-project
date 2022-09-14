@@ -1,7 +1,6 @@
 const express = require('express');
-const { setTokenCookie, requireAuth, doesNotExist, unauthorized } = require('../../utils/auth');
-const { validateSignup } = require('../../utils/validation')
-const { User, Booking } = require('../../db/models');
+const { requireAuth, doesNotExist, unauthorized } = require('../../utils/auth');
+const { Booking } = require('../../db/models');
 const router = express.Router();
 
 // EDIT A BOOKING

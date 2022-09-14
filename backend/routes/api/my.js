@@ -1,6 +1,5 @@
 const express = require('express');
 const { requireAuth, doesNotExist, restoreUser } = require('../../utils/auth');
-const { validateSignup } = require('../../utils/validation')
 const { Spot, Booking } = require('../../db/models');
 const spot = require('../../db/models/spot');
 const router = express.Router();

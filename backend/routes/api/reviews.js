@@ -1,6 +1,5 @@
 const express = require('express');
-const { setTokenCookie, requireAuth, doesNotExist, unauthorized } = require('../../utils/auth');
-const { validateSignup } = require('../../utils/validation')
+const { requireAuth, doesNotExist, unauthorized } = require('../../utils/auth');
 const { Review, Spot, Image, User } = require('../../db/models');
 const router = express.Router();
 
