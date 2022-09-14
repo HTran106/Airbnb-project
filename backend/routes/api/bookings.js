@@ -7,7 +7,7 @@ const router = express.Router();
 router.put('/:bookingId', requireAuth, async (req, res, next) => {
     const { bookingId } = req.params
     const { user } = req
-    const { startDate, endDate } = req.body
+    let { startDate, endDate } = req.body
 
     const booking = await Booking.findByPk(+bookingId)
     const bookings = await Booking.findAll({
@@ -21,16 +21,19 @@ router.put('/:bookingId', requireAuth, async (req, res, next) => {
 
     if (booking) {
         if (booking.userId === +user.id) {
-            if (endDate <= date) {
+            if (booking.endDate <= date) {
                 const err = new Error("Past bookings can't be modified")
                 err.status = 400
                 err.title = "Past bookings can't be modified"
                 return next(err)
             }
 
+            startDate = new Date(startDate)
+            endDate = new Date(endDate)
+
             let isNotAvail;
             bookings.forEach(booking => {
-                if ((startDate >= booking.startDate && startDate <= booking.endDate) || (endDate <= booking.endDate && endDate >= booking.startDate)) {
+                if (((startDate <= booking.dataValues.startDate) && (endDate >= booking.dataValues.startDate)) || ((startDate >= booking.dataValues.startDate) && (booking.dataValues.endDate >= startDate))) {
                     isNotAvail = true
                 }
             })
@@ -50,6 +53,8 @@ router.put('/:bookingId', requireAuth, async (req, res, next) => {
                     startDate,
                     endDate,
                 })
+                res.status(200)
+                res.json(updatedBooking)
             }
         } else {
             unauthorized(next)

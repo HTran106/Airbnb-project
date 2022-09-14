@@ -300,7 +300,7 @@ router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
 
         let isNotAvail;
         bookings.forEach(booking => {
-            if (booking.startDate <= startDate <= booking.endDate && booking.startDate <= endDate <= booking.endDate) {
+            if (((startDate <= booking.dataValues.startDate) && (endDate >= booking.dataValues.startDate)) || ((startDate >= booking.dataValues.startDate) && (booking.dataValues.endDate >= startDate))) {
                 isNotAvail = true
             }
         })
