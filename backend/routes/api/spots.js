@@ -39,6 +39,7 @@ router.get('/:spotId', async (req, res, next) => {
             },
             attributes: ['url']
         })
+        console.log(spot)
 
         spot.dataValues.images = images
 
