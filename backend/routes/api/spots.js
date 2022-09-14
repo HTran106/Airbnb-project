@@ -76,12 +76,13 @@ router.post('/', requireAuth, validateSpot, async (req, res, next) => {
 // EDIT A SPOT
 router.put('/:spotId', requireAuth, validateSpot, async (req, res, next) => {
     const { spotId } = req.params;
+    const { user } = req
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
     const spot = await Spot.findByPk(spotId)
 
     if (spot) {
-        if (spot.ownerId === +spotId) {
+        if (spot.ownerId === +user.id) {
             await spot.update({
                 address,
                 city,
@@ -115,7 +116,7 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
             await spot.destroy();
             res.json({ msg: 'Successfully deleted', statusCode: res.statusCode })
         } else {
-            unauthorized()
+            unauthorized(next)
         }
     } else {
         doesNotExist(next, 'Spot')
@@ -126,7 +127,7 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
 router.get('/:spotId/reviews', async (req, res, next) => {
     const { spotId } = req.params
 
-    const spot = Spot.findByPk(+spotId)
+    const spot = await Spot.findByPk(+spotId)
 
     if (spot) {
         const reviews = await Review.findAll({
@@ -200,7 +201,7 @@ router.put('/:spotId/reviews/:reviewId', requireAuth, validateReview, async (req
 
 
     if (spot) {
-        const reviewToUpdate = await Review.findByPk(+reviewId)
+        let reviewToUpdate = await Review.findByPk(+reviewId)
         if (reviewToUpdate) {
             if (reviewToUpdate.userId === +user.id) {
                 reviewToUpdate = await reviewToUpdate.update({
@@ -282,7 +283,7 @@ router.get('/:spotId/bookings', requireAuth, async (req, res, next) => {
 // CREATE A BOOKING FROM A SPOT BASED ON THE SPOT'S ID
 router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
     const { spotId } = req.params
-    const { startDate, endDate } = req.body
+    let { startDate, endDate } = req.body
     const { user } = req
 
     const spot = await Spot.findByPk(+spotId)
@@ -294,9 +295,12 @@ router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
             }
         })
 
+        startDate = new Date(startDate)
+        endDate = new Date(endDate)
+
         let isNotAvail;
         bookings.forEach(booking => {
-            if ((startDate >= booking.startDate && startDate <= booking.endDate) || (endDate <= booking.endDate && endDate >= booking.startDate)) {
+            if (((startDate <= booking.dataValues.startDate) && (endDate >= booking.dataValues.startDate)) || ((startDate >= booking.dataValues.startDate) && (booking.dataValues.endDate >= startDate))) {
                 isNotAvail = true
             }
         })
@@ -329,8 +333,9 @@ router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
     } else {
         doesNotExist(next, 'Spot')
     }
-
 })
+
+
 
 // ADD AN IMAGE TO A SPOT BASED ON THE SPOT'S ID
 router.post('/:spotId/images', requireAuth, async (req, res, next) => {
