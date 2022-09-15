@@ -1,40 +1,8 @@
 const express = require('express');
 const { requireAuth, doesNotExist, unauthorized } = require('../../utils/auth');
-const { Review, Spot, Image, User } = require('../../db/models');
+const { Review, Image } = require('../../db/models');
 const router = express.Router();
 
-
-// GET ALL REVIEWS OF THE CURRENT USER
-router.get('/', requireAuth, async (req, res, next) => {
-    const { user } = req
-
-    const reviews = await Review.findAll({
-        where: {
-            userId: +user.id
-        },
-        include: [
-            {
-                model: User,
-                attributes: ['id', 'firstName', 'lastName']
-            },
-            {
-                model: Spot
-            },
-            {
-                model: Image,
-                as: 'images',
-                attributes: ['url']
-            }
-        ]
-    })
-    if (reviews) {
-        res.status(200)
-        res.json(reviews)
-    } else {
-        doesNotExist(next, 'Reviews')
-    }
-
-})
 
 // ADD AN IMAGE TO A REVIEW BASED ON THE REVIEW'S ID
 router.post('/:reviewId/images', requireAuth, async (req, res, next) => {

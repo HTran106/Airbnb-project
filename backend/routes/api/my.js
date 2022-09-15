@@ -1,6 +1,6 @@
 const express = require('express');
 const { requireAuth, doesNotExist, restoreUser } = require('../../utils/auth');
-const { Spot, Booking } = require('../../db/models');
+const { Spot, Booking, Review, User, Image } = require('../../db/models');
 const spot = require('../../db/models/spot');
 const router = express.Router();
 
@@ -42,6 +42,38 @@ router.get('/bookings', requireAuth, async (req, res) => {
     } else {
         doesNotExist(next, 'Bookings')
     }
+})
+
+// GET REVIEWS BY THE CURRENT USER
+router.get('/reviews', requireAuth, async (req, res, next) => {
+    const { user } = req
+
+    const reviews = await Review.findAll({
+        where: {
+            userId: +user.id
+        },
+        include: [
+            {
+                model: User,
+                attributes: ['id', 'firstName', 'lastName']
+            },
+            {
+                model: Spot
+            },
+            {
+                model: Image,
+                as: 'images',
+                attributes: ['url']
+            }
+        ]
+    })
+    if (reviews) {
+        res.status(200)
+        res.json(reviews)
+    } else {
+        doesNotExist(next, 'Reviews')
+    }
+
 })
 
 
