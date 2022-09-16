@@ -1,0 +1,65 @@
+.login-button {
+    border: 1px solid rgb(221, 221, 221);
+    width: 6em;
+    height: 3em;
+    border-radius: 25% / 50%;
+    background-color: transparent;
+}
+
+.login-button:hover {
+    box-shadow: 1px 1px 5px 1px lightgray;
+}
+
+.profile-pic {
+    padding-left: .6em;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opened-menu-container {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    width: 150%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(221, 221, 221);
+    margin-left: -2.8em;
+    background-color: white;
+    z-index: 1;
+    border-radius: 10%;
+    box-shadow: 0px 0px 5px 1px lightgray;
+}
+
+.opened-menu-container div {
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.logged-out-opened-menu-container {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    width: 150%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(221, 221, 221);
+    margin-left: -2.8em;
+    background-color: white;
+    z-index: 1;
+    border-radius: 10%;
+    box-shadow: 1px 1px 5px 1px lightgray;
+}
+
+.logged-out-opened-menu-container div {
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+    cursor: pointer;
+}

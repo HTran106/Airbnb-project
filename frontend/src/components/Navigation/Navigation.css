@@ -1,0 +1,43 @@
+@font-face {
+    font-family: bettergrade;
+    src: url(BetterGrade-519DV.ttf);
+}
+
+
+.luxe {
+    font-family: bettergrade;
+    font-size: 4em;
+    padding-right: .15em;
+}
+
+.navbar-container {
+    display: flex;
+    background-color: white;
+    justify-content: space-around;
+    padding: 0;
+    height: 9vh;
+    width: 100vw;
+    margin-top: -.5em;
+    margin-left: -.5em;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.login-button-container {
+    display: grid;
+    grid-template-rows: 5.2em 5em;
+    width: 5em;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.EVENTS {
+    border-left: 1px solid rgb(221, 221, 221);
+    font-size: 1.1em;
+    padding-left: .5em;
+    letter-spacing: .2em;
+}
