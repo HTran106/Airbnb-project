@@ -1,5 +1,64 @@
 .home-search-container {
     display: grid;
-    grid-template-rows: 38em 8em;
-    background-image: url('https: //airbnb-files.s3.us-west-1.amazonaws.com/background.jpeg')
+    grid-template-rows: 40em 8em;
+    width: 100vw;
+    margin-left: -.52em;
+    /* background: url('https://airbnb-files.s3.us-west-1.amazonaws.com/search-background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+}
+
+.home-search-area-container {
+    display: flex;
+    background: url('https://www.marinabaysands.com/content/dam/singapore/marinabaysands/master/main/home/sands-skypark/infinity-pool/infinity-pool-masthead-1920x595.jpg') no-repeat center center fixed;
+    background-size: 100% 100%;
+    justify-content: center;
+}
+
+.home-search-area {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    height: 100%;
+    width: 75%;
+
+}
+
+.home-destination-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    color: white
+}
+
+.home-destination-container span {
+    font-size: 48px;
+    font-weight: 600;
+    width: 23%;
+}
+
+.searchbar-container {
+    color: white;
+    width: 100%;
+}
+
+
+.home-search-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(226, 225, 225);
+    width: 100vw;
+    height: 100%;
+}
+
+.home-search-bottom p {
+    width: 40%;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 100;
+    letter-spacing: .05em;
 }
