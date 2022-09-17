@@ -11,7 +11,7 @@ const SearchBar = () => {
                     <div className='location'>
                         <span>LOCATION</span>
                     </div>
-                    <div className='search-input'>
+                    <div style={{ width: '80%' }} className='search-input'>
                         <input
                             type='search'
                             placeholder='Anywhere'
@@ -49,12 +49,16 @@ const SearchBar = () => {
                     </div>
                 </div>
                 <div className='search-button'>
-                    <button>Search</button>
+                    <button>
+                        <div className='search-text'>
+                            Search
+                        </div>
+                    </button>
                 </div>
                 {/* <Calendar /> */}
 
             </div>
-        </div>
+        </div >
     )
 }
 

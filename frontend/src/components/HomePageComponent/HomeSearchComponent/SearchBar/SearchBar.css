@@ -9,8 +9,8 @@
 }
 
 .actual-search-bar {
-    display: grid;
-    grid-template-columns: 55% 30% 15%;
+    display: flex;
+    /* grid-template-columns: 55% 30% 15%; */
     width: 100%;
     height: 75%;
 
@@ -25,7 +25,7 @@
 .search-area {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    width: 100%;
+    width: 800%;
     /* border-right: 1px solid rgb(221, 221, 221); */
     /* margin-right: 1em;
     margin-left: 1em; */
@@ -65,7 +65,7 @@
 .date-input input {
     color: rgb(191, 189, 189);
     border: none;
-    font-size: 16px;
+    font-size: 120%;
     width: 100%;
     cursor: text;
 }
@@ -124,4 +124,22 @@
     width: 100%;
     height: 100%;
     padding-left: 1em;
+    padding-right: 1em;
+}
+
+.search-button button {
+    height: 80%;
+    width: 80%;
+    border: none;
+    background: linear-gradient(.25turn, rgb(121, 95, 168) 1%, rgb(71, 31, 144));
+    ;
+    border-radius: .6em;
+}
+
+.search-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: white;
 }
