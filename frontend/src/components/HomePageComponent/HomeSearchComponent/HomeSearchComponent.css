@@ -30,7 +30,8 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-end;
-    color: white
+    color: white;
+    padding-bottom: 2.5em;
 }
 
 .home-destination-container span {

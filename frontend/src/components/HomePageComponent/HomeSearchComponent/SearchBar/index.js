@@ -1,7 +1,9 @@
 import './SearchBar.css'
-
+import Calendar from 'react-calendar'
+import { useState } from 'react'
 
 const SearchBar = () => {
+
     return (
         <div className='search-bar'>
             <div className='actual-search-bar'>
@@ -16,6 +18,40 @@ const SearchBar = () => {
                         ></input>
                     </div>
                 </div>
+                <div className='calendar-container'>
+                    <div className='calendar-area-container'>
+                        <div className='check-in'>
+                            <span>CHECK IN</span>
+                        </div>
+                        <div className='date-input'>
+                            <input
+                                className='text'
+                                type='date'
+                                placeholder='Add Date'
+                                min={Date.now()}
+                            >
+                            </input>
+                        </div>
+                    </div>
+                    <div className='calendar-area-container2'>
+                        <div className='check-in'>
+                            <span>CHECK OUT</span>
+                        </div>
+                        <div className='date-input'>
+                            <input
+                                className='text'
+                                type='date'
+                                placeholder='Add Date'
+                                min={Date.now()}
+                            >
+                            </input>
+                        </div>
+                    </div>
+                </div>
+                <div className='search-button'>
+                    <button>Search</button>
+                </div>
+                {/* <Calendar /> */}
 
             </div>
         </div>
