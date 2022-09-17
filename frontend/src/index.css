@@ -2,8 +2,11 @@
 
 body {
     background-color: whitesmoke;
+    margin: 0;
 }
 
 button {
     cursor: pointer;
 }
+
+

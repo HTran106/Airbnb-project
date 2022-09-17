@@ -6,6 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import LoginButton from './LoginButton';
 import './Navigation.css';
 
+
 function Navigation({ isLoaded }) {
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user);
@@ -24,10 +25,6 @@ function Navigation({ isLoaded }) {
             </div>
             <LoginButton />
         </div>
-        // <>
-        //     <ProfileButton user={sessionUser} />
-
-        // </>
     );
     return (
         <>
