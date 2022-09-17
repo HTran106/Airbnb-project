@@ -1,0 +1,5 @@
+.home-search-container {
+    display: grid;
+    grid-template-rows: 38em 8em;
+    background-image: url('https: //airbnb-files.s3.us-west-1.amazonaws.com/background.jpeg')
+}

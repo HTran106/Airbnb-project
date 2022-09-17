@@ -8,6 +8,7 @@
     font-family: bettergrade;
     font-size: 4em;
     padding-right: .15em;
+    cursor: pointer;
 }
 
 .navbar-container {
@@ -19,6 +20,7 @@
     width: 100vw;
     margin-top: -.5em;
     margin-left: -.5em;
+    z-index: 1;
 }
 
 .logo-container {
