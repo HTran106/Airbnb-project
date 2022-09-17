@@ -27,7 +27,7 @@ export const getAllSpots = spots => ({
 })
 
 export const fetchAllSpots = () => async dispatch => {
-    const res = await csrfFetch('/spots')
+    const res = await csrfFetch('/api/spots')
 
     if (res.ok) {
         const parsedRes = await res.json(res)

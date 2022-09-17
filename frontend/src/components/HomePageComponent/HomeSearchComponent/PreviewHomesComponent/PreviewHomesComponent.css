@@ -1,0 +1,10 @@
+.preview-homes-left {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    height: 100%;
+}
+
+.left-top {
+    display: grid;
+    grid-template-rows: 70% 30%;
+}

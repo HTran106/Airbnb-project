@@ -6,7 +6,12 @@ const router = express.Router();
 
 // GET ALL SPOTS
 router.get('/', async (req, res, next) => {
-    const spots = await Spot.findAll()
+    let spots = await Spot.findAll({
+        include: {
+            model: Image,
+            attributes: ['url']
+        }
+    })
 
     if (spots) {
         res.status(200)
@@ -39,7 +44,6 @@ router.get('/:spotId', async (req, res, next) => {
             },
             attributes: ['url']
         })
-        console.log(spot)
 
         spot.dataValues.images = images
 
