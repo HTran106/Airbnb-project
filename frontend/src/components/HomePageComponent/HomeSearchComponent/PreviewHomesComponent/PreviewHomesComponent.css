@@ -1,10 +1,115 @@
 .preview-homes-left {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    height: 100%;
+    height: 80%;
+    /* border: 2px solid green; */
+    padding-bottom: 1em;
+}
+
+.preview-homes-right {
+    display: grid;
+    grid-template-rows: 40% 60%;
+    height: 80%;
+    width: 100%;
+    margin-left: 1em;
+    /* border: 2px solid green; */
+    padding-bottom: 1em;
 }
 
 .left-top {
     display: grid;
-    grid-template-rows: 70% 30%;
+    grid-template-rows: 85% 15%;
+    background-color: white;
+    height: 100%;
+    /* border: 2px solid red; */
+    border-radius: 1em;
+    box-shadow: 0px 0px 5px 5px lightgray;
+}
+
+.right-bottom {
+    display: grid;
+    grid-template-rows: 85% 15%;
+    background-color: white;
+    height: 100%;
+    margin-top: 1em;
+    /* border: 2px solid red; */
+    border-radius: 1em;
+    box-shadow: 0px 0px 5px 5px lightgray;
+}
+
+/* .city-name {
+    display: flex;
+    flex-wrap: wrap;
+    width: 20%;
+    height: 80%;
+    font-family: sans-serif;
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-left: 1em;
+    text-overflow: ellipsis;
+} */
+
+/* .city-name {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-left: 1em;
+    text-overflow: ellipsis;
+    margin-top: .2em;
+} */
+
+.city-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    margin-left: 1em;
+    text-overflow: ellipsis;
+}
+
+.left-bottom-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-right: 1em;
+    height: 100%;
+    width: 100%;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 1em 1em 0 0;
+}
+
+.stays {
+    color: gray;
+    font-size: .7em;
+}
+
+.left-bottom {
+    display: grid;
+    margin-top: 1em;
+    grid-template-rows: 85% 15%;
+    background-color: white;
+    height: 100%;
+    /* border: 2px solid red; */
+    border-radius: 1em;
+    box-shadow: 1px 1px 5px 4px lightgray;
+}
+
+.right-top {
+    display: grid;
+    grid-template-rows: 85% 15%;
+    background-color: white;
+    height: 100%;
+    /* border: 2px solid red; */
+    border-radius: 1em;
+    box-shadow: 1px 1px 5px 4px lightgray;
 }
