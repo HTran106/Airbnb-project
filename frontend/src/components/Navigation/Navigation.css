@@ -15,6 +15,7 @@
     display: flex;
     background-color: white;
     justify-content: space-around;
+    position: fixed;
     padding: 0;
     height: 9vh;
     width: 100vw;
