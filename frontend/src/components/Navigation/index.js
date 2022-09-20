@@ -6,6 +6,10 @@ import LoginFormModal from '../LoginFormModal';
 import LoginButton from './LoginButton';
 import './Navigation.css';
 
+document.addEventListener('scroll', () => {
+    document.documentElement.dataset.scroll = window.scrollY;
+});
+
 
 function Navigation({ isLoaded }) {
     const history = useHistory()

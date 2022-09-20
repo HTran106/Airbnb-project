@@ -3,6 +3,10 @@
     width: 6em;
     height: 3em;
     border-radius: 25% / 50%;
+    background-color: white;
+}
+
+html:not([data-scroll='0']) .login-button {
     background-color: transparent;
 }
 

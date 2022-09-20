@@ -9,11 +9,12 @@
     font-size: 4em;
     padding-right: .15em;
     cursor: pointer;
+    color: white
 }
 
 .navbar-container {
     display: flex;
-    background-color: white;
+    background-color: transparent;
     justify-content: space-around;
     position: fixed;
     padding: 0;
@@ -38,8 +39,22 @@
 }
 
 .EVENTS {
-    border-left: 1px solid rgb(221, 221, 221);
+    border-left: 1px solid white;
     font-size: 1.1em;
     padding-left: .5em;
     letter-spacing: .2em;
+    color: white
+}
+
+html:not([data-scroll='0']) .navbar-container {
+    background-color: white;
+}
+
+html:not([data-scroll='0']) .EVENTS {
+    border-left: 1px solid rgb(221, 221, 221);
+    color: black
+}
+
+html:not([data-scroll='0']) .luxe {
+    color: black
 }

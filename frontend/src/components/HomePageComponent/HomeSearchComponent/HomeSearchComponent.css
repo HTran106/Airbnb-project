@@ -1,6 +1,6 @@
 .home-search-container {
     display: grid;
-    grid-template-rows: 48em 8em;
+    grid-template-rows: 45em 8em;
     width: 100vw;
     margin-left: -.52em;
     /* background: url('https://airbnb-files.s3.us-west-1.amazonaws.com/search-background.png') no-repeat center center fixed;
@@ -14,7 +14,7 @@
     display: flex;
     background: url('https://www.marinabaysands.com/content/dam/singapore/marinabaysands/master/main/home/sands-skypark/infinity-pool/infinity-pool-masthead-1920x595.jpg') no-repeat center center fixed;
     background-size: 100% 100%;
-    height: 53em;
+    height: 48em;
     justify-content: center;
 }
 
