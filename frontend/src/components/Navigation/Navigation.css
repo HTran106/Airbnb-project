@@ -18,7 +18,7 @@
     justify-content: space-around;
     position: fixed;
     padding: 0;
-    height: 9vh;
+    height: 5em;
     width: 100vw;
     margin-left: -.5em;
     z-index: 1;
@@ -36,6 +36,7 @@
     width: 5em;
     align-items: center;
     justify-content: flex-end;
+    position: relative;
 }
 
 .EVENTS {

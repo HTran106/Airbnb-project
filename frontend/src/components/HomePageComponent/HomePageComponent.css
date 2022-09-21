@@ -1,16 +1,17 @@
 .home-container {
+    /* display: inline-block; */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 100vw;
+    max-width: 80%;
+    min-width: 80%;
     align-items: center;
 }
 
 .home-previews-container {
     display: grid;
-    grid-template-rows: 20em 42.5em;
+    grid-template-rows: 30% 70%;
     width: 75%;
-    height: 60%;
     justify-content: center;
 }
 
@@ -38,7 +39,8 @@
 
 .preview-homes-container {
     display: grid;
+    min-width: 0;
     grid-template-columns: repeat(2, 1fr);
     width: 97.5%;
-    height: 80%;
+    /* max-width: %; */
 }
