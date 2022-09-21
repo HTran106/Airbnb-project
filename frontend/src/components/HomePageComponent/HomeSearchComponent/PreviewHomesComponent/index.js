@@ -32,7 +32,7 @@ const HomePreviews = () => {
                     )} */}
                     <div style={{ fontSize: '1.3em' }} className='city-name'>
                         <span className='stays'>100+ stays</span>
-                        <span>{spots[0]?.city}</span>
+                        <span>{spots[8]?.city}</span>
                     </div>
                 </div>
                 <div className='left-bottom-container'>
@@ -45,7 +45,7 @@ const HomePreviews = () => {
                         </div>
                         <div className='city-name'>
                             <span className='stays'>100+ stays</span>
-                            <span>{spots[1]?.city}</span>
+                            <span>{spots[10]?.city}</span>
                         </div>
                     </div>
                     <div style={{ marginLeft: '1em', marginRight: '0' }} className='left-bottom'>
@@ -57,7 +57,7 @@ const HomePreviews = () => {
                         </div>
                         <div className='city-name'>
                             <span className='stays'>100+ stays</span>
-                            <span>{spots[2]?.city}</span>
+                            <span>{spots[15]?.city}</span>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ const HomePreviews = () => {
                         </div>
                         <div className='city-name'>
                             <span className='stays'>100+ stays</span>
-                            <span>{spots[4]?.city}</span>
+                            <span>{spots[18]?.city}</span>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ const HomePreviews = () => {
                     )} */}
                     <div style={{ fontSize: '1.3em' }} className='city-name'>
                         <span className='stays'>100+ stays</span>
-                        <span>{spots[5]?.city}</span>
+                        <span>{spots[19]?.city}</span>
                     </div>
                 </div>
             </div>
