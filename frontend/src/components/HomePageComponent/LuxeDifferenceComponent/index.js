@@ -27,7 +27,7 @@ const LuxeDifferenceComponent = () => {
                 <div className='amenities-box'>
                     <div className="fa-solid fa-check-double fa-xl amenities-box-content"></div>
                     <div style={{ fontWeight: '600' }} className='amenities-box-words'>300-point inspection and vetting</div>
-                    <div className='amenities-box-words'>Each property is vetted for pristine conditions and meticulously mainted.</div>
+                    <div className='amenities-box-words'>Each property is vetted for pristine conditions and meticulously maintained.</div>
                 </div>
                 <div className='amenities-box'>
                     <div className="fa-solid fa-plane-circle-check fa-xl amenities-box-content"></div>
