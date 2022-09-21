@@ -10,7 +10,7 @@
 
 .home-previews-container {
     display: grid;
-    grid-template-rows: 30% 70%;
+    grid-template-rows: 25% 75%;
     width: 75%;
     justify-content: center;
 }
