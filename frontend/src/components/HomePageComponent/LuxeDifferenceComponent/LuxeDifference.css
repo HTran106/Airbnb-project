@@ -12,23 +12,26 @@
     flex-basis: 0;
     display: flex;
     width: 100%;
-    /* height: 100%; */
     justify-content: flex-start;
     align-items: center;
     font-size: 2em;
-    margin-left: .3em;
 }
 
 .amenities {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-left: .3em;
 }
 
 .amenities-box {
     display: grid;
     grid-template-rows: 40% 30% 30%;
     padding-right: 3em;
+}
+
+.amenities-box-2 {
+    display: grid;
+    grid-template-rows: 40% 30% 30%;
+
 }
 
 .amenities-box-content {
