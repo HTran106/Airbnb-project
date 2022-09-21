@@ -1,6 +1,7 @@
 import HomeSearchComponent from "./HomeSearchComponent"
 import './HomePageComponent.css'
-import HomePreviews from "./HomeSearchComponent/PreviewHomesComponent"
+import HomePreviews from "./PreviewHomesComponent"
+import LuxeDifferenceComponent from "./LuxeDifferenceComponent"
 
 const HomePageComponent = () => {
     return (
@@ -13,6 +14,7 @@ const HomePageComponent = () => {
                 </div>
                 <HomePreviews />
             </div>
+            <LuxeDifferenceComponent />
         </div>
     )
 }

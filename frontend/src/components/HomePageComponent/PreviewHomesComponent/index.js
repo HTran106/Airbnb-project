@@ -1,7 +1,7 @@
 import './PreviewHomesComponent.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import { fetchAllSpots } from '../../../../store/spots'
+import { fetchAllSpots } from '../../../store/spots'
 
 
 const HomePreviews = () => {

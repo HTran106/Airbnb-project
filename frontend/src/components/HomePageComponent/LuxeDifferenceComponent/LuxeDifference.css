@@ -1,0 +1,12 @@
+.luxe-difference-container {
+    display: grid;
+    grid-template-rows: 15em 15em 15em;
+}
+
+.luxe-difference-h1 {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-top: 2em;
+    justify-content: flex-start;
+}
