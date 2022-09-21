@@ -27,17 +27,17 @@ const LuxeDifferenceComponent = () => {
                 <div className='amenities-box'>
                     <div className="fa-solid fa-check-double fa-xl amenities-box-content"></div>
                     <div style={{ fontWeight: '600' }} className='amenities-box-words'>300-point inspection and vetting</div>
-                    <div className='amenities-box-words'>Statement-making homes with exceptionally styled interiors</div>
+                    <div className='amenities-box-words'>Each property is vetted for pristine conditions and meticulously mainted.</div>
                 </div>
                 <div className='amenities-box'>
                     <div className="fa-solid fa-plane-circle-check fa-xl amenities-box-content"></div>
                     <div style={{ fontWeight: '600' }} className='amenities-box-words'>Effortless arrivals</div>
-                    <div className='amenities-box-words'>Statement-making homes with exceptionally styled interiors</div>
+                    <div className='amenities-box-words'>Private airport pick-up, an in-person welcome, and a home stocked are some of our featured add-ons.</div>
                 </div>
                 <div className='amenities-box-2'>
                     <div className="fa-solid fa-kitchen-set fa-xl amenities-box-content"></div>
                     <div style={{ fontWeight: '600' }} className='amenities-box-words'>Tailored services</div>
-                    <div className='amenities-box-words'>Statement-making homes with exceptionally styled interiors</div>
+                    <div className='amenities-box-words'>From personal chefs to massage therapists, a local team of professionals has you covered.</div>
                 </div>
             </div>
         </div>
