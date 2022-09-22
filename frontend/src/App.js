@@ -26,7 +26,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/spots/:spotId">
-            {/* <HomeDetailsComponent /> */}
+            <HomeDetailsComponent />
           </Route>
           <Route exact path='/'>
             <HomePageComponent />

@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { ModalProvider } from "./context/Modal";
+import { useEffect } from "react";
 
 import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
@@ -20,12 +21,16 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
 }
 
-document.addEventListener('scroll', () => {
-  document.documentElement.dataset.scroll = window.scrollY;
-});
+
 
 
 function Root() {
+  useEffect(() => {
+    document.addEventListener('scroll', () => {
+      document.documentElement.dataset.scroll = window.scrollY;
+    });
+  }, [])
+
   return (
     <Provider store={store}>
       <ModalProvider>
