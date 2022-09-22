@@ -32,10 +32,10 @@ const LoginButton = () => {
     if (sessionUser) {
         return (
             <div className='login-button-container'>
-                <div>Profile</div>
                 <button onClick={handleOnClick} className="login-button fa-solid fa-bars"><span className='profile-pic fa-solid fa-circle-user fa-2xl'></span></button>
                 {openMenu && (
                     <div className='opened-menu-container'>
+                        <div>Profile</div>
                         <div>Host an event</div>
                         <div onClick={handleLogout}>Logout</div>
                     </div>

@@ -25,7 +25,7 @@
     grid-template-rows: 25% 50% 25%;
     position: absolute;
     background-color: white;
-
+    border-radius: 1em;
 }
 
 #signup-modal {
