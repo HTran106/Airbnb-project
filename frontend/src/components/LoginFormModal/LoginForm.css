@@ -1,0 +1,41 @@
+.login-word-container {
+    display: flex;
+    justify-content: center;
+    /* border-bottom: 1px solid lightgray; */
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 1em;
+    align-items: center;
+}
+
+.input-padding {
+    padding: .2em;
+}
+
+.form-container input {
+    outline: none;
+    height: 2em;
+    width: 90%;
+    justify-content: center;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.login-button-modal-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1em;
+}
+
+.login-button-modal {
+    margin-top: 1em;
+    width: 92%;
+    height: 3em;
+    border: none;
+    background-color: rgb(227, 28, 95);
+    border-radius: .5em;
+}

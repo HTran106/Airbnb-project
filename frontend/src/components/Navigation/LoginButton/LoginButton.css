@@ -26,7 +26,7 @@ html:not([data-scroll='0']) .login-button {
 
 .opened-menu-container {
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     width: 150%;
     height: 100%;
     align-items: center;
@@ -48,7 +48,7 @@ html:not([data-scroll='0']) .login-button {
 
 .logged-out-opened-menu-container {
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     width: 150%;
     height: 100%;
     align-items: center;

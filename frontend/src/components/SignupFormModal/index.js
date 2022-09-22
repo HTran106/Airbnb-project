@@ -20,16 +20,12 @@ function SignupFormModal({ setOpenMenu }) {
                 <button className='signout-button' onClick={() => setShowModal(true)}>Sign Up</button>
             </div>
             {showModal && (
-                // <div>
-                <animated.div style={animation}>
-                    <SignUpModal onClose={() => {
-                        setShowModal(false)
-                        setOpenMenu(false)
-                    }}>
-                        <SignupForm />
-                    </SignUpModal>
-                </animated.div>
-                // </div>
+                <SignUpModal onClose={() => {
+                    setShowModal(false)
+                    setOpenMenu(false)
+                }}>
+                    <SignupForm />
+                </SignUpModal>
             )
             }
         </>

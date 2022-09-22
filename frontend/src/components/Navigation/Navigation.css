@@ -32,7 +32,7 @@
 
 .login-button-container {
     display: grid;
-    grid-template-rows: 5.2em 5em;
+    grid-template-rows: 5.2em 6em;
     width: 5em;
     align-items: center;
     justify-content: flex-end;

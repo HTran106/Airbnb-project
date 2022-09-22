@@ -19,8 +19,13 @@
 }
 
 #modal-content {
+    width: 25em;
+    /* height: 20em; */
+    display: grid;
+    grid-template-rows: 25% 50% 25%;
     position: absolute;
     background-color: white;
+
 }
 
 #signup-modal {
@@ -31,7 +36,8 @@
     bottom: 0;
     display: flex;
     justify-content: center;
-    align-items: center;;
+    align-items: center;
+    ;
 }
 
 #signup-modal-background {

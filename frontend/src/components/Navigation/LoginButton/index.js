@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import SignupFormModal from '../../SignupFormModal'
 import { logout, login } from '../../../store/session'
 import './LoginButton.css'
+import LoginFormModal from '../../LoginFormModal'
 
 
 const LoginButton = () => {
@@ -31,6 +32,7 @@ const LoginButton = () => {
     if (sessionUser) {
         return (
             <div className='login-button-container'>
+                <div>Profile</div>
                 <button onClick={handleOnClick} className="login-button fa-solid fa-bars"><span className='profile-pic fa-solid fa-circle-user fa-2xl'></span></button>
                 {openMenu && (
                     <div className='opened-menu-container'>
@@ -46,6 +48,9 @@ const LoginButton = () => {
                 <button onClick={handleOnClick} className="login-button fa-solid fa-bars"><span className='profile-pic fa-solid fa-circle-user fa-2xl'></span></button>
                 {openMenu && (
                     <div className='logged-out-opened-menu-container'>
+                        <div>
+                            <LoginFormModal />
+                        </div>
                         <div onClick={handleLogin}>Demo Login</div>
                         <SignupFormModal setOpenMenu={setOpenMenu} />
                     </div>

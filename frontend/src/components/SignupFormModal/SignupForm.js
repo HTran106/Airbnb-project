@@ -50,6 +50,7 @@ const SignupForm = () => {
                 <input
                     style={{ borderRadius: '10px 10px 0 0' }}
                     type="text"
+                    value={firstName}
                     placeholder="First Name"
                     onChange={(e) => setFirstName(e.target.value)}
                     required
@@ -58,6 +59,7 @@ const SignupForm = () => {
             <div className='signup-inputs'>
                 <input
                     type="text"
+                    value={lastName}
                     placeholder="Last Name"
                     onChange={(e) => setLastName(e.target.value)}
                     required
@@ -66,6 +68,7 @@ const SignupForm = () => {
             <div className='signup-inputs'>
                 <input
                     type="email"
+                    value={email}
                     placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -75,6 +78,7 @@ const SignupForm = () => {
                 <input
                     style={{ borderRadius: '0 0 10px 10px' }}
                     type="password"
+                    value={password}
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                     required
