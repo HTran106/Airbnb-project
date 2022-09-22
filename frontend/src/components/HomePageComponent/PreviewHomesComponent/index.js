@@ -20,7 +20,8 @@ const HomePreviews = () => {
                         {/* need real image */}
                         <img
                             className='preview-image'
-                            src='https://tse1.mm.bing.net/th?id=OIP.ZKCOe0Zhtu5GFLhNZwiEYwHaF7&pid=Api&P=0' alt='previewImage'>
+                            src={spots[0]?.Images[0]?.url}
+                            alt='previewImage'>
                         </img>
                     </div>
                     {/* {spotsLeft[0] && (
@@ -28,43 +29,46 @@ const HomePreviews = () => {
                     )} */}
                     <div style={{ fontSize: '1.3em' }} className='city-name'>
                         <span className='stays'>100+ stays</span>
-                        <span>{spots[8]?.city}</span>
+                        <span>{spots[0]?.city}</span>
                     </div>
                 </div>
                 <div className='left-bottom-container'>
-                    <div className='left-bottom'>
-                        <div>
+                    <div className='left-bottom' style={{ marginRight: '.3em' }}>
+                        <div >
                             <img
                                 className='preview-image'
-                                src='https://tse1.mm.bing.net/th?id=OIP.ZKCOe0Zhtu5GFLhNZwiEYwHaF7&pid=Api&P=0' alt='previewImage'>
+                                src={spots[1]?.Images[0]?.url}
+                                alt='previewImage'>
                             </img>
                         </div>
                         <div className='city-name'>
                             <span className='stays'>100+ stays</span>
-                            <span>{spots[10]?.city}</span>
+                            <span>{spots[1]?.city}</span>
                         </div>
                     </div>
-                    <div style={{ marginLeft: '1em', marginRight: '0' }} className='left-bottom'>
+                    <div style={{ marginLeft: '.5em' }} className='left-bottom'>
                         <div>
                             <img
                                 className='preview-image'
-                                src='https://tse1.mm.bing.net/th?id=OIP.ZKCOe0Zhtu5GFLhNZwiEYwHaF7&pid=Api&P=0' alt='previewImage'>
+                                src={spots[2]?.Images[0]?.url}
+                                alt='previewImage'>
                             </img>
                         </div>
                         <div className='city-name'>
                             <span className='stays'>100+ stays</span>
-                            <span>{spots[15]?.city}</span>
+                            <span>{spots[2]?.city}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div className='preview-homes-right'>
                 <div className='left-bottom-container'>
-                    <div className='right-top'>
+                    <div className='right-top' style={{ marginRight: '1em' }}>
                         <div>
                             <img
                                 className='preview-image'
-                                src='https://tse1.mm.bing.net/th?id=OIP.ZKCOe0Zhtu5GFLhNZwiEYwHaF7&pid=Api&P=0' alt='previewImage'>
+                                src={spots[3]?.Images[0]?.url}
+                                alt='previewImage'>
                             </img>
                         </div>
                         <div className='city-name'>
@@ -72,16 +76,17 @@ const HomePreviews = () => {
                             <span>{spots[3]?.city}</span>
                         </div>
                     </div>
-                    <div style={{ marginLeft: '1em', marginRight: '0' }} className='right-top'>
+                    <div className='right-top'>
                         <div>
                             <img
                                 className='preview-image'
-                                src='https://tse1.mm.bing.net/th?id=OIP.ZKCOe0Zhtu5GFLhNZwiEYwHaF7&pid=Api&P=0' alt='previewImage'>
+                                src={spots[4]?.Images[0]?.url}
+                                alt='previewImage'>
                             </img>
                         </div>
                         <div className='city-name'>
                             <span className='stays'>100+ stays</span>
-                            <span>{spots[18]?.city}</span>
+                            <span>{spots[4]?.city}</span>
                         </div>
                     </div>
                 </div>
@@ -90,7 +95,8 @@ const HomePreviews = () => {
                         {/* need real image */}
                         <img
                             className='preview-image'
-                            src='https://tse1.mm.bing.net/th?id=OIP.ZKCOe0Zhtu5GFLhNZwiEYwHaF7&pid=Api&P=0' alt='previewImage'>
+                            src={spots[5]?.Images[0]?.url}
+                            alt='previewImage'>
                         </img>
                     </div>
                     {/* {spotsLeft[0] && (
@@ -98,7 +104,7 @@ const HomePreviews = () => {
                     )} */}
                     <div style={{ fontSize: '1.3em' }} className='city-name'>
                         <span className='stays'>100+ stays</span>
-                        <span>{spots[19]?.city}</span>
+                        <span>{spots[5]?.city}</span>
                     </div>
                 </div>
             </div>
