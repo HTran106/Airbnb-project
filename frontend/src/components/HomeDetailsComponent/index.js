@@ -3,17 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchOneSpot } from '../../store/spots';
 import './HomeDetailsComponent.css';
+import LoginFormModal from '../LoginFormModal';
 
 const HomeDetailsComponent = () => {
     const { spotId } = useParams();
     const dispatch = useDispatch();
     const spot = useSelector(state => state.spots[spotId]);
+    console.log(spot)
 
     useEffect(() => {
         dispatch(fetchOneSpot(+spotId))
     }, [dispatch])
-
-
 
     return (
         <div className='home-details-page-container'>
@@ -23,7 +23,7 @@ const HomeDetailsComponent = () => {
                         <span>{spot?.name}</span>
                     </div>
                     <div className='big-image'>
-                        <img className='spot-image' src={'https://images4.alphacoders.com/829/829688.jpg'} alt='spot' />
+                        <img className='spot-image' src={spot?.images[0].url} alt='spot' />
                     </div>
                 </div>
                 <div className='description-container'>
@@ -40,12 +40,52 @@ const HomeDetailsComponent = () => {
                     </div>
                 </div>
                 <div className='home-details-photos-container'>
-                    <div>
-
+                    <div className='home-details-photos-top'>
+                        <div style={{ paddingRight: '.2em' }}>
+                            <img
+                                style={{ borderRadius: '1em 0 0 0' }}
+                                src={spot?.images[1]?.url}
+                                alt="previewImage"
+                            />
+                        </div>
+                        <div style={{ paddingLeft: '.2em' }}>
+                            <img
+                                style={{ borderRadius: '0 1em 0 0' }}
+                                src={spot?.images[2]?.url}
+                                alt="previewImage"
+                            />
+                        </div>
                     </div>
-                    <div>
-
+                    <div className='home-details-photos-bottom'>
+                        <div style={{ paddingRight: '.2em', marginTop: '.5em' }}>
+                            <img
+                                style={{ borderRadius: '0 0 0 1em' }}
+                                src={spot?.images[3]?.url}
+                                alt="previewImage"
+                            />
+                        </div>
+                        <div style={{ paddingLeft: '.2em', paddingRight: '.2em', marginTop: '.5em' }}>
+                            <img
+                                src={spot?.images[4]?.url}
+                                alt="previewImage"
+                            />
+                        </div>
+                        <div style={{ paddingLeft: '.2em', marginTop: '.5em' }}>
+                            <img
+                                style={{ borderRadius: '0 0 1em 0' }}
+                                src={spot?.images[5]?.url}
+                                alt="previewImage"
+                            />
+                        </div>
                     </div>
+                </div>
+                <div>
+                    <div className='show-all-photos-container'>
+                        <button>Show all photos</button>
+                    </div>
+                    <h1>hello world</h1>
+                    <h1>hello world</h1>
+                    <h1>hello world</h1>
                 </div>
             </div>
         </div>

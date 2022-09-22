@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('Images', [
       {
         imageType: 'Spot',
-        url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house16/0.webp',
+        url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house16/0.jpeg',
         spotId: 16,
         reviewId: null
       },

@@ -85,5 +85,43 @@
 
 .home-details-photos-container {
     display: grid;
-    grid-template-rows: 16em 10em;
+    grid-template-rows: 22em 16em;
+}
+
+.home-details-photos-top {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 50% 50%;
+
+}
+
+.home-details-photos-top img {
+    width: 100%;
+    height: 22em;
+}
+
+.home-details-photos-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: 100%;
+}
+
+.home-details-photos-bottom img {
+    width: 100%;
+    height: 16em;
+}
+
+.show-all-photos-container {
+    margin-top: 2.5em;
+}
+
+.show-all-photos-container button {
+    background-color: transparent;
+    border: 1px solid gray;
+    height: 3em;
+    width: 10em;
+    border-radius: .5em;
+    font-weight: 500;
 }
