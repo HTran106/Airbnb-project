@@ -9,7 +9,6 @@ const HomeDetailsComponent = () => {
     const { spotId } = useParams();
     const dispatch = useDispatch();
     const spot = useSelector(state => state.spots[spotId]);
-    console.log(spot)
 
     useEffect(() => {
         dispatch(fetchOneSpot(+spotId))
@@ -21,6 +20,12 @@ const HomeDetailsComponent = () => {
                 <div className='home-details-name-image-container'>
                     <div className='spot-name'>
                         <span>{spot?.name}</span>
+                    </div>
+                    <div className='fa-solid fa-star avg-reviews-area'>
+                        <span className='ratings-font'>
+                            {spot?.avgStarRatings}  ·  {spot?.numReviews} reviews  ·
+                            <span> {spot?.city}, {spot?.state}</span>
+                        </span>
                     </div>
                     <div className='big-image'>
                         <img className='spot-image' src={spot?.images[0].url} alt='spot' />
