@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePageComponent from "./components/HomePageComponent";
 import HomeDetailsComponent from "./components/HomeDetailsComponent";
+import PhotosModal from "./components/HomeDetailsComponent/PhotosModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,9 +19,12 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
+          <Route path='/modal'>
+            <PhotosModal />
+          </Route>
           <Route path="/spots/:spotId">
             <HomeDetailsComponent />
           </Route>

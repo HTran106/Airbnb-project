@@ -10,12 +10,14 @@
     "react": "^18.2.0",
     "react-calendar": "^3.8.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
     "react-redux": "^7.2.8",
     "react-router-dom": "^5.3.3",
     "react-scripts": "5.0.1",
     "react-spring": "^9.5.4",
     "redux": "^4.2.0",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "styled-components": "^5.3.5"
   },
   "scripts": {
     "start": "react-scripts start",
