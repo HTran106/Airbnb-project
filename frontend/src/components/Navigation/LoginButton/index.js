@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import SignupFormModal from '../../SignupFormModal'
 import { logout, login } from '../../../store/session'
 import './LoginButton.css'
 
@@ -46,7 +47,7 @@ const LoginButton = () => {
                 {openMenu && (
                     <div className='logged-out-opened-menu-container'>
                         <div onClick={handleLogin}>Demo Login</div>
-                        <div>Sign up</div>
+                        <SignupFormModal />
                     </div>
                 )}
             </div>

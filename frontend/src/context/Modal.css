@@ -22,3 +22,31 @@
     position: absolute;
     background-color: white;
 }
+
+#signup-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#signup-modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#signup-modal-content {
+    position: absolute;
+    background-color: white;
+    width: 30vw;
+    height: 60%;
+    border-radius: 1em;
+}
