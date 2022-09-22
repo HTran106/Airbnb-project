@@ -7,10 +7,6 @@ import Navigation from "./components/Navigation";
 import HomePageComponent from "./components/HomePageComponent";
 import HomeDetailsComponent from "./components/HomeDetailsComponent";
 
-document.addEventListener('scroll', () => {
-  document.documentElement.dataset.scroll = window.scrollY;
-});
-
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);

@@ -5,11 +5,12 @@ import LuxeDifferenceComponent from "./LuxeDifferenceComponent"
 import { useEffect } from "react"
 
 const HomePageComponent = () => {
-    useEffect(() => {
-        document.addEventListener('scroll', () => {
-            document.documentElement.dataset.scroll = window.scrollY;
-        });
-    }, [])
+
+    // useEffect(() => {
+    //     document.addEventListener('scroll', () => {
+    //         document.documentElement.dataset.scroll = window.scrollY;
+    //     });
+    // }, [])
 
     return (
         <div className="home-container">

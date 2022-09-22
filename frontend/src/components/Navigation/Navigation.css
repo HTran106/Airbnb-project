@@ -9,12 +9,12 @@
     font-size: 4em;
     padding-right: .15em;
     cursor: pointer;
-    color: white
+    color: black
 }
 
 .navbar-container {
     display: flex;
-    background-color: transparent;
+    background-color: white;
     justify-content: space-around;
     position: fixed;
     padding: 0;
@@ -22,6 +22,26 @@
     width: 100vw;
     margin-left: -.5em;
     z-index: 1;
+}
+
+.navbar-container-not-home {
+    display: flex;
+    background-color: white;
+    justify-content: space-around;
+    position: fixed;
+    padding: 0;
+    height: 5em;
+    width: 100vw;
+    margin-left: -.5em;
+    z-index: 1;
+}
+
+.luxe2 {
+    font-family: bettergrade;
+    font-size: 4em;
+    padding-right: .15em;
+    cursor: pointer;
+    color: black
 }
 
 .logo-container {
@@ -40,22 +60,30 @@
 }
 
 .EVENTS {
-    border-left: 1px solid white;
+    border-left: 1px solid rgb(221, 221, 221);
     font-size: 1.1em;
     padding-left: .5em;
     letter-spacing: .2em;
+    color: black
+}
+
+.EVENTS2 {
+    border-left: 1px solid rgb(221, 221, 221);
+    font-size: 1.1em;
+    padding-left: .5em;
+    letter-spacing: .2em;
+    color: black
+}
+
+html[data-scroll='0'] .navbar-container {
+    background-color: transparent;
+}
+
+html[data-scroll='0'] .EVENTS {
+    border-left: 1px solid white;
     color: white
 }
 
-html:not([data-scroll='0']) .navbar-container {
-    background-color: white;
-}
-
-html:not([data-scroll='0']) .EVENTS {
-    border-left: 1px solid rgb(221, 221, 221);
-    color: black
-}
-
-html:not([data-scroll='0']) .luxe {
-    color: black
+html[data-scroll='0'] .luxe {
+    color: white
 }

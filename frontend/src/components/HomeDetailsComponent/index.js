@@ -9,10 +9,11 @@ const HomeDetailsComponent = () => {
     const dispatch = useDispatch();
     const spot = useSelector(state => state.spots[spotId]);
 
-
     useEffect(() => {
         dispatch(fetchOneSpot(+spotId))
     }, [dispatch])
+
+    
 
     return (
         <div className='home-details-page-container'>
@@ -28,6 +29,8 @@ const HomeDetailsComponent = () => {
                 <div className='description-container'>
                     <div className='city-description'>
                         <span>Luxury Stay in {spot?.city}, {spot?.state}, {spot?.country}</span>
+                        <h1>hey</h1>
+                        <h1>hey</h1>
                     </div>
                 </div>
             </div>
