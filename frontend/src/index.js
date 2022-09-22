@@ -20,6 +20,11 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
 }
 
+document.addEventListener('scroll', () => {
+  document.documentElement.dataset.scroll = window.scrollY;
+});
+
+
 function Root() {
   return (
     <Provider store={store}>
