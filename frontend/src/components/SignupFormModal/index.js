@@ -3,7 +3,7 @@ import { SignUpModal } from '../../context/Modal';
 import SignupForm from './SignupForm';
 // import { useSpring, animated } from 'react-spring'
 
-function SignupFormModal({setOpenMenu}) {
+function SignupFormModal({ setOpenMenu }) {
     const [showModal, setShowModal] = useState(false);
 
     // const animation = useSpring({
@@ -16,16 +16,16 @@ function SignupFormModal({setOpenMenu}) {
 
     return (
         <>
-            <div className='signout-button'>
-                <button style={{ backgroundColor: 'transparent', border: 'none' }} onClick={() => setShowModal(true)}>Sign Up</button>
+            <div className='signout-button-container'>
+                <button className='signout-button' onClick={() => setShowModal(true)}>Sign Up</button>
             </div>
             {showModal && (
                 <div>
                     {/* <animated.div style={animation}> */}
                     <SignUpModal onClose={() => {
-                            setShowModal(false)
-                            setOpenMenu(false)
-                            }}>
+                        setShowModal(false)
+                        setOpenMenu(false)
+                    }}>
                         <SignupForm />
                     </SignUpModal>
                     {/* </animated.div> */}
