@@ -47,7 +47,7 @@ const LoginButton = () => {
                 {openMenu && (
                     <div className='logged-out-opened-menu-container'>
                         <div onClick={handleLogin}>Demo Login</div>
-                        <SignupFormModal />
+                        <SignupFormModal setOpenMenu={setOpenMenu} />
                     </div>
                 )}
             </div>

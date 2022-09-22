@@ -12,7 +12,7 @@ const SignupForm = () => {
     const [gridTemplate, setGridTemplate] = useState('repeat(6, 1fr)')
     const [email, setEmail] = useState('');
     const [errors, setErrors] = useState([]);
-    
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
