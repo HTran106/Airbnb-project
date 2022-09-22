@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { fetchOneSpot } from '../../store/spots';
 import './HomeDetailsComponent.css';
 import LoginFormModal from '../LoginFormModal';
+import PhotosModal from './PhotosModal';
 
 const HomeDetailsComponent = () => {
     const { spotId } = useParams();
@@ -85,9 +86,9 @@ const HomeDetailsComponent = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='show-all-photos-container'>
-                        <button>Show all photos</button>
-                    </div>
+                    {/* <div className='show-all-photos-container'> */}
+                    <PhotosModal />
+                    {/* </div> */}
                     <h1>hello world</h1>
                     <h1>hello world</h1>
                     <h1>hello world</h1>

@@ -17,7 +17,6 @@
     "react-spring": "^9.5.4",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
-    "styled-components": "^5.3.5"
   },
   "scripts": {
     "start": "react-scripts start",
