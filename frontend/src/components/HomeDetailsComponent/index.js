@@ -13,7 +13,7 @@ const HomeDetailsComponent = () => {
         dispatch(fetchOneSpot(+spotId))
     }, [dispatch])
 
-    
+
 
     return (
         <div className='home-details-page-container'>
@@ -28,9 +28,23 @@ const HomeDetailsComponent = () => {
                 </div>
                 <div className='description-container'>
                     <div className='city-description'>
-                        <span>Luxury Stay in {spot?.city}, {spot?.state}, {spot?.country}</span>
-                        <h1>hey</h1>
-                        <h1>hey</h1>
+                        <span className='city-state'>Luxury Stay in {spot?.city}, {spot?.state}, {spot?.country}</span>
+                    </div>
+                    <div style={{ marginTop: '2em' }}>
+                        <p>{spot?.description}</p>
+                    </div>
+                    <div className='hospitality-container'>
+                        <p className='hospitality'>Hospitality by
+                            <span> LUXE RETREATS</span>
+                        </p>
+                    </div>
+                </div>
+                <div className='home-details-photos-container'>
+                    <div>
+
+                    </div>
+                    <div>
+
                     </div>
                 </div>
             </div>
