@@ -44,3 +44,9 @@
     border-radius: .5em;
     background-color: rgb(227, 28, 95);
 }
+
+.signout-button {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: -.5em;
+}

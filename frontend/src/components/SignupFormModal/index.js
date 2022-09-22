@@ -16,7 +16,9 @@ function SignupFormModal({setOpenMenu}) {
 
     return (
         <>
-            <button style={{ backgroundColor: 'transparent', border: 'none' }} onClick={() => setShowModal(true)}>Sign Up</button>
+            <div className='signout-button'>
+                <button style={{ backgroundColor: 'transparent', border: 'none' }} onClick={() => setShowModal(true)}>Sign Up</button>
+            </div>
             {showModal && (
                 <div>
                     {/* <animated.div style={animation}> */}
