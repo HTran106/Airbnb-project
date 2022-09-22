@@ -35,10 +35,12 @@
     display: flex;
     justify-content: center;
     padding-top: 1em;
+    width: 100%;
+    position: relative;
 }
 
 .signup-submit-button button {
-    width: 88%;
+    width: 15ch;
     height: 80%;
     border: none;
     border-radius: .5em;
@@ -48,13 +50,14 @@
 .signout-button-container {
     display: flex;
     justify-content: flex-start;
-    margin-left: -.5em;
+    margin-left: -2em;
 }
 
 .signout-button {
     font-family: sans-serif;
     font-size: 14px;
     font-weight: 100;
+    width: 100%;
     cursor: pointer;
     background-color: transparent;
     border: none;
