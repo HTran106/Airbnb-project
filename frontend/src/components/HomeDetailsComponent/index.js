@@ -64,20 +64,20 @@ const HomeDetailsComponent = () => {
                         </div>
                     </div>
                     <div className='home-details-photos-bottom'>
-                        <div style={{ paddingRight: '.2em', marginTop: '.5em' }}>
+                        <div style={{ paddingRight: '.2em', marginTop: '.3em' }}>
                             <img
                                 style={{ borderRadius: '0 0 0 1em' }}
                                 src={spot?.images[3]?.url}
                                 alt="previewImage"
                             />
                         </div>
-                        <div style={{ paddingLeft: '.2em', paddingRight: '.2em', marginTop: '.5em' }}>
+                        <div style={{ paddingLeft: '.2em', paddingRight: '.2em', marginTop: '.3em' }}>
                             <img
                                 src={spot?.images[4]?.url}
                                 alt="previewImage"
                             />
                         </div>
-                        <div style={{ paddingLeft: '.2em', marginTop: '.5em' }}>
+                        <div style={{ paddingLeft: '.2em', marginTop: '.3em' }}>
                             <img
                                 style={{ borderRadius: '0 0 1em 0' }}
                                 src={spot?.images[5]?.url}
