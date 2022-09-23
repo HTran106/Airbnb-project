@@ -203,6 +203,12 @@ module.exports = {
       },
       {
         imageType: 'Spot',
+        url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house9/6.jpeg',
+        spotId: 9,
+        reviewId: null
+      },
+      {
+        imageType: 'Spot',
         url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house10/0.webp',
         spotId: 10,
         reviewId: null

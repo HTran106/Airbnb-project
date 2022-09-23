@@ -155,6 +155,18 @@ module.exports = {
       },
       {
         imageType: 'Spot',
+        url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house13/5.jpeg',
+        spotId: 13,
+        reviewId: null
+      },
+      {
+        imageType: 'Spot',
+        url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house13/6.jpeg',
+        spotId: 13,
+        reviewId: null
+      },
+      {
+        imageType: 'Spot',
         url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house13/4.webp',
         spotId: 13,
         reviewId: null

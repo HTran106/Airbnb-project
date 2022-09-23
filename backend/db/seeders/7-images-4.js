@@ -143,6 +143,12 @@ module.exports = {
       },
       {
         imageType: 'Spot',
+        url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house18/6.jpeg',
+        spotId: 18,
+        reviewId: null
+      },
+      {
+        imageType: 'Spot',
         url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house18/3.webp',
         spotId: 18,
         reviewId: null
@@ -180,6 +186,24 @@ module.exports = {
       {
         imageType: 'Spot',
         url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house19/3.webp',
+        spotId: 19,
+        reviewId: null
+      },
+      {
+        imageType: 'Spot',
+        url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house19/4.jpeg',
+        spotId: 19,
+        reviewId: null
+      },
+      {
+        imageType: 'Spot',
+        url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house19/5.jpeg',
+        spotId: 19,
+        reviewId: null
+      },
+      {
+        imageType: 'Spot',
+        url: 'https://airbnb-files.s3.us-west-1.amazonaws.com/house-photos/Airbnb-pics/house19/6.jpeg',
         spotId: 19,
         reviewId: null
       },
