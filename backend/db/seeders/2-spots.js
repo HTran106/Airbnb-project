@@ -3,19 +3,19 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     return queryInterface.bulkInsert('Spots', [
-      // {
-      //   ownerId: 1,
-      //   address: '2688 Stanley Drive',
-      //   city: 'Berkeley',
-      //   state: 'California',
-      //   country: 'USA',
-      //   lat: 37.871666,
-      //   lng: -122.272781,
-      //   squareFt: 20154,
-      //   name: 'Chalet Marfik',
-      //   description: "Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, cycling and watersports.",
-      //   price: 6400
-      // },
+      {
+        ownerId: 1,
+        address: '2688 Stanley Drive',
+        city: 'Berkeley',
+        state: 'California',
+        country: 'USA',
+        lat: 37.871666,
+        lng: -122.272781,
+        squareFt: 20154,
+        name: 'Chalet Marfik',
+        description: "Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, cycling and watersports.",
+        price: 6400
+      },
       {
         ownerId: 3,
         address: '1454 Berkeley Drive',

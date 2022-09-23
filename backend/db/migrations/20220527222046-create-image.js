@@ -11,12 +11,14 @@ module.exports = {
       spotId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Spots' }
+        references: { model: 'Spots' },
+        onDelete: 'CASCADE'
       },
       reviewId: {
         allowNull: true,
         type: Sequelize.INTEGER,
-        references: { model: 'Reviews' }
+        references: { model: 'Reviews' },
+        onDelete: 'CASCADE'
       },
       imageType: {
         allowNull: false,
