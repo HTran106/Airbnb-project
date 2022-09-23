@@ -1,8 +1,6 @@
 import './PhotosModal.css'
-import styled from 'styled-components'
 import React, { useState } from 'react'
 import PicModal from './Modal'
-import { GlobalStyle } from './GlobalStyles'
 import './Modal.css'
 
 const PhotosModal = () => {
