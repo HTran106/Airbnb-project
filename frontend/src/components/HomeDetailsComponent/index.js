@@ -21,6 +21,7 @@ const HomeDetailsComponent = () => {
                 <div className='home-details-name-image-container'>
                     <div className='spot-name'>
                         <span>{spot?.name}</span>
+                        <a className='reserve' href="#hey">Reserve</a>
                     </div>
                     <div className='fa-solid fa-star avg-reviews-area'>
                         <span className='ratings-font'>
@@ -85,7 +86,7 @@ const HomeDetailsComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div id='hey' >
                     {/* <div className='show-all-photos-container'> */}
                     <PhotosModal />
                     {/* </div> */}

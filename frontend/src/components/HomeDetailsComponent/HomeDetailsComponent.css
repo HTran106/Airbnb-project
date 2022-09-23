@@ -17,6 +17,17 @@
     width: 58%
 }
 
+.reserve {
+    border: 1px solid black;
+    padding: 15px 15px 15px 15px;
+    margin-top: 4em;
+    color: white;
+    text-decoration: none;
+    border-radius: .5em;
+    font-size: 14px;
+    background: linear-gradient(.25turn, rgb(121, 95, 168) 1%, rgb(71, 31, 144));
+}
+
 .home-details-name-image-container {
     display: grid;
     grid-template-rows: 4em 3em 37em;
@@ -25,6 +36,7 @@
 
 .spot-name {
     display: flex;
+    justify-content: space-between;
     width: 100%;
     font-size: 1.8em;
     font-family: sans-serif;

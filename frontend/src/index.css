@@ -1,5 +1,9 @@
 /* TODO Add site wide styles */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: whitesmoke;
     margin: 0;
