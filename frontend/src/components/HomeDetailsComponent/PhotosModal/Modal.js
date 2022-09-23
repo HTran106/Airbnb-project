@@ -13,8 +13,6 @@ const PicModal = ({ showModal, setShowModal }) => {
         transform: showModal ? `translateY(0%)` : `translateY(100%)`
     })
 
-
-
     const closeModal = e => {
         if (modalRef.current === e.target) {
             setShowModal(false)
@@ -26,7 +24,7 @@ const PicModal = ({ showModal, setShowModal }) => {
             {showModal ? (
                 <div className='photos-modal-background' ref={modalRef} onClick={closeModal}>
                     <animated.div style={animation}>
-                        <div className='modal-wrapper' showModal={showModal}>
+                        <div className='modal-wrapper'>
                             <img className='photos-modal-img' src={'http://2.bp.blogspot.com/-6puRWRY2UGY/UeeGtTaUACI/AAAAAAAAAto/hmFQyMpD0d8/s1600/luxury+homes4.jpg'} alt='preview' />
                             <div className='photos-modal-content'>
                                 <h1>Testing new modal</h1>
