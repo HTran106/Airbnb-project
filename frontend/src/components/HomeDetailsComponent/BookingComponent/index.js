@@ -6,15 +6,19 @@ import DatePicker from 'react-datepicker';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchBookingsForSpot } from '../../../store/bookings';
 import { subDays, addDays } from 'date-fns';
+import { createBooking } from '../../../store/bookings';
 
 const BookingComponent = ({ spot }) => {
     const dispatch = useDispatch();
 
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(addDays(new Date(), 5));
     const [endDate, setEndDate] = useState(addDays(new Date(startDate), 1));
     const [showSummary, setShowSummary] = useState(false);
+    const [confirmButton, setConfirmButton] = useState('Reserve')
+    const [disabled, setDisabled] = useState(false);
 
     let bookings = Object.values(useSelector(state => state.bookings));
+
 
     bookings = bookings?.map(booking => {
         return {
@@ -22,6 +26,11 @@ const BookingComponent = ({ spot }) => {
             end: addDays(new Date(booking.endDate), 1)
         }
     })
+
+    const exist = bookings?.find(booking => {
+        return booking.start === startDate
+    })
+    const [minStart, setMinStart] = useState(exist ? addDays(new Date(exist?.end, 1)) : addDays(new Date(), 1));
 
 
     const numDays = (startDate, endDate) => {
@@ -35,8 +44,21 @@ const BookingComponent = ({ spot }) => {
         setShowSummary(true);
     }
 
+    const handleBooking = e => {
+        e.preventDefault();
+        dispatch(createBooking({ startDate, endDate }, spot?.id))
+            .then(() => {
+                setDisabled(true)
+                setConfirmButton('Confirmed ✓')
+                dispatch(fetchBookingsForSpot(spot?.id))
+                bookings.push({ start: new Date(startDate), end: new Date(endDate) })
+            })
+    }
+
     useEffect(() => {
-        dispatch(fetchBookingsForSpot(spot?.id));
+        if (spot?.id) {
+            dispatch(fetchBookingsForSpot(spot?.id));
+        }
     }, [dispatch, spot?.id])
 
 
@@ -70,7 +92,7 @@ const BookingComponent = ({ spot }) => {
                                     className='left-input-radius'
                                     selected={startDate}
                                     onChange={date => setStartDate(date)}
-                                    minDate={new Date()}
+                                    minDate={addDays(new Date(), 5)}
                                     excludeDateIntervals={bookings}
                                     placeholderText='mm/dd/yy'
                                 />
@@ -78,7 +100,7 @@ const BookingComponent = ({ spot }) => {
                             <div className='right-input'>
                                 <DatePicker
                                     className='right-input-radius'
-                                    selected={addDays(startDate, 1)}
+                                    selected={endDate}
                                     onChange={date => setEndDate(date)}
                                     minDate={addDays(startDate, 1)}
                                     excludeDateIntervals={bookings}
@@ -135,7 +157,11 @@ const BookingComponent = ({ spot }) => {
                                 </span>
                             </div>
                             <div className='long-reserve-container2'>
-                                <button className='long-reserve-button'>Reserve</button>
+                                <button
+                                    onClick={handleBooking}
+                                    className='long-reserve-button'
+                                    disabled={disabled}
+                                >{confirmButton}</button>
                             </div>
                         </div>
                     </div>

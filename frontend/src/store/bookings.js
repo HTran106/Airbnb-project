@@ -53,12 +53,12 @@ export const createBooking = (booking, spotId) => async dispatch => {
     const res = await csrfFetch(`/api/spots/${spotId}/bookings`, {
         method: 'POST',
         headers: {
-            "Content-Type": 'application/json'
+            "Content-Type": "application/json"
         },
-        body: {
+        body: JSON.stringify({
             startDate,
             endDate
-        }
+        })
     })
 
     if (res.ok) {
@@ -85,10 +85,10 @@ export const editABooking = booking => async dispatch => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: {
+        body: JSON.stringify({
             startDate,
             endDate
-        }
+        })
     })
 
     if (res.ok) {
