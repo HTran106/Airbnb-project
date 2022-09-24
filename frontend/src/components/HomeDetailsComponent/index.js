@@ -91,7 +91,7 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                     <PhotosModal setNavBar={setNavBar} images={spot?.images} />
                     {/* </div> */}
                 </div>
-                <BookingComponent />
+                <BookingComponent spot={spot} />
             </div>
         </div>
     )
