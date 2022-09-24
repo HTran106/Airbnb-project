@@ -88,7 +88,7 @@ const HomeDetailsComponent = () => {
                 </div>
                 <div id='hey' >
                     {/* <div className='show-all-photos-container'> */}
-                    <PhotosModal />
+                    <PhotosModal images={spot?.images}/>
                     {/* </div> */}
                     <h1>hello world</h1>
                     <h1>hello world</h1>
