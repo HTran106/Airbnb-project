@@ -54,7 +54,7 @@ router.get('/:spotId', async (req, res, next) => {
         avgStar = avgStar / reviews
 
         spot.dataValues.numReviews = reviews
-        spot.dataValues.avgStarRatings = avgStar
+        spot.dataValues.avgStarRatings = avgStar.toFixed(2)
         res.status(200)
         return res.json(spot)
     } else {
