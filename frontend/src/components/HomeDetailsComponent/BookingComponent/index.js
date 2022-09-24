@@ -27,7 +27,7 @@ const BookingComponent = () => {
                 <h1>hey</h1>
                 <h1>hey</h1>
             </div>
-            <div className='calendar'>
+            <div id='calendar' className='calendar'>
                 <div className='checkin-word-container'>
                     <span className="select-checkin-words">Select check-out date</span>
                 </div>

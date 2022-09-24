@@ -21,7 +21,7 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                 <div className='home-details-name-image-container'>
                     <div className='spot-name'>
                         <span>{spot?.name}</span>
-                        <a className='reserve' href="#hey">Reserve</a>
+                        <a className='reserve' href="#calendar">Reserve</a>
                     </div>
                     <div className='fa-solid fa-star avg-reviews-area'>
                         <span className='ratings-font'>
