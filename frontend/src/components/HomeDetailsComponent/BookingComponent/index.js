@@ -11,14 +11,13 @@ import { createBooking } from '../../../store/bookings';
 const BookingComponent = ({ spot }) => {
     const dispatch = useDispatch();
 
-    const [startDate, setStartDate] = useState(addDays(new Date(), 5));
-    const [endDate, setEndDate] = useState(addDays(new Date(startDate), 1));
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
     const [showSummary, setShowSummary] = useState(false);
     const [confirmButton, setConfirmButton] = useState('Reserve')
     const [disabled, setDisabled] = useState(false);
 
     let bookings = Object.values(useSelector(state => state.bookings));
-
 
     bookings = bookings?.map(booking => {
         return {
@@ -27,10 +26,10 @@ const BookingComponent = ({ spot }) => {
         }
     })
 
-    const exist = bookings?.find(booking => {
-        return booking.start === startDate
-    })
-    const [minStart, setMinStart] = useState(exist ? addDays(new Date(exist?.end, 1)) : addDays(new Date(), 1));
+    // const exist = bookings?.find(booking => {
+    // return booking.start === startDate
+    // })
+    // const [minStart, setMinStart] = useState(exist ? addDays(new Date(exist?.end, 1)) : addDays(new Date(), 1));
 
 
     const numDays = (startDate, endDate) => {
@@ -92,9 +91,9 @@ const BookingComponent = ({ spot }) => {
                                     className='left-input-radius'
                                     selected={startDate}
                                     onChange={date => setStartDate(date)}
-                                    minDate={addDays(new Date(), 5)}
-                                    excludeDateIntervals={bookings}
-                                    placeholderText='mm/dd/yy'
+                                    minDate={addDays(new Date(), 1)}
+                                    excludeDateIntervals={[{ start: new Date(), end: new Date() }, ...bookings]}
+                                    placeholderText='mm/dd/yyyy'
                                 />
                             </div>
                             <div className='right-input'>
@@ -104,7 +103,7 @@ const BookingComponent = ({ spot }) => {
                                     onChange={date => setEndDate(date)}
                                     minDate={addDays(startDate, 1)}
                                     excludeDateIntervals={bookings}
-                                    placeholderText='mm/dd/yy'
+                                    placeholderText='mm/dd/yyyy'
                                 />
                             </div>
                         </div>
