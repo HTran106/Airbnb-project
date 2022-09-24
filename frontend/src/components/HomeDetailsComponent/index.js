@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchOneSpot } from '../../store/spots';
 import './HomeDetailsComponent.css';
 import PhotosModal from './PhotosModal';
@@ -8,12 +8,22 @@ import BookingComponent from './BookingComponent';
 
 const HomeDetailsComponent = ({ setNavBar }) => {
     const { spotId } = useParams();
+
     const dispatch = useDispatch();
     const spot = useSelector(state => state.spots[spotId]);
+    const user = useSelector(state => state.session.user);
+
+    const [showReserve, setShowReserve] = useState(true);
 
     useEffect(() => {
         dispatch(fetchOneSpot(+spotId))
     }, [dispatch, spotId])
+
+    useEffect(() => {
+        if (spot?.ownerId === user?.id) {
+            setShowReserve(false)
+        }
+    }, [spot])
 
     return (
         <div className='home-details-page-container'>
@@ -21,7 +31,7 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                 <div className='home-details-name-image-container'>
                     <div className='spot-name'>
                         <span>{spot?.name}</span>
-                        <a className='reserve' href="#calendar">Reserve</a>
+                        {showReserve && <a className='reserve' href="#calendar">Reserve</a>}
                     </div>
                     <div className='fa-solid fa-star avg-reviews-area'>
                         <span className='ratings-font'>
@@ -91,7 +101,7 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                     <PhotosModal setNavBar={setNavBar} images={spot?.images} />
                     {/* </div> */}
                 </div>
-                <BookingComponent spot={spot} />
+                {showReserve && <BookingComponent spot={spot} />}
             </div>
         </div>
     )

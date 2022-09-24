@@ -8,7 +8,7 @@ import { fetchBookingsForSpot } from '../../../store/bookings';
 import { subDays, addDays } from 'date-fns';
 import { createBooking } from '../../../store/bookings';
 
-const BookingComponent = ({ spot }) => {
+const BookingComponent = ({ spot, showReserve }) => {
     const dispatch = useDispatch();
 
     const [startDate, setStartDate] = useState(null);
@@ -25,12 +25,6 @@ const BookingComponent = ({ spot }) => {
             end: addDays(new Date(booking.endDate), 1)
         }
     })
-
-    // const exist = bookings?.find(booking => {
-    // return booking.start === startDate
-    // })
-    // const [minStart, setMinStart] = useState(exist ? addDays(new Date(exist?.end, 1)) : addDays(new Date(), 1));
-
 
     const numDays = (startDate, endDate) => {
         const oneDay = 24 * 60 * 60 * 1000;
@@ -173,6 +167,7 @@ const BookingComponent = ({ spot }) => {
             <h1>hey</h1>
         </>
     )
+
 }
 
 export default BookingComponent
