@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { fetchOneSpot } from '../../store/spots';
 import './HomeDetailsComponent.css';
 import PhotosModal from './PhotosModal';
+import BookingComponent from './BookingComponent';
 
 const HomeDetailsComponent = ({ setNavBar }) => {
     const { spotId } = useParams();
@@ -89,10 +90,8 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                     {/* <div className='show-all-photos-container'> */}
                     <PhotosModal setNavBar={setNavBar} images={spot?.images} />
                     {/* </div> */}
-                    <h1>hello world</h1>
-                    <h1>hello world</h1>
-                    <h1>hello world</h1>
                 </div>
+                <BookingComponent />
             </div>
         </div>
     )
