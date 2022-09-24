@@ -8,7 +8,7 @@ const PicModal = ({ showModal, setShowModal, images, setNavBar, i, setI }) => {
 
     const animation = useSpring({
         config: {
-            duration: 250
+            duration: 350
         },
         opacity: showModal ? 1 : 0,
         transform: showModal ? `translateY(0%)` : `translateY(100%)`
