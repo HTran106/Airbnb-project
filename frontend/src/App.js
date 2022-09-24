@@ -11,6 +11,7 @@ import PhotosModal from "./components/HomeDetailsComponent/PhotosModal";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [navBar, setNavBar] = useState(true);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -19,14 +20,17 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      {
+        navBar && <Navigation isLoaded={isLoaded} />
+      }
+      {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
           <Route path='/modal'>
             <PhotosModal />
           </Route>
           <Route path="/spots/:spotId">
-            <HomeDetailsComponent />
+            <HomeDetailsComponent setNavBar={setNavBar} />
           </Route>
           <Route exact path='/'>
             <HomePageComponent />

@@ -3,17 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchOneSpot } from '../../store/spots';
 import './HomeDetailsComponent.css';
-import LoginFormModal from '../LoginFormModal';
 import PhotosModal from './PhotosModal';
 
-const HomeDetailsComponent = () => {
+const HomeDetailsComponent = ({ setNavBar }) => {
     const { spotId } = useParams();
     const dispatch = useDispatch();
     const spot = useSelector(state => state.spots[spotId]);
 
     useEffect(() => {
         dispatch(fetchOneSpot(+spotId))
-    }, [dispatch])
+    }, [dispatch, spotId])
 
     return (
         <div className='home-details-page-container'>
@@ -88,7 +87,7 @@ const HomeDetailsComponent = () => {
                 </div>
                 <div id='hey' >
                     {/* <div className='show-all-photos-container'> */}
-                    <PhotosModal images={spot?.images}/>
+                    <PhotosModal setNavBar={setNavBar} images={spot?.images} />
                     {/* </div> */}
                     <h1>hello world</h1>
                     <h1>hello world</h1>

@@ -3,7 +3,7 @@ import { useSpring, animated } from 'react-spring';
 import { useState } from 'react';
 
 
-const PicModal = ({ showModal, setShowModal, images }) => {
+const PicModal = ({ showModal, setShowModal, images, setNavBar }) => {
     const modalRef = useRef()
     const [i, setI] = useState(0)
 
@@ -40,14 +40,25 @@ const PicModal = ({ showModal, setShowModal, images }) => {
                         <div className='modal-wrapper'>
                             {/* <img className='photos-modal-img' src={'http://2.bp.blogspot.com/-6puRWRY2UGY/UeeGtTaUACI/AAAAAAAAAto/hmFQyMpD0d8/s1600/luxury+homes4.jpg'} alt='preview' /> */}
                             <div className='photos-modal-content'>
-                                {i !== 0 ? (<div className='arrow-container'><button onClick={handleLeft} className='fa-solid fa-angle-left arrow-button'></button></div>) : (<div></div>)}
+                                {i !== 0 ? (
+                                    <div className='arrow-container'>
+                                        <button onClick={handleLeft} className='fa-solid fa-angle-left arrow-button'>
+                                        </button></div>)
+                                    : (<div></div>)}
                                 <div className='current-image'>
                                     <img className='mid-image' src={images[i].url} alt='preview' />
                                 </div>
-                                {i !== images.length - 1 ? (<div className='arrow-container'><button onClick={handleRight} className='fa-solid fa-angle-right arrow-button'></button></div>) : (<div></div>)}
+                                {i !== images.length - 1 ? (
+                                    <div className='arrow-container'>
+                                        <button onClick={handleRight} className='fa-solid fa-angle-right arrow-button'>
+                                        </button>
+                                    </div>)
+                                    : (<div></div>)}
                             </div>
-                            <div style={{ color: 'white' }}>HEY</div>
-                            <button className='fa solid fa-x close-button' aria-label='Close modal' onClick={() => setShowModal(prev => !prev)}></button>
+                            <button className='fa solid fa-x close-button' aria-label='Close modal' onClick={() => {
+                                setNavBar(true)
+                                setShowModal(prev => !prev)
+                            }}></button>
                         </div>
                     </animated.div>
                 </div >
