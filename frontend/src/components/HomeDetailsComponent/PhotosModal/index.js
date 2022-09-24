@@ -4,16 +4,18 @@ import './Modal.css'
 
 const PhotosModal = ({ images, setNavBar }) => {
     const [showModal, setShowModal] = useState(false)
+    const [i, setI] = useState(0)
 
     const openModal = () => {
         setShowModal(prev => !prev)
         setNavBar(false)
+        setI(0)
     }
 
     return (
         <div className='photos-modal-container'>
             <button className='all-photos-button' onClick={openModal}>Show all photos</button>
-            <PicModal setNavBar={setNavBar} showModal={showModal} setShowModal={setShowModal} images={images} />
+            <PicModal i={i} setI={setI} setNavBar={setNavBar} showModal={showModal} setShowModal={setShowModal} images={images} />
             {/* <GlobalStyle /> */}
         </div>
     )

@@ -3,9 +3,8 @@ import { useSpring, animated } from 'react-spring';
 import { useState } from 'react';
 
 
-const PicModal = ({ showModal, setShowModal, images, setNavBar }) => {
+const PicModal = ({ showModal, setShowModal, images, setNavBar, i, setI }) => {
     const modalRef = useRef()
-    const [i, setI] = useState(0)
 
     const animation = useSpring({
         config: {
