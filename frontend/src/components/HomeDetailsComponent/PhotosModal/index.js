@@ -12,11 +12,11 @@ const PhotosModal = ({ images, setNavBar }) => {
         setI(0)
     }
 
+
     return (
         <div className='photos-modal-container'>
             <button className='all-photos-button' onClick={openModal}>Show all photos</button>
             <PicModal i={i} setI={setI} setNavBar={setNavBar} showModal={showModal} setShowModal={setShowModal} images={images} />
-            {/* <GlobalStyle /> */}
         </div>
     )
 }

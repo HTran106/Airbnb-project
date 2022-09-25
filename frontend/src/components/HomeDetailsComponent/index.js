@@ -1,18 +1,29 @@
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchOneSpot } from '../../store/spots';
 import './HomeDetailsComponent.css';
 import PhotosModal from './PhotosModal';
+import BookingComponent from './BookingComponent';
 
 const HomeDetailsComponent = ({ setNavBar }) => {
     const { spotId } = useParams();
+
     const dispatch = useDispatch();
     const spot = useSelector(state => state.spots[spotId]);
+    const user = useSelector(state => state.session.user);
+
+    const [showReserve, setShowReserve] = useState(true);
 
     useEffect(() => {
         dispatch(fetchOneSpot(+spotId))
     }, [dispatch, spotId])
+
+    useEffect(() => {
+        if (spot?.ownerId === user?.id) {
+            setShowReserve(false)
+        }
+    }, [spot])
 
     return (
         <div className='home-details-page-container'>
@@ -20,11 +31,11 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                 <div className='home-details-name-image-container'>
                     <div className='spot-name'>
                         <span>{spot?.name}</span>
-                        <a className='reserve' href="#hey">Reserve</a>
+                        {showReserve && <a className='reserve' href="#calendar">Reserve</a>}
                     </div>
                     <div className='fa-solid fa-star avg-reviews-area'>
                         <span className='ratings-font'>
-                            {spot?.avgStarRatings}  ·  {spot?.numReviews} reviews  ·
+                            {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null}  ·  {spot?.numReviews} reviews  ·
                             <span> {spot?.city}, {spot?.state}</span>
                         </span>
                     </div>
@@ -89,9 +100,10 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                     {/* <div className='show-all-photos-container'> */}
                     <PhotosModal setNavBar={setNavBar} images={spot?.images} />
                     {/* </div> */}
-                    <h1>hello world</h1>
-                    <h1>hello world</h1>
-                    <h1>hello world</h1>
+                </div>
+                {showReserve && <BookingComponent spot={spot} />}
+                <div className='extraordinary-homes-container'>
+
                 </div>
             </div>
         </div>
