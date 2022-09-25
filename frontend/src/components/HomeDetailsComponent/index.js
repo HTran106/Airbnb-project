@@ -5,6 +5,7 @@ import { fetchOneSpot } from '../../store/spots';
 import './HomeDetailsComponent.css';
 import PhotosModal from './PhotosModal';
 import BookingComponent from './BookingComponent';
+import IncludedComponent from './IncludedComponent';
 
 const HomeDetailsComponent = ({ setNavBar }) => {
     const { spotId } = useParams();
@@ -113,17 +114,14 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                         <div className='luxe-description-header'>
                             <span className='luxe-description-extraordinary'>Extraordinary homes with five-star everything</span>
                         </div>
-                        <div>
+                        <div className='luxe-description-description'>
                             <p className='luxe-description'>
-                                Pristine and expertly designed, each Luxe home comes with luxury amenities, services, and a dedicated trip designer.  Our homes are located in the world’s most desirable destinations, and are hand-selected for their unique design, location, and amenities. We’re here to help you plan the perfect home to host all your events, from start to finish.
+                                Pristine and expertly designed, each Luxe home comes with luxury amenities, services, and a dedicated trip designer.  We’re here to help you plan the perfect home to host all your events, from start to finish.
                             </p>
                         </div>
                     </div>
                 </div>
-                <h1>HEY</h1>
-                <div className='extraordinary-homes-container'>
-
-                </div>
+                <IncludedComponent />
             </div>
         </>
     )

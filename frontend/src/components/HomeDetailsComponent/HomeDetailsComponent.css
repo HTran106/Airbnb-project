@@ -167,6 +167,7 @@
     height: 100%;
     width: 58%;
     margin-top: -1em;
+    text-overflow: ellipsis;
 }
 
 .luxe-description-logo {
@@ -185,6 +186,13 @@
     font-family: sans-serif;
     font-weight: 100;
     line-height: 1.5em;
+    text-overflow: ellipsis;
+}
+
+.luxe-description-description {
+    display: flex;
+    max-height: 9em;
+    text-overflow: ellipsis;
 }
 
 .luxe-description-header {

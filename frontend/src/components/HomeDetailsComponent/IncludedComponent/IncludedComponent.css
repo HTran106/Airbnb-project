@@ -1,0 +1,17 @@
+.included-container {
+    display: grid;
+    grid-template-rows: 5em 5em 1fr;
+    width: 59%;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.included-with-home-container {
+    display: flex;
+    align-items: flex-end;
+}
+
+.included-with-home-word {
+    font-family: sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+}
