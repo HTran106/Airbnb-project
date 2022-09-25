@@ -21,10 +21,10 @@ const GoogleMapComponent = () => {
     return (
         <>
             <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&callback=initMap`}>
-                <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
-                    <Marker position={center} />
-                </GoogleMap>
             </script>
+            <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
+                <Marker position={center} />
+            </GoogleMap>
         </>
     )
 }
