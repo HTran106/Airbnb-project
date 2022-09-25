@@ -3,7 +3,7 @@
     grid-template-columns: 50% 50%;
     margin-top: 2em;
     padding-bottom: 2em;
-    border-bottom: 1px solid rgb(221, 221, 221)
+    /* border-bottom: 1px solid rgb(221, 221, 221) */
 }
 
 .booking-card-container {

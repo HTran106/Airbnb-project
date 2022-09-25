@@ -152,3 +152,42 @@
     border-radius: .5em;
     font-weight: 500;
 }
+
+.luxe-description-container {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 22em;
+    background-color: rgb(228, 228, 228);
+}
+
+.luxe-description-content-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100%;
+    width: 58%;
+    margin-top: -1em;
+}
+
+.luxe-description-logo {
+    display: flex;
+    align-items: center;
+    padding-top: 3em;
+}
+
+.luxe-description-extraordinary {
+    font-size: 2.2em;
+    font-weight: 100;
+    font-family: sans-serif;
+}
+
+.luxe-description {
+    font-family: sans-serif;
+    font-weight: 100;
+    line-height: 1.5em;
+}
+
+.luxe-description-header {
+    display: flex;
+    align-items: center;
+}
