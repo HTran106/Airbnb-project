@@ -7,7 +7,7 @@ import Navigation from "./components/Navigation";
 import HomePageComponent from "./components/HomePageComponent";
 import HomeDetailsComponent from "./components/HomeDetailsComponent";
 import PhotosModal from "./components/HomeDetailsComponent/PhotosModal";
-import GoogleMapComponent from "./components/HomeDetailsComponent/GoogleMapsComponent";
+import GoogleMapComponentSpot from "./components/HomeDetailsComponent/GoogleMapsComponent";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path='/modal'>
-            <GoogleMapComponent />
+            <GoogleMapComponentSpot />
           </Route>
           <Route path="/spots/:spotId">
             <HomeDetailsComponent setNavBar={setNavBar} />
