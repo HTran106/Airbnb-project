@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import HomePageComponent from "./components/HomePageComponent";
 import HomeDetailsComponent from "./components/HomeDetailsComponent";
 import PhotosModal from "./components/HomeDetailsComponent/PhotosModal";
+import GoogleMapComponent from "./components/HomeDetailsComponent/GoogleMapsComponent";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,13 +22,13 @@ function App() {
   return (
     <>
       {
-        navBar && <Navigation isLoaded={isLoaded} />
+        // navBar && <Navigation isLoaded={isLoaded} />
       }
       {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
           <Route path='/modal'>
-            <PhotosModal />
+            <GoogleMapComponent />
           </Route>
           <Route path="/spots/:spotId">
             <HomeDetailsComponent setNavBar={setNavBar} />
