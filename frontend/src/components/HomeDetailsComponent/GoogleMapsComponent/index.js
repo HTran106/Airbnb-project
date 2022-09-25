@@ -3,8 +3,9 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import { useMemo } from 'react';
 
 const GoogleMapComponent = () => {
+    // console.log(process.env.REACT_APP_HEY)
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+        googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     })
 
     const center = useMemo(() => (
@@ -27,3 +28,24 @@ const GoogleMapComponent = () => {
 }
 
 export default GoogleMapComponent
+
+
+// import { Wrapper, Status } from '@googlemaps/react-wrapper'
+
+// const GoogleMapComponent = () => {
+//     const render = (status: Status) => {
+//         return <h1>{status}</h1>
+//     };
+
+//     <Wrapper apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY} render={render}>
+//         <Component />
+//     </Wrapper>
+// }
+
+// const Component = () => {
+//     return (
+//         <h1>map</h1>
+//     )
+// }
+
+// export default GoogleMapComponent
