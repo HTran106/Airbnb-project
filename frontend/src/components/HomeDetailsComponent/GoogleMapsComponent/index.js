@@ -3,7 +3,7 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import { useMemo } from 'react';
 
 const GoogleMapComponent = () => {
-    console.log(process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY)
+
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     })
@@ -20,10 +20,11 @@ const GoogleMapComponent = () => {
 
     return (
         <>
-            <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&callback=initMap`}></script>
-            <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
-                <Marker position={center} />
-            </GoogleMap>
+            <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&callback=initMap`}>
+                <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
+                    <Marker position={center} />
+                </GoogleMap>
+            </script>
         </>
     )
 }
