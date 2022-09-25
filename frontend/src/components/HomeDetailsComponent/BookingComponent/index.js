@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchBookingsForSpot } from '../../../store/bookings';
-import { subDays, addDays } from 'date-fns';
+import { subDays, addDays, getTime } from 'date-fns';
 import { createBooking } from '../../../store/bookings';
 
 const BookingComponent = ({ spot, showReserve }) => {
@@ -27,10 +27,23 @@ const BookingComponent = ({ spot, showReserve }) => {
     })
 
     const numDays = (startDate, endDate) => {
-        const oneDay = 24 * 60 * 60 * 1000;
-        const diffDays = Math.round(Math.abs((startDate - endDate) / oneDay));
-        return diffDays;
+        if (startDate <= endDate) {
+            const oneDay = 24 * 60 * 60 * 1000;
+            const diffDays = Math.round(Math.abs((startDate - endDate) / oneDay));
+            return diffDays;
+        } else {
+            return 0
+        }
     }
+
+    useEffect(() => {
+        if (startDate <= endDate) {
+            setDisabled(false)
+        } else {
+            setDisabled(true)
+        }
+    }, [startDate, endDate])
+
 
     const openSummary = e => {
         e.preventDefault();
@@ -66,7 +79,7 @@ const BookingComponent = ({ spot, showReserve }) => {
                                 <span className='night'> night</span>
                             </span>
                             <div className='fa-solid fa-star review-star fa-sm booking-reviews'>
-                                <span className='avg-review'>{spot?.avgStarRatings} ·
+                                <span className='avg-review'>{spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null} ·
                                     <a className='all-reviews' href={`/spots/${spot?.id}/reviews`}>{spot?.numReviews} reviews</a>
                                 </span>
                             </div>
@@ -118,7 +131,7 @@ const BookingComponent = ({ spot, showReserve }) => {
                                 <span className='name'>{spot?.name}</span>
                                 <span className='fa-solid fa-star fa-xs booking-star'>
                                     <span className='booking-star-words'>
-                                        {spot?.avgStarRatings}
+                                        {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null}
                                         <span style={{ color: 'rgb(179, 174, 174)' }}> ({spot?.numReviews} reviews)
                                         </span>
                                     </span>

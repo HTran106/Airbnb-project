@@ -35,7 +35,7 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                     </div>
                     <div className='fa-solid fa-star avg-reviews-area'>
                         <span className='ratings-font'>
-                            {spot?.avgStarRatings}  ·  {spot?.numReviews} reviews  ·
+                            {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null}  ·  {spot?.numReviews} reviews  ·
                             <span> {spot?.city}, {spot?.state}</span>
                         </span>
                     </div>
@@ -102,6 +102,9 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                     {/* </div> */}
                 </div>
                 {showReserve && <BookingComponent spot={spot} />}
+                <div className='extraordinary-homes-container'>
+
+                </div>
             </div>
         </div>
     )
