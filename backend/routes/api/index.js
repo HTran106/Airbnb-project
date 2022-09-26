@@ -32,13 +32,19 @@ router.get('/search', async (req, res) => {
   if (location && checkIn && checkOut) {
     const spots = await Spot.findAll({
       where: { city: { [Op.like]: `%${location}%` } } || { state: { [Op.like]: `%${location}%` } },
-      include: {
-        model: Booking,
-        where: {
-          startDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null,
-          endDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null
+      include: [
+        {
+          model: Booking,
+          where: {
+            startDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null,
+            endDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null
+          }
+        },
+        {
+          model: Image,
+          attributes: ['url']
         }
-      }
+      ]
     })
     res.json(spots)
   } else if (checkIn && checkOut) {
@@ -60,7 +66,11 @@ router.get('/search', async (req, res) => {
     res.json(spots)
   } else if (location) {
     const spots = await Spot.findAll({
-      where: { city: { [Op.like]: `%${location}%` } } || { state: { [Op.like]: `%${location}%` } }
+      where: { city: { [Op.like]: `%${location}%` } } || { state: { [Op.like]: `%${location}%` } },
+      include: {
+        model: Image,
+        attributes: ['url']
+      }
     })
     return res.json(spots)
   } else {

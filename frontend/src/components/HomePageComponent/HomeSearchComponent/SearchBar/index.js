@@ -6,6 +6,7 @@ import DatePicker from 'react-datepicker'
 import { addDays, subDays } from 'date-fns'
 import { fetchSearchSpots, searchAllSpot } from '../../../../store/search'
 import { useDispatch, useSelector } from 'react-redux'
+import SearchPageComponent from '../../../SearchPageComponent'
 
 const SearchBar = () => {
     const history = useHistory()
@@ -17,7 +18,7 @@ const SearchBar = () => {
 
     const handleSearch = e => {
         e.preventDefault()
-        if (location || checkIn || checkOut) {
+        if (location.length !== 0 || checkIn || checkOut) {
             dispatch(fetchSearchSpots({ location, checkIn, checkOut }))
         } else {
             dispatch(searchAllSpot())
@@ -77,8 +78,6 @@ const SearchBar = () => {
                         </div>
                     </button>
                 </div>
-                {/* <Calendar /> */}
-
             </div>
         </div >
     )

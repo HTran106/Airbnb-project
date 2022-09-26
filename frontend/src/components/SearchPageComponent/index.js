@@ -7,6 +7,7 @@ import SpotCardComponent from '../SpotCardComponent';
 
 const SearchPageComponent = () => {
     const spots = Object.values(useSelector(state => state.search))
+    console.log(spots)
 
     return (
         <>

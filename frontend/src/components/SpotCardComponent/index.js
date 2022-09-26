@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 const SpotCardComponent = ({ spot }) => {
     const [index, setIndex] = useState(0)
+    const [showArrow, setShowArrow] = useState(false)
 
     const handleLeft = e => {
         e.preventDefault()
@@ -17,23 +18,24 @@ const SpotCardComponent = ({ spot }) => {
     return (
         <>
             <div className='spot-card-container'>
-                <div style={{ backgroundImage: `url(${spot?.Images[index].url})` }} className='spot-card-image spot-card-image-container'>
-                    {
-                        index !== 0 ? (
-                            <div>
-                                <button onClick={handleLeft} className='fa-solid fa-angle-left card-left'>
-                                </button></div>)
-                            : (<div></div>)
+                <div
+                    style={{ backgroundImage: `url(${spot?.Images[index]?.url})` }}
+                    className='spot-card-image spot-card-image-container'
+                    onMouseOver={() => setShowArrow(true)}
+                    onMouseLeave={() => setShowArrow(false)}
+                >
+                    {showArrow && index !== 0 ? (
+                        <div>
+                            <button onClick={handleLeft} className='fa-solid fa-angle-left card-left'>
+                            </button></div>)
+                        : (<div></div>)
                     }
-                    {index !== spot?.Images.length - 1 ? (
+                    {showArrow && index !== spot?.Images.length - 1 ? (
                         <div>
                             <button onClick={handleRight} className='fa-solid fa-angle-right card-right'>
                             </button>
                         </div>)
                         : (<div></div>)}
-                    {/* <button className='fa-solid fa-angle-left card-left'></button> */}
-                    {/* <button className='fa-solid fa-angle-right card-right'></button> */}
-                    {/* <img className='spot-card-image' src={spot?.Images[0].url} alt='spot' /> */}
                 </div>
                 <div className='spot-card-info'>
                     <span className='spot-card-name'>{spot?.name}</span>
