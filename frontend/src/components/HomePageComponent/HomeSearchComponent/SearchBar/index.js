@@ -1,8 +1,17 @@
 import './SearchBar.css'
 import Calendar from 'react-calendar'
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 const SearchBar = () => {
+    const [location, setLocation] = useState('')
+    const [checkIn, setCheckIn] = useState(null)
+    const [checkOut, setCheckOut] = useState(null)
+
+    const handleSearch = e => {
+        e.preventDefault()
+        history.push('/search')
+    }
 
     return (
         <div className='search-bar'>
