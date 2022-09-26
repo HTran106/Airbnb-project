@@ -42,7 +42,7 @@ const ReviewsComponent = ({ spot }) => {
     return (
         <>
             {showReviews && (
-                <div className='reviews-container'>
+                <div id='reviews' className='reviews-container'>
                     <div className='fa-solid fa-star reviews-star'>
                         <span className='avg-star'>
                             {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null} ({spot?.numReviews} reviews)
