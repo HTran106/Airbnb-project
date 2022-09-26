@@ -1,6 +1,6 @@
 .search-page-container {
     display: grid;
-    grid-template-columns: 35em 1fr;
+    grid-template-columns: 40em 1fr;
     width: 100vw;
     height: 90vh;
     margin-top: 5em;

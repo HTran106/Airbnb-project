@@ -1,9 +1,9 @@
 .spot-card-container {
     height: 20em;
-    width: 15em;
+    width: 18em;
     font-family: sans-serif;
     display: grid;
-    grid-template-rows: 14.5em 1.4em 1.4em 1.4em;
+    grid-template-rows: 15em 1.6em 1.4em 1.4em;
     margin-bottom: 1em;
 }
 
@@ -20,6 +20,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    padding-top: .2em;
 }
 
 .spot-card-image {
@@ -28,6 +29,7 @@
     border-radius: .5em;
     background-size: cover;
 }
+
 
 .spot-card-name {
     font-size: 13px;

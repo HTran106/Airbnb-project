@@ -59,7 +59,7 @@ const searchReducer = (state = {}, action) => {
             })
             return searchSpotState
         case SEARCH_ALL:
-            const searchAllState = { ...state }
+            const searchAllState = {}
             action.payload.Spots.forEach(spot => {
                 searchAllState[spot.id] = spot
             })
