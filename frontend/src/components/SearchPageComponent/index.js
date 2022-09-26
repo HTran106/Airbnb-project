@@ -2,6 +2,7 @@ import './SearchPageComponent.css';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import GoogleMapComponentSearch from './GoogleMapsComponentSearch';
+import SpotCardComponent from '../SpotCardComponent';
 
 
 const SearchPageComponent = () => {
@@ -11,7 +12,9 @@ const SearchPageComponent = () => {
         <>
             <div className='search-page-container'>
                 <div className='search-left-container'>
-                    <h1>hey</h1>
+                    {spots?.map(spot => (
+                        <SpotCardComponent spot={spot} />
+                    ))}
                 </div>
                 <div className='search-right-maps'>
                     <GoogleMapComponentSearch spots={spots} />

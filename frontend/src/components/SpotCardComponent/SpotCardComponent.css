@@ -1,0 +1,16 @@
+.spot-card-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 11em 3em;
+}
+
+.spot-card-image-container {
+    width: 11em;
+    height: 11em;
+}
+
+.spot-card-image {
+    width: 100%;
+    height: 100%;
+}

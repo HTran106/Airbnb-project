@@ -6,7 +6,7 @@ const myRouter = require('./my.js')
 const reviewsRouter = require('./reviews.js')
 const bookingsRouter = require('./bookings.js')
 const imagesRouter = require('./images.js')
-const { Spot, Booking } = require('../../db/models');
+const { Spot, Booking, Image } = require('../../db/models');
 const { Op } = require('sequelize');
 
 router.use('/session', sessionRouter);
@@ -43,13 +43,19 @@ router.get('/search', async (req, res) => {
     res.json(spots)
   } else if (checkIn && checkOut) {
     const spots = await Spot.findAll({
-      include: {
-        model: Booking,
-        where: {
-          startDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null,
-          endDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null
+      include: [
+        {
+          model: Booking,
+          where: {
+            startDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null,
+            endDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null
+          }
+        },
+        {
+          model: Image,
+          attributes: ['url']
         }
-      }
+      ]
     })
     res.json(spots)
   } else if (location) {

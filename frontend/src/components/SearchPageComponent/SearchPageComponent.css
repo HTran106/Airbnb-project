@@ -1,7 +1,20 @@
 .search-page-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 100vw;
-    height: 100vh;
+    width: 98.8vw;
+    height: 90vh;
     margin-top: 5em;
+}
+
+.search-left-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 1em;
+    overflow: scroll;
+}
+
+.search-right-maps {
+    width: 100%;
+    position: sticky;
 }
