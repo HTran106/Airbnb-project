@@ -4,9 +4,12 @@ import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import { addDays, subDays } from 'date-fns'
+import { fetchSearchSpots } from '../../../../store/spots'
+import { useDispatch } from 'react-redux'
 
 const SearchBar = () => {
     const history = useHistory()
+    const dispatch = useDispatch()
 
     const [location, setLocation] = useState('')
     const [checkIn, setCheckIn] = useState(null)
@@ -16,7 +19,7 @@ const SearchBar = () => {
 
     const handleSearch = e => {
         e.preventDefault()
-        history.push('/search')
+        dispatch(fetchSearchSpots({ location, checkIn, checkOut }))
     }
 
     return (
@@ -35,7 +38,7 @@ const SearchBar = () => {
                         ></input>
                     </div>
                 </div>
-                <div className='calendar-container'>
+                {/* <div className='calendar-container'>
                     <div className='calendar-area-container'>
                         <div className='check-in'>
                             <span>CHECK IN (optional)</span>
@@ -65,9 +68,9 @@ const SearchBar = () => {
                             </input>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className='search-button'>
-                    <button>
+                    <button onClick={handleSearch}>
                         <div className='search-text'>
                             Search
                         </div>

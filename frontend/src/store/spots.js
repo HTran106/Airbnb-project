@@ -154,6 +154,32 @@ export const deleteSpot = spotId => async dispatch => {
     }
 }
 
+export const SEARCH_SPOT = 'spots/searchSpot'
+
+export const searchSpot = spots => ({
+    type: SEARCH_SPOT,
+    payload: spots
+})
+
+export const fetchSearchSpots = searchValues => async dispatch => {
+    const { location, checkIn, checkOut } = searchValues
+
+    let res;
+    if (location) {
+        res = await csrfFetch(`/api/search?location=${location}`)
+    }
+
+    if (checkIn && checkOut) {
+        res = await csrfFetch(`/api/search?checkIn=${checkIn}&checkOut=${checkOut}`)
+    }
+
+    if (res.ok) {
+        const parsedRes = await res.json(res)
+        await dispatch(searchSpot(parsedRes))
+        return res
+    }
+}
+
 const spotsReducer = (state = {}, action) => {
     switch (action.type) {
         case GET_SPOT:
@@ -184,6 +210,12 @@ const spotsReducer = (state = {}, action) => {
             const deletedSpotState = { ...state }
             delete deletedSpotState[action.payload]
             return deletedSpotState
+        case SEARCH_SPOT:
+            const searchSpotState = { ...state }
+            action.payload.Spots?.forEach(spot => {
+                searchSpotState[spot.id] = spot
+            })
+            return searchSpotState
         default:
             return state
     }

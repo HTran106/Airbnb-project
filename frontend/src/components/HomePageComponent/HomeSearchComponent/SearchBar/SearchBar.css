@@ -112,7 +112,7 @@
     margin-top: .25em;
     padding-right: 1em;
     padding-left: 1em;
-    border-right: 1px solid rgb(231, 230, 230);
+    /* border-right: 1px solid rgb(231, 230, 230); */
     /* margin-right: -1em; */
 }
 
@@ -124,6 +124,7 @@
     height: 100%;
     padding-left: 1em;
     padding-right: 1em;
+    border-left: 1px solid rgb(231, 230, 230);
 }
 
 .search-button button {
