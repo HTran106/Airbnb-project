@@ -6,6 +6,7 @@ import './HomeDetailsComponent.css';
 import PhotosModal from './PhotosModal';
 import BookingComponent from './BookingComponent';
 import IncludedComponent from './IncludedComponent';
+import ReviewsComponent from './ReviewsComponent';
 
 const HomeDetailsComponent = ({ setNavBar }) => {
     const { spotId } = useParams();
@@ -122,6 +123,7 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                     </div>
                 </div>
                 <IncludedComponent />
+                <ReviewsComponent spot={spot} />
             </div>
         </>
     )
