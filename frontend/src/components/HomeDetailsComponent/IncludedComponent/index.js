@@ -25,7 +25,7 @@ const IncludedComponent = () => {
                     {images?.map((imgSrc, i) => (
                         <div key={i} className='image-container'>
                             <img className='image' src={imgSrc.split(" ")[0]} alt='included' />
-                            <span>{imgSrc.split(" ")[1]}</span>
+                            <span className='amenity-word'>{imgSrc.split(" ")[1]}</span>
                         </div>
                     ))}
                 </div>

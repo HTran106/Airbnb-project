@@ -41,3 +41,9 @@
     width: 15em;
     height: 100%;
 }
+
+.amenity-word {
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+}
