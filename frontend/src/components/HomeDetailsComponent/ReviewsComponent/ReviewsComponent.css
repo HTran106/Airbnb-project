@@ -29,8 +29,19 @@
     display: grid;
     grid-template-rows: 4em 4em;
     width: 40%;
-    height: 8
-    em;
+    height: 8em;
+}
+
+.join-date-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-review-button {
+    font-size: .8em;
+    padding-top: .3em;
+    letter-spacing: .5px;
+    color: blue;
 }
 
 .profile-image-area {

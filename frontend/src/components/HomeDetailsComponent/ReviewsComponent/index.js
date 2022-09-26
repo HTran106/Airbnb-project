@@ -22,6 +22,7 @@ const months = {
 const ReviewsComponent = ({ spot }) => {
     const dispatch = useDispatch();
     const reviews = Object.values(useSelector(state => state.reviews));
+    const user = useSelector(state => state.session.user)
 
     const [showReviews, setShowReviews] = useState(false);
 
@@ -56,9 +57,14 @@ const ReviewsComponent = ({ spot }) => {
                                         <span style={{ fontWeight: '600' }}>
                                             {review?.User?.firstName}
                                         </span>
-                                        <span className='user-join-date'>
-                                            {months[new Date(review?.User?.createdAt).getMonth()]} {new Date(review?.User?.createdAt).getFullYear()}
-                                        </span>
+                                        <div className='join-date-container'>
+                                            <span className='user-join-date'>
+                                                {months[new Date(review?.User?.createdAt).getMonth()]} {new Date(review?.User?.createdAt).getFullYear()}
+                                            </span>
+                                            {review?.userId === user?.id ?
+                                                <a className='edit-review-button'>Edit review</a>
+                                                : null}
+                                        </div>
                                     </div>
                                 </div>
                                 <div className='review-body'>
@@ -68,8 +74,8 @@ const ReviewsComponent = ({ spot }) => {
                         ))}
                     </div>
                 </div>
-                )}
-                <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1>
+            )}
+            <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1>
         </>
     )
 }
