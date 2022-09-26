@@ -12,7 +12,7 @@ export const fetchMyBookings = () => async dispatch => {
     const res = await csrfFetch('/api/my/bookings')
 
     if (res.ok) {
-        const parsedRes = await res.json(parsedRes)
+        const parsedRes = await res.json(res)
         await dispatch(myBookings(parsedRes))
         return res
     }
@@ -138,6 +138,7 @@ const bookingsReducer = (state = {}, action) => {
         case CREATE_BOOKING:
             const newBookingState = { ...state }
             newBookingState[action.payload.id] = action.payload
+            return newBookingState
         case EDIT_BOOKING:
             const editBookingState = { ...state }
             editBookingState[action.payload.id] = action.payload

@@ -35,27 +35,49 @@ router.get('/search', async (req, res) => {
   }
 
   if (checkIn && checkOut) {
-    let spots = await Spot.findAll()
-    spots.filter(async spot => {
-      const bookings = await Booking.findAll({
-        where: { spotId: spot.id }
-      })
-      console.log("THIS RIGHT HURRRRRRR =>>>>>>>>", bookings[0])
-      for (let i = 0; i < bookings.lenght; i++) {
-        const booking = bookings[i].Booking
-        if ((checkIn <= booking.dataValues.startDate && checkOut >= booking.dataValues.startDate) || (checkIn >= booking.dataValues.startDate && booking.dataValues.endDate >= checkIn)) {
-          return false
-        }
+    let bookings = await Booking.findAll()
+    let array = []
+
+    const filteredBookings = await bookings.filter(booking => {
+      if (((checkIn <= booking.dataValues.startDate) && (checkOut >= booking.dataValues.startDate)) || ((checkIn >= booking.dataValues.startDate) && (booking.dataValues.endDate >= checkOut))) {
+        return false
+      } else {
         return true
       }
-      // bookings.forEach(booking => {
-      //   if ((checkIn <= booking.dataValues.startDate && checkOut >= booking.dataValues.startDate) || (checkIn >= booking.dataValues.startDate && booking.dataValues.endDate >= checkIn)) {
-      //     return false
-      //   }
-      // })
-      res.json(spots)
-
     })
+
+    const spotIds = await filteredBookings.map(booking => booking.spotId)
+
+    await spotIds.forEach(async spotId => {
+      const spot = await Spot.findByPk(spotId)
+
+      if (!array.includes(spot.dataValues)) {
+        array.push(spot.dataValues)
+      }
+    })
+    res.json(array)
+
+
+    // console.log('THESE ARE THE RESULTS', results)
+    // let spots = await Spot.findAll()
+    // spots.filter(async spot => {
+
+    //   const bookings = await Booking.findAll({
+    //     where: { spotId: spot.id }
+    //   })
+
+    //   for (let i = 0; i < bookings.length; i++) {
+    //     const booking = bookings[i]
+    //     if (((checkIn <= booking.dataValues.startDate) && (checkOut >= booking.dataValues.startDate)) || ((checkIn >= booking.dataValues.startDate) && (booking.dataValues.endDate >= checkOut))) {
+    //       console.log('THIS IS FALSE FALSE FALSE FALSE')
+    //       return false
+    //     } else {
+    //       return true
+    //     }
+    //   }
+
+    // })
+    // res.json(spots)
 
     // exclude: {
     //   model: Booking,
