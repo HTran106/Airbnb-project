@@ -1,10 +1,16 @@
 import './GoogleMapsSearch.css'
 import { GoogleMap, useLoadScript, Marker, InfoBox } from '@react-google-maps/api';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 
 const GoogleMapComponentSearch = ({ spots }) => {
     const lat = +spots[0]?.lat?.toFixed(2);
     const lng = +spots[0]?.lng?.toFixed(2);
+
+    const [zoom, setZoom] = useState(6);
+
+    useEffect(() => {
+        spots?.length <= 10 ? setZoom(10) : setZoom(6)
+    }, [spots])
 
 
     const { isLoaded } = useLoadScript({
@@ -25,7 +31,7 @@ const GoogleMapComponentSearch = ({ spots }) => {
             <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&callback=initMap`}>
             </script>
             <div className='search-google-maps-container'>
-                <GoogleMap zoom={10} center={center} mapContainerClassName="search-map-container">
+                <GoogleMap zoom={zoom} center={center} mapContainerClassName="search-map-container">
                     <Marker position={center} />
                 </GoogleMap>
             </div>

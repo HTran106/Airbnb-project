@@ -53,7 +53,7 @@ export const searchAllSpot = () => async dispatch => {
 const searchReducer = (state = {}, action) => {
     switch (action.type) {
         case SEARCH_SPOT:
-            const searchSpotState = { ...state }
+            const searchSpotState = {}
             action.payload.forEach(spot => {
                 searchSpotState[spot.id] = spot
             })
