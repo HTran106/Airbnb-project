@@ -24,8 +24,10 @@ router.post('/test', (req, res) => {
 //search route
 router.get('/search', async (req, res) => {
   let { location, checkIn, checkOut } = req.query;
-  checkIn = new Date(checkIn)
-  checkOut = new Date(checkOut)
+  if (checkIn && checkOut) {
+    checkIn = new Date(checkIn)
+    checkOut = new Date(checkOut)
+  }
 
   if (location && checkIn && checkOut) {
     const spots = await Spot.findAll({
@@ -39,9 +41,7 @@ router.get('/search', async (req, res) => {
       }
     })
     res.json(spots)
-  }
-
-  if (checkIn && checkOut) {
+  } else if (checkIn && checkOut) {
     const spots = await Spot.findAll({
       include: {
         model: Booking,
@@ -52,14 +52,16 @@ router.get('/search', async (req, res) => {
       }
     })
     res.json(spots)
-  }
-
-  if (location) {
+  } else if (location) {
     const spots = await Spot.findAll({
       where: { city: { [Op.like]: `%${location}%` } } || { state: { [Op.like]: `%${location}%` } }
     })
     return res.json(spots)
+  } else {
+    const spots = await Spot.findAll();
+    return res.json(spots)
   }
+
 })
 
 module.exports = router;

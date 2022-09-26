@@ -165,22 +165,22 @@ export const fetchSearchSpots = searchValues => async dispatch => {
     const { location, checkIn, checkOut } = searchValues
 
     let res;
-    if (location && checkIn && checkOut) {
+    if (location.length && checkIn !== null && checkOut !== null) {
         res = await csrfFetch(`/api/search?location=${location}&checkIn=${checkIn}&checkOut=${checkOut}`)
-    }
-
-    if (checkIn && checkOut) {
+    } else if (checkIn !== null && checkOut !== null) {
         res = await csrfFetch(`/api/search?checkIn=${checkIn}&checkOut=${checkOut}`)
-    }
-
-    if (location) {
+    } else if (location.length) {
         res = await csrfFetch(`/api/search?location=${location}`)
+    } else {
+        res = await csrfFetch('/api/spots')
     }
 
-    if (res.ok) {
-        const parsedRes = await res.json(res)
-        await dispatch(searchSpot(parsedRes))
-        return res
+    if (res) {
+        if (res.ok) {
+            const parsedRes = await res.json(res)
+            await dispatch(searchSpot(parsedRes))
+            return res
+        }
     }
 }
 
@@ -215,8 +215,8 @@ const spotsReducer = (state = {}, action) => {
             delete deletedSpotState[action.payload]
             return deletedSpotState
         case SEARCH_SPOT:
-            const searchSpotState = { ...state }
-            action.payload.Spots?.forEach(spot => {
+            const searchSpotState = {}
+            action.payload.forEach(spot => {
                 searchSpotState[spot.id] = spot
             })
             return searchSpotState

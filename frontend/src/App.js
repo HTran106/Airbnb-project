@@ -6,8 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePageComponent from "./components/HomePageComponent";
 import HomeDetailsComponent from "./components/HomeDetailsComponent";
-import PhotosModal from "./components/HomeDetailsComponent/PhotosModal";
-import GoogleMapComponentSpot from "./components/HomeDetailsComponent/GoogleMapsComponent";
+import SearchPageComponent from "./components/HomePageComponent/SearchPageComponent";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,17 +26,17 @@ function App() {
       {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
-          <Route path='/modal'>
-            <GoogleMapComponentSpot />
+          <Route path='/search'>
+            <SearchPageComponent />
           </Route>
           <Route path="/spots/:spotId">
             <HomeDetailsComponent setNavBar={setNavBar} />
           </Route>
-          <Route exact path='/'>
-            <HomePageComponent />
-          </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route exact path='/'>
+            <HomePageComponent />
           </Route>
         </Switch>
       )}

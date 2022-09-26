@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import { addDays, subDays } from 'date-fns'
 import { fetchSearchSpots } from '../../../../store/spots'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const SearchBar = () => {
     const history = useHistory()
@@ -14,12 +14,13 @@ const SearchBar = () => {
     const [location, setLocation] = useState('')
     const [checkIn, setCheckIn] = useState(null)
     const [checkOut, setCheckOut] = useState(null)
-    const [startDate, setStartDate] = useState(null)
-    const [endDate, setEndDate] = useState(null)
 
     const handleSearch = e => {
         e.preventDefault()
-        dispatch(fetchSearchSpots({ location, checkIn, checkOut }))
+        if (location || checkIn || checkOut) {
+            dispatch(fetchSearchSpots({ location, checkIn, checkOut }))
+        }
+        history.push('/search')
     }
 
     return (
@@ -27,7 +28,7 @@ const SearchBar = () => {
             <div className='actual-search-bar'>
                 <div className='search-area'>
                     <div className='location'>
-                        <span>LOCATION</span>
+                        <span>LOCATION (optional)</span>
                     </div>
                     <div style={{ width: '80%' }} className='search-input'>
                         <input
@@ -38,7 +39,7 @@ const SearchBar = () => {
                         ></input>
                     </div>
                 </div>
-                {/* <div className='calendar-container'>
+                <div className='calendar-container'>
                     <div className='calendar-area-container'>
                         <div className='check-in'>
                             <span>CHECK IN (optional)</span>
@@ -47,7 +48,6 @@ const SearchBar = () => {
                             <input
                                 className='text'
                                 type='date'
-                                value={checkIn}
                                 onChange={e => setCheckIn(e.target.value)}
                                 min={Date.now()}
                             />
@@ -60,7 +60,6 @@ const SearchBar = () => {
                         <div className='date-input'>
                             <input
                                 className='text'
-                                value={checkOut}
                                 type='date'
                                 min={Date.now()}
                                 onChange={e => setCheckOut(e.target.value)}
@@ -68,7 +67,7 @@ const SearchBar = () => {
                             </input>
                         </div>
                     </div>
-                </div> */}
+                </div>
                 <div className='search-button'>
                     <button onClick={handleSearch}>
                         <div className='search-text'>
