@@ -39,12 +39,12 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                         </div>
                         <div className='fa-solid fa-star avg-reviews-area'>
                             <span className='ratings-font'>
-                                {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null} · <a href='#reviews'>{spot?.numReviews} reviews</a>
+                                {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null} · <a href={spot?.numReviews !== 0 ? '#reviews' : null}>{spot?.numReviews} reviews</a>
                                 <span> · {spot?.city}, {spot?.state}</span>
                             </span>
                         </div>
                         <div className='big-image'>
-                            <img className='spot-image' src={spot?.images[0].url} alt='spot' />
+                            <img className='spot-image' src={spot?.images[0]?.url} alt='spot' />
                         </div>
                     </div>
                     <div className='description-container'>

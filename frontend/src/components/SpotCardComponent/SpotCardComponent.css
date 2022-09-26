@@ -5,6 +5,8 @@
     display: grid;
     grid-template-rows: 15em 1.6em 1.4em 1.4em;
     margin-bottom: 1em;
+    background-color: white;
+    border-radius: 1em;
 }
 
 .spot-card-image-container {
@@ -20,7 +22,9 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    padding-top: .2em;
+    cursor: pointer;
+    width: 100%;
+    padding-left: .2em;
 }
 
 .spot-card-image {
@@ -34,15 +38,21 @@
 .spot-card-name {
     font-size: 13px;
     font-weight: 550;
+    width: 100%;
+    cursor: pointer;
 }
 
 .spot-card-location {
     font-size: 14px;
     color: slategray;
+    cursor: pointer;
+    width: 100%;
 }
 
 .spot-card-price {
     font-size: 13px;
+    cursor: pointer;
+    width: 100%;
 }
 
 .card-left {

@@ -2,3 +2,27 @@
     width: 100%;
     height: 90vh;
 }
+
+.info-box-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.info-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5em;
+    overflow: hidden;
+}
+
+.infoBox img {
+    display: none;
+}
+
+.house-box {
+    height: 20em;
+}

@@ -66,7 +66,15 @@ router.get('/search', async (req, res) => {
     res.json(spots)
   } else if (location) {
     const spots = await Spot.findAll({
-      where: { city: { [Op.like]: `%${location}%` } } || { state: { [Op.like]: `%${location}%` } },
+      where: {
+        city: {
+          [Op.like]: `%${location}%`
+        }
+      } ||
+      {
+        state:
+          { [Op.like]: `%${location}%` }
+      },
       include: {
         model: Image,
         attributes: ['url']

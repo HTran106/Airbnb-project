@@ -187,28 +187,28 @@ export const deleteSpot = spotId => async dispatch => {
 const spotsReducer = (state = {}, action) => {
     switch (action.type) {
         case GET_SPOT:
-            const oneSpotState = { ...state }
-            oneSpotState[action.payload.id] = action.payload
+            const oneSpotState = {}
+            oneSpotState[action.payload?.id] = action.payload
             return oneSpotState
         case ALL_SPOTS:
             const allSpotsState = { ...state }
-            action.payload.Spots?.forEach(spot => {
+            action.payload?.Spots?.forEach(spot => {
                 allSpotsState[spot.id] = spot
             })
             return allSpotsState
         case MY_SPOTS:
             const mySpotsState = { ...state }
-            action.payload.Spots?.forEach(spot => {
+            action.payload?.Spots?.forEach(spot => {
                 mySpotsState[spot.id] = spot
             })
             return mySpotsState
         case NEW_SPOT:
             const newSpotState = { ...state }
-            newSpotState[action.payload.id] = action.payload
+            newSpotState[action.payload?.id] = action.payload
             return newSpotState
         case EDIT_SPOT:
             const editSpotState = { ...state }
-            editSpotState[action.payload.id] = action.payload
+            editSpotState[action.payload?.id] = action.payload
             return editSpotState
         case DELETE_SPOT:
             const deletedSpotState = { ...state }
