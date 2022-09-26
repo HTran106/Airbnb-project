@@ -35,64 +35,16 @@ router.get('/search', async (req, res) => {
   }
 
   if (checkIn && checkOut) {
-    let bookings = await Booking.findAll()
-    let array = []
-
-    const filteredBookings = await bookings.filter(booking => {
-      if (((checkIn <= booking.dataValues.startDate) && (checkOut >= booking.dataValues.startDate)) || ((checkIn >= booking.dataValues.startDate) && (booking.dataValues.endDate >= checkOut))) {
-        return false
-      } else {
-        return true
+    const spots = await Spot.findAll({
+      include: {
+        model: Booking,
+        where: {
+          startDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null,
+          endDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null
+        }
       }
     })
-
-    const spotIds = await filteredBookings.map(booking => booking.spotId)
-
-    await spotIds.forEach(async spotId => {
-      const spot = await Spot.findByPk(spotId)
-
-      if (!array.includes(spot.dataValues)) {
-        array.push(spot.dataValues)
-      }
-    })
-    res.json(array)
-
-
-    // console.log('THESE ARE THE RESULTS', results)
-    // let spots = await Spot.findAll()
-    // spots.filter(async spot => {
-
-    //   const bookings = await Booking.findAll({
-    //     where: { spotId: spot.id }
-    //   })
-
-    //   for (let i = 0; i < bookings.length; i++) {
-    //     const booking = bookings[i]
-    //     if (((checkIn <= booking.dataValues.startDate) && (checkOut >= booking.dataValues.startDate)) || ((checkIn >= booking.dataValues.startDate) && (booking.dataValues.endDate >= checkOut))) {
-    //       console.log('THIS IS FALSE FALSE FALSE FALSE')
-    //       return false
-    //     } else {
-    //       return true
-    //     }
-    //   }
-
-    // })
-    // res.json(spots)
-
-    // exclude: {
-    //   model: Booking,
-    //   where: {
-    //     startDate: checkIn >= Booking.startDate && checkIn <= Booking.endDate,
-    //     endDate: checkOut >= Booking.startDate && checkOut <= Booking.endDate
-    //   }
-    // }
-
-    // const bookings = await Booking.findAll({
-    //   where: {
-    //     startDate: startDate <= checkIn,
-    //     endDate: endDate >= checkOut
-    //   }
-    // })
+    res.json(spots)
   }
 })
 
