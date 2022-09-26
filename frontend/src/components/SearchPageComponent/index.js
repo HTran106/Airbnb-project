@@ -13,7 +13,7 @@ const SearchPageComponent = () => {
             <div className='search-page-container'>
                 <div className='search-left-container'>
                     {spots?.map(spot => (
-                        <SpotCardComponent spot={spot} />
+                        <SpotCardComponent spot={spot} key={spot?.id} />
                     ))}
                 </div>
                 <div className='search-right-maps'>
