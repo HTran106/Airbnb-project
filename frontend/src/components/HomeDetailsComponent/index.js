@@ -128,7 +128,10 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                 <GoogleMapComponentSpot spot={spot} />
             </div>
             <div className='bottom-filler-container'>
-                <h1>hey</h1>
+                <div className='filler-inside-container'>
+                    <span>© Luxe Events by Huydu Tran</span>
+                    <span style={{ paddingRight: '1em' }}>$ USD</span>
+                </div>
             </div>
         </>
     )

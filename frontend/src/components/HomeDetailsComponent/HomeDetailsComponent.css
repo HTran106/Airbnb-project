@@ -201,7 +201,19 @@
 }
 
 .bottom-filler-container {
+    display: flex;
+    justify-content: center;
     width: 100vw;
-    height: 20em;
+    height: 5em;
     background-color: rgb(228, 228, 228);
+}
+
+.filler-inside-container {
+    width: 59%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 16px;
 }
