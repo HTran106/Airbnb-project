@@ -14,12 +14,14 @@ export const fetchSearchSpots = searchValues => async dispatch => {
     let res;
     if (location.length && checkIn !== null && checkOut !== null) {
         res = await csrfFetch(`/api/search?location=${location}&checkIn=${checkIn}&checkOut=${checkOut}`)
-    } else if (checkIn !== null && checkOut !== null) {
+    }
+
+    if (checkIn !== null && checkOut !== null) {
         res = await csrfFetch(`/api/search?checkIn=${checkIn}&checkOut=${checkOut}`)
-    } else if (location.length) {
+    }
+
+    if (location.length) {
         res = await csrfFetch(`/api/search?location=${location}`)
-    } else {
-        res = await csrfFetch('/api/spots')
     }
 
     if (res) {
