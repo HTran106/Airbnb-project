@@ -50,7 +50,7 @@ const ReviewsComponent = ({ spot }) => {
                     </div>
                     <div className='reviews-section-container'>
                         {reviews?.map(review => (
-                            <div className='reviews-card-container'>
+                            <div key={review?.id} className='reviews-card-container'>
                                 <div className='profile-image-area'>
                                     <img className='review-profile-image' src={review?.User?.profileImage} alt='profileImage' />
                                     <div className='name-container'>

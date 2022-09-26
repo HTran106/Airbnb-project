@@ -7,6 +7,7 @@ import PhotosModal from './PhotosModal';
 import BookingComponent from './BookingComponent';
 import IncludedComponent from './IncludedComponent';
 import ReviewsComponent from './ReviewsComponent';
+import GoogleMapComponentSpot from './GoogleMapsComponent';
 
 const HomeDetailsComponent = ({ setNavBar }) => {
     const { spotId } = useParams();
@@ -124,6 +125,7 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                 </div>
                 <IncludedComponent />
                 <ReviewsComponent spot={spot} />
+                <GoogleMapComponentSpot spot={spot} />
             </div>
         </>
     )
