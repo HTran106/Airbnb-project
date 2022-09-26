@@ -27,11 +27,18 @@ router.get('/search', async (req, res) => {
   checkIn = new Date(checkIn)
   checkOut = new Date(checkOut)
 
-  if (location) {
+  if (location && checkIn && checkOut) {
     const spots = await Spot.findAll({
-      where: { city: { [Op.like]: `%${location}%` } } || { state: { [Op.like]: `%${location}%` } }
+      where: { city: { [Op.like]: `%${location}%` } } || { state: { [Op.like]: `%${location}%` } },
+      include: {
+        model: Booking,
+        where: {
+          startDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null,
+          endDate: (checkIn && checkOut) ? { [Op.notBetween]: [checkIn, checkOut] } : null
+        }
+      }
     })
-    return res.json(spots)
+    res.json(spots)
   }
 
   if (checkIn && checkOut) {
@@ -45,6 +52,13 @@ router.get('/search', async (req, res) => {
       }
     })
     res.json(spots)
+  }
+
+  if (location) {
+    const spots = await Spot.findAll({
+      where: { city: { [Op.like]: `%${location}%` } } || { state: { [Op.like]: `%${location}%` } }
+    })
+    return res.json(spots)
   }
 })
 

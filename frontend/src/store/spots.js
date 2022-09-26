@@ -165,12 +165,16 @@ export const fetchSearchSpots = searchValues => async dispatch => {
     const { location, checkIn, checkOut } = searchValues
 
     let res;
-    if (location) {
-        res = await csrfFetch(`/api/search?location=${location}`)
+    if (location && checkIn && checkOut) {
+        res = await csrfFetch(`/api/search?location=${location}&checkIn=${checkIn}&checkOut=${checkOut}`)
     }
 
     if (checkIn && checkOut) {
         res = await csrfFetch(`/api/search?checkIn=${checkIn}&checkOut=${checkOut}`)
+    }
+
+    if (location) {
+        res = await csrfFetch(`/api/search?location=${location}`)
     }
 
     if (res.ok) {
