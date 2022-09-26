@@ -75,7 +75,6 @@ const ReviewsComponent = ({ spot }) => {
                     </div>
                 </div>
             )}
-            <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1>
         </>
     )
 }
