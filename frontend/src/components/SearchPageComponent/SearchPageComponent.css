@@ -3,7 +3,7 @@
     grid-template-columns: 40em 1fr;
     width: 100vw;
     height: 90vh;
-    margin-top: 5em;
+    padding-top: 5em;
 }
 
 .search-left-container {
@@ -13,9 +13,12 @@
     padding-left: 1em;
     padding-right: 1em;
     overflow: scroll;
+    padding-top: 1em;
 }
 
 .search-right-maps {
     width: 100%;
     position: sticky;
 }
+
+

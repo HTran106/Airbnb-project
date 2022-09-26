@@ -3,14 +3,16 @@ import { GoogleMap, useLoadScript, Marker, InfoBox } from '@react-google-maps/ap
 import { useMemo, useState, useEffect } from 'react';
 
 const GoogleMapComponentSearch = ({ spots }) => {
-    const lat = +spots[0]?.lat?.toFixed(2);
-    const lng = +spots[0]?.lng?.toFixed(2);
+    let lat = spots?.length <= 10 ? +spots[0]?.lat?.toFixed(2) : 37.17
+    let lng = spots?.length <= 10 ? +spots[0]?.lng?.toFixed(2) : -119.73
 
     const [zoom, setZoom] = useState(6);
 
     useEffect(() => {
         spots?.length <= 10 ? setZoom(10) : setZoom(6)
     }, [spots])
+
+
 
 
     const { isLoaded } = useLoadScript({
@@ -32,7 +34,12 @@ const GoogleMapComponentSearch = ({ spots }) => {
             </script>
             <div className='search-google-maps-container'>
                 <GoogleMap zoom={zoom} center={center} mapContainerClassName="search-map-container">
-                    <Marker position={center} />
+                    {spots?.map(spot => {
+                        const position = { lat: +spot?.lat, lng: +spot?.lng }
+                        return (
+                            <Marker key={spot?.id} position={position} />
+                        )
+                    })}
                 </GoogleMap>
             </div>
         </>

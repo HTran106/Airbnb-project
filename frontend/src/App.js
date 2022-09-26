@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       {
-        // navBar && <Navigation isLoaded={isLoaded} />
+        navBar && <Navigation isLoaded={isLoaded} />
       }
       {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
