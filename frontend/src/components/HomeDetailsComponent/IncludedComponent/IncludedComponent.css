@@ -1,17 +1,43 @@
 .included-container {
     display: grid;
-    grid-template-rows: 5em 5em 1fr;
+    grid-template-rows: 2em 2em 1fr;
     width: 59%;
+    padding-top: 3em;
     border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .included-with-home-container {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .included-with-home-word {
     font-family: sans-serif;
     font-size: 1.2em;
     font-weight: 500;
+}
+
+.included-essentials {
+    font-family: sans-serif;
+    font-size: .8em;
+    color: rgb(181, 180, 180);
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.image-container {
+    display: grid;
+    grid-template-rows: 80% 20%;
+    height: 15em;
+    align-items: center;
+}
+
+.image {
+    width: 15em;
+    height: 100%;
 }
