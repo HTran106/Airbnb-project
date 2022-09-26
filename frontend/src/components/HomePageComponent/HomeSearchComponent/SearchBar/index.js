@@ -2,11 +2,17 @@ import './SearchBar.css'
 import Calendar from 'react-calendar'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import DatePicker from 'react-datepicker'
+import { addDays, subDays } from 'date-fns'
 
 const SearchBar = () => {
+    const history = useHistory()
+
     const [location, setLocation] = useState('')
     const [checkIn, setCheckIn] = useState(null)
     const [checkOut, setCheckOut] = useState(null)
+    const [startDate, setStartDate] = useState(null)
+    const [endDate, setEndDate] = useState(null)
 
     const handleSearch = e => {
         e.preventDefault()
@@ -22,7 +28,9 @@ const SearchBar = () => {
                     </div>
                     <div style={{ width: '80%' }} className='search-input'>
                         <input
-                            type='search'
+                            type='text'
+                            value={location}
+                            onChange={e => setLocation(e.target.value)}
                             placeholder='Anywhere'
                         ></input>
                     </div>
@@ -30,28 +38,29 @@ const SearchBar = () => {
                 <div className='calendar-container'>
                     <div className='calendar-area-container'>
                         <div className='check-in'>
-                            <span>CHECK IN</span>
+                            <span>CHECK IN (optional)</span>
                         </div>
                         <div className='date-input'>
                             <input
                                 className='text'
                                 type='date'
-                                placeholder='Add Date'
+                                value={checkIn}
+                                onChange={e => setCheckIn(e.target.value)}
                                 min={Date.now()}
-                            >
-                            </input>
+                            />
                         </div>
                     </div>
                     <div className='calendar-area-container2'>
                         <div className='check-in'>
-                            <span>CHECK OUT</span>
+                            <span>CHECK OUT (optional)</span>
                         </div>
                         <div className='date-input'>
                             <input
                                 className='text'
+                                value={checkOut}
                                 type='date'
-                                placeholder='Add Date'
                                 min={Date.now()}
+                                onChange={e => setCheckOut(e.target.value)}
                             >
                             </input>
                         </div>

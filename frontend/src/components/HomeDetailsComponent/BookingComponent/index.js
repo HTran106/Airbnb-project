@@ -80,7 +80,7 @@ const BookingComponent = ({ spot, showReserve }) => {
                             </span>
                             <div className='fa-solid fa-star review-star fa-sm booking-reviews'>
                                 <span className='avg-review'>{spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null} ·
-                                    <a className='all-reviews' href={`/spots/${spot?.id}/reviews`}>{spot?.numReviews} reviews</a>
+                                    <a className='all-reviews' href={`#reviews`}>{spot?.numReviews} reviews</a>
                                 </span>
                             </div>
                         </div>
