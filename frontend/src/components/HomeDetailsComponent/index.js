@@ -127,6 +127,9 @@ const HomeDetailsComponent = ({ setNavBar }) => {
                 <ReviewsComponent spot={spot} />
                 <GoogleMapComponentSpot spot={spot} />
             </div>
+            <div className='bottom-filler-container'>
+                <h1>hey</h1>
+            </div>
         </>
     )
 }

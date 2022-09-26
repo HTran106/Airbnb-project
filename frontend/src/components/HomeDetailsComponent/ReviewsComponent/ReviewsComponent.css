@@ -4,7 +4,7 @@
     width: 59%;
     border-top: 1px solid rgb(221, 221, 221);
     margin-top: 3em;
-    padding-top: 1em;
+    padding-top: 3em;
 }
 
 .reviews-star {
@@ -29,7 +29,7 @@
     display: grid;
     grid-template-rows: 4em 4em;
     width: 40%;
-    height: 8em;
+    height: 10em;
 }
 
 .join-date-container {
