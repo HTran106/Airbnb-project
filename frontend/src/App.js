@@ -6,7 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePageComponent from "./components/HomePageComponent";
 import HomeDetailsComponent from "./components/HomeDetailsComponent";
-import SearchPageComponent from "./components/HomePageComponent/SearchPageComponent";
+import SearchPageComponent from "./components/SearchPageComponent";
 
 function App() {
   const dispatch = useDispatch();

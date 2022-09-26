@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import { addDays, subDays } from 'date-fns'
-import { fetchSearchSpots } from '../../../../store/spots'
+import { fetchSearchSpots, searchAllSpot } from '../../../../store/search'
 import { useDispatch, useSelector } from 'react-redux'
 
 const SearchBar = () => {
@@ -19,6 +19,8 @@ const SearchBar = () => {
         e.preventDefault()
         if (location || checkIn || checkOut) {
             dispatch(fetchSearchSpots({ location, checkIn, checkOut }))
+        } else {
+            dispatch(searchAllSpot())
         }
         history.push('/search')
     }
