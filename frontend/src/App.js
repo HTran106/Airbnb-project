@@ -12,6 +12,7 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const [navBar, setNavBar] = useState(true);
+  const [location, setLocation] = useState(window.location.pathname)
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -22,22 +23,22 @@ function App() {
   return (
     <>
       {
-        navBar && <Navigation isLoaded={isLoaded} />
+        navBar && <Navigation location={location} isLoaded={isLoaded} />
       }
       {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
           <Route path='/search'>
-            <SearchPageComponent />
+            <SearchPageComponent setLocation={setLocation} />
           </Route>
           <Route path="/spots/:spotId">
-            <HomeDetailsComponent setNavBar={setNavBar} />
+            <HomeDetailsComponent setLocation={setLocation} setNavBar={setNavBar} />
           </Route>
           <Route path="/signup">
-            <SignupFormPage />
+            <SignupFormPage setLocation={setLocation} />
           </Route>
           <Route exact path='/'>
-            <HomePageComponent />
+            <HomePageComponent setLocation={setLocation} />
           </Route>
         </Switch>
       )}

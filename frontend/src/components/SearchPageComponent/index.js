@@ -8,8 +8,13 @@ document.addEventListener('scroll', () => {
     document.documentElement.dataset.scroll = window.scrollY;
 });
 
-const SearchPageComponent = () => {
+const SearchPageComponent = ({ setLocation }) => {
     const spots = Object.values(useSelector(state => state.search))
+
+
+    useEffect(() => {
+        setLocation(window.location.pathname)
+    }, [])
 
     return (
         <>

@@ -45,7 +45,7 @@ router.get('/:spotId', async (req, res, next) => {
             attributes: ['url']
         })
 
-        spot.dataValues.images = images
+        spot.dataValues.Images = images
 
         let avgStar = 0
         stars.forEach(star => {

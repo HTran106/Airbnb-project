@@ -5,10 +5,21 @@ import HomePreviews from "./PreviewHomesComponent"
 import LuxeDifferenceComponent from "./LuxeDifferenceComponent"
 import { useEffect } from "react"
 import { images } from "../HomeDetailsComponent/IncludedComponent"
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllSpots } from "../../store/spots";
 
-const HomePageComponent = () => {
+const HomePageComponent = ({ setLocation }) => {
     // const filteredImages = images?.filter((image, i) => i < 6)
     // console.log(filteredImages)
+    const dispatch = useDispatch()
+
+    const spots = Object.values(useSelector(state => state.spots))
+
+    useEffect(() => {
+        dispatch(fetchAllSpots())
+        setLocation(window.location.pathname)
+    }, [dispatch])
+
 
 
     return (
@@ -19,7 +30,7 @@ const HomePageComponent = () => {
                     <span className="extraordinary">The world's most extraordinary homes</span>
                     <span className="expertly-design">A selection of pristine, expertly designed homes with high-end amenities, and services.</span>
                 </div>
-                <HomePreviews />
+                {spots.length && <HomePreviews spots={spots} />}
             </div>
             <LuxeDifferenceComponent />
             <div className="personalize-container">
