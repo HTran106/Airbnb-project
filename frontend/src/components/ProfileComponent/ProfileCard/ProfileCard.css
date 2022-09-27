@@ -1,3 +1,10 @@
+.whole-card {
+    position: sticky;
+    top: 5em;
+    height: 25em;
+    width: 100%;
+}
+
 .profile-card-container {
     width: 80%;
     height: 25em;
@@ -6,6 +13,7 @@
     display: grid;
     grid-template-rows: 40% 20% 40%;
     font-family: sans-serif;
+    position: sticky
 }
 
 .profile-card-image-container {
@@ -15,8 +23,8 @@
 }
 
 .profile-card-image-container img {
-    width: 7em;
-    height: 7em;
+    width: 45%;
+    height: 75%;
     border-radius: 50%;
 }
 
@@ -40,6 +48,7 @@
     grid-template-rows: 1fr 1fr 1fr 1fr;
     padding-left: 1em;
     font-family: 'Times New Roman', Times, serif;
+    overflow: hidden;
 }
 
 .confirm-container h2 {

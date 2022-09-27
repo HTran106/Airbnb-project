@@ -8,31 +8,33 @@ const ProfileCard = () => {
 
     return (
         <>
-            <div className="profile-card-container">
-                <div className='profile-card-image-container'>
-                    <img src={user?.profileImage} alt="profile" />
-                </div>
-                <div className='shield-check'>
-                    <span className='fa-solid fa-shield-halved fa-xl'>
-                    </span>
-                    <div>
-                        <span className='identity-words'>Identity verified</span>
+            <div className='whole-card'>
+                <div className="profile-card-container">
+                    <div className='profile-card-image-container'>
+                        <img src={user?.profileImage} alt="profile" />
                     </div>
-                </div>
-                <div className='confirm-container'>
-                    <h2>{user?.firstName} confirmed</h2>
-                    <div className='check-identity'>
-                        <span className='fa-solid fa-check'>
+                    <div className='shield-check'>
+                        <span className='fa-solid fa-shield-halved fa-xl'>
                         </span>
                         <div>
-                            <span className='identity-words'>Identity</span>
+                            <span className='identity-words'>Identity verified</span>
                         </div>
                     </div>
-                    <div className='check-identity'>
-                        <span className='fa-solid fa-check'>
-                        </span>
-                        <div>
-                            <span className='identity-words'>Email</span>
+                    <div className='confirm-container'>
+                        <h2>{user?.firstName} confirmed</h2>
+                        <div className='check-identity'>
+                            <span className='fa-solid fa-check'>
+                            </span>
+                            <div>
+                                <span className='identity-words'>Identity</span>
+                            </div>
+                        </div>
+                        <div className='check-identity'>
+                            <span className='fa-solid fa-check'>
+                            </span>
+                            <div>
+                                <span className='identity-words'>Email</span>
+                            </div>
                         </div>
                     </div>
                 </div>
