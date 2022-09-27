@@ -16,14 +16,27 @@ const SearchBar = () => {
     const [checkIn, setCheckIn] = useState(null)
     const [checkOut, setCheckOut] = useState(null)
 
+    // if (location.length !== 0 || checkIn || checkOut) {
+    //     dispatch(fetchSearchSpots({ location, checkIn, checkOut }))
+    // } else {
+    //     dispatch(searchAllSpot())
+    // }
     const handleSearch = e => {
         e.preventDefault()
-        if (location.length !== 0 || checkIn || checkOut) {
-            dispatch(fetchSearchSpots({ location, checkIn, checkOut }))
+
+        if (location.length && checkIn && checkOut) {
+            history.push(`/search/${location}/${checkIn}/${checkOut}`)
+        } else if (checkIn) {
+            if (checkOut) {
+                history.push(`/search/${checkIn}/${checkOut}`)
+            } else {
+                window.alert("Please select a check out date")
+            }
+        } else if (location.length) {
+            history.push(`/search/${location}`)
         } else {
-            dispatch(searchAllSpot())
+            history.push(`/search`)
         }
-        history.push('/search')
     }
 
     return (

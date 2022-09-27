@@ -28,6 +28,15 @@ function App() {
       {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
+          <Route path='/search/:location/:checkIn/:checkOut'>
+            <SearchPageComponent setLocation={setLocation} />
+          </Route>
+          <Route path='/search/:checkIn/:checkOut'>
+            <SearchPageComponent setLocation={setLocation} />
+          </Route>
+          <Route path='/search/:location'>
+            <SearchPageComponent setLocation={setLocation} />
+          </Route>
           <Route path='/search'>
             <SearchPageComponent setLocation={setLocation} />
           </Route>
