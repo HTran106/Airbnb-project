@@ -1,16 +1,15 @@
 import HomeSearchComponent from "./HomeSearchComponent"
 import './HomePageComponent.css'
+import '../HomeDetailsComponent/IncludedComponent/IncludedComponent.css';
 import HomePreviews from "./PreviewHomesComponent"
 import LuxeDifferenceComponent from "./LuxeDifferenceComponent"
 import { useEffect } from "react"
+import { images } from "../HomeDetailsComponent/IncludedComponent"
 
 const HomePageComponent = () => {
+    // const filteredImages = images?.filter((image, i) => i < 6)
+    // console.log(filteredImages)
 
-    // useEffect(() => {
-    //     document.addEventListener('scroll', () => {
-    //         document.documentElement.dataset.scroll = window.scrollY;
-    //     });
-    // }, [])
 
     return (
         <div className="home-container">
@@ -23,6 +22,24 @@ const HomePageComponent = () => {
                 <HomePreviews />
             </div>
             <LuxeDifferenceComponent />
+            <div className="personalize-container">
+                <h1 className="amenities-h1">Luxury amenities for all homes</h1>
+                <p>When you book a Luxe home, you with get the best service along with all the best amenities.</p>
+                {images?.map((imgSrc, i) => {
+                    return (
+                        <div key={i} className='image-container'>
+                            <img className='image' src={imgSrc.split(" ")[0]} alt='included' />
+                            <span className='amenity-word'>{imgSrc.split(" ")[1]}</span>
+                        </div>
+                    )
+                })}
+            </div>
+            <div className='bottom-filler-container'>
+                <div className='filler-inside-container'>
+                    <span>© Luxe Events by Huydu Tran</span>
+                    <span style={{ paddingRight: '1em' }}>$ USD</span>
+                </div>
+            </div>
         </div>
     )
 }

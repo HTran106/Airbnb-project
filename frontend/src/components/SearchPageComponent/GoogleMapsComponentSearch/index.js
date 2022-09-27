@@ -25,11 +25,11 @@ const GoogleMapComponentSearch = ({ spots }) => {
     })
 
 
-    // const center = useMemo(() => {
-    //     if (lat && lng) {
-    //         return { lat, lng }
-    //     }
-    // }, [lat, lng])
+    const center = useMemo(() => {
+        if (lat && lng) {
+            return { lat, lng }
+        }
+    }, [lat, lng])
 
     if (!isLoaded) return <div>....loading</div>
 
@@ -38,7 +38,7 @@ const GoogleMapComponentSearch = ({ spots }) => {
             <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&callback=initMap`}>
             </script>
             <div className='search-google-maps-container'>
-                <GoogleMap zoom={zoom} center={{ lat, lng }} mapContainerClassName="search-map-container">
+                <GoogleMap zoom={zoom} center={center} mapContainerClassName="search-map-container">
                     {spots?.map(spot => {
                         const position = { lat: +spot?.lat, lng: +spot?.lng }
                         return (

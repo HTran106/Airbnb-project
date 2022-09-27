@@ -193,13 +193,13 @@ const spotsReducer = (state = {}, action) => {
         case ALL_SPOTS:
             const allSpotsState = { ...state }
             action.payload?.Spots?.forEach(spot => {
-                allSpotsState[spot.id] = spot
+                allSpotsState[spot?.id] = spot
             })
             return allSpotsState
         case MY_SPOTS:
             const mySpotsState = { ...state }
             action.payload?.Spots?.forEach(spot => {
-                mySpotsState[spot.id] = spot
+                mySpotsState[spot?.id] = spot
             })
             return mySpotsState
         case NEW_SPOT:

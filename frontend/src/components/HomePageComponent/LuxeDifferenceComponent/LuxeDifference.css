@@ -29,15 +29,16 @@
     padding-right: 3em;
 }
 
+
 .amenities-box-2 {
     display: grid;
     grid-template-rows: 40% 30% 30%;
-
 }
 
 .amenities-box-content {
     display: flex;
     align-items: center;
+
 }
 
 .amenities-box-words {

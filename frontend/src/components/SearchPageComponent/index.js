@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import GoogleMapComponentSearch from './GoogleMapsComponentSearch';
 import SpotCardComponent from '../SpotCardComponent';
 
+document.addEventListener('scroll', () => {
+    document.documentElement.dataset.scroll = window.scrollY;
+});
 
 const SearchPageComponent = () => {
     const spots = Object.values(useSelector(state => state.search))

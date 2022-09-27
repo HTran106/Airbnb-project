@@ -1,6 +1,6 @@
 import './IncludedComponent.css';
 
-const images = [
+export const images = [
     "https://airbnb-files.s3.us-west-1.amazonaws.com/bartender.jpeg Bartender",
     "https://airbnb-files.s3.us-west-1.amazonaws.com/butler.jpeg Butler",
     "https://airbnb-files.s3.us-west-1.amazonaws.com/chef.jpeg Chef",
