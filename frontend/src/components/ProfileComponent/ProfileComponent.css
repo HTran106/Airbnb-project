@@ -1,0 +1,13 @@
+.profile-component-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-component-inside-container {
+    display: grid;
+    /* padding-top: 20em; */
+    grid-template-columns: 35% 65%;
+    width: 59%;
+    margin-top: 8em;
+}

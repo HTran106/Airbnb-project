@@ -31,8 +31,6 @@ router.get('/search', async (req, res) => {
     checkOut = new Date(checkOut)
   }
 
-  console.log(isProduction)
-
   let where = {}
 
   if (location) {
@@ -44,9 +42,6 @@ router.get('/search', async (req, res) => {
       where.state = { [Op.like]: `%${location}%` }
     }
   }
-
-  console.log(where.city)
-  console.log(where.state)
 
   if (location && checkIn && checkOut) {
     const spots = await Spot.findAll({

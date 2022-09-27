@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import HomePageComponent from "./components/HomePageComponent";
 import HomeDetailsComponent from "./components/HomeDetailsComponent";
 import SearchPageComponent from "./components/SearchPageComponent";
+import ProfileComponent from "./components/ProfileComponent";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route path="/spots/:spotId">
             <HomeDetailsComponent setLocation={setLocation} setNavBar={setNavBar} />
+          </Route>
+          <Route path='/my/account'>
+            <ProfileComponent />
           </Route>
           <Route path="/signup">
             <SignupFormPage setLocation={setLocation} />
