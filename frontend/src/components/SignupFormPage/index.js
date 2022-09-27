@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css'
 
-function SignupFormPage({ setLocation }) {
+function SignupFormPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [email, setEmail] = useState("");
@@ -14,10 +14,6 @@ function SignupFormPage({ setLocation }) {
     const [errors, setErrors] = useState([]);
 
     if (sessionUser) return <Redirect to="/" />;
-
-    // useEffect(() => {
-    //     setLocation(window.location.pathname)
-    // }, [dispatch])
 
     const handleSubmit = (e) => {
         e.preventDefault();
