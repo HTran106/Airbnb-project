@@ -28,9 +28,9 @@ const SearchPageComponent = ({ setLocation }) => {
         <>
             <div className='search-page-container'>
                 <div className='search-left-container'>
-                    {spots?.map(spot => (
+                    {spots.length ? spots?.map(spot => (
                         <SpotCardComponent spot={spot} key={spot?.id} />
-                    ))}
+                    )) : <h1>There are no spots matching your search</h1>}
                 </div>
                 <div className='search-right-maps'>
                     <GoogleMapComponentSearch spots={spots} />
