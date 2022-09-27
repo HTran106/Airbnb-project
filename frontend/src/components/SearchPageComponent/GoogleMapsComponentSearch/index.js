@@ -5,7 +5,6 @@ import SpotCardComponent from '../../SpotCardComponent';
 import { useHistory } from 'react-router-dom';
 
 const GoogleMapComponentSearch = ({ spots }) => {
-
     const history = useHistory()
     let lat = spots?.length <= 10 ? +spots[0]?.lat?.toFixed(2) : 37.17
     let lng = spots?.length <= 10 ? +spots[0]?.lng?.toFixed(2) : -119.73

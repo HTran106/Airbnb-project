@@ -8,6 +8,8 @@ const bookingsRouter = require('./bookings.js')
 const imagesRouter = require('./images.js')
 const { Spot, Booking, Image } = require('../../db/models');
 const { Op } = require('sequelize');
+const { environment } = require('../../config/index.js');
+const isProduction = environment === 'development'
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
@@ -29,9 +31,26 @@ router.get('/search', async (req, res) => {
     checkOut = new Date(checkOut)
   }
 
+  console.log(isProduction)
+
+  let where = {}
+
+  if (location) {
+    if (isProduction) {
+      where.city = { [Op.iLike]: `%${location}%` }
+      where.state = { [Op.iLike]: `%${location}%` }
+    } else {
+      where.city = { [Op.like]: `%${location}%` }
+      where.state = { [Op.like]: `%${location}%` }
+    }
+  }
+
+  console.log(where.city)
+  console.log(where.state)
+
   if (location && checkIn && checkOut) {
     const spots = await Spot.findAll({
-      where: { city: { [Op.like]: `%${location}%` } } || { state: { [Op.like]: `%${location}%` } },
+      where: { city: where.city } || { state: where.state },
       include: [
         {
           model: Booking,
@@ -66,15 +85,7 @@ router.get('/search', async (req, res) => {
     res.json(spots)
   } else if (location) {
     const spots = await Spot.findAll({
-      where: {
-        city: {
-          [Op.like]: `%${location}%`
-        }
-      } ||
-      {
-        state:
-          { [Op.like]: `%${location}%` }
-      },
+      where: { city: where.city } || { state: where.state },
       include: {
         model: Image,
         attributes: ['url']
