@@ -9,7 +9,7 @@ const imagesRouter = require('./images.js')
 const { Spot, Booking, Image } = require('../../db/models');
 const { Op } = require('sequelize');
 const { environment } = require('../../config/index.js');
-const isProduction = environment === 'development'
+const isProduction = environment === 'production'
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
