@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSpotReviews } from '../../../store/reviews';
 
-const months = {
+export const months = {
     1: 'January',
     2: 'February',
     3: 'March',

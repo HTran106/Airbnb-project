@@ -1,9 +1,10 @@
 import ProfileCard from './ProfileCard'
 import './ProfileComponent.css'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchMyReviews } from '../../store/reviews'
 import { fetchMySpots } from '../../store/spots'
+import MyReviewsComponent from './MyReviews'
 
 const ProfileComponent = () => {
     const dispatch = useDispatch()
@@ -12,10 +13,35 @@ const ProfileComponent = () => {
     const reviews = Object.values(useSelector(state => state.reviews))
     const spots = Object.values(useSelector(state => state.spots))
 
+    const [showReviews, setShowReviews] = useState(false)
+    const [showSpots, setShowSpots] = useState(false)
+    const [showBookings, setShowBookings] = useState(false)
+
     useEffect(() => {
         dispatch(fetchMyReviews())
         dispatch(fetchMySpots())
     }, [dispatch])
+
+    const handleShowReview = e => {
+        e.preventDefault()
+        setShowReviews(true)
+        setShowSpots(false)
+        setShowBookings(false)
+    }
+
+    const handleShowSpots = e => {
+        e.preventDefault()
+        setShowReviews(false)
+        setShowSpots(true)
+        setShowBookings(false)
+    }
+
+    const handleShowBookings = e => {
+        e.preventDefault()
+        setShowReviews(false)
+        setShowSpots(false)
+        setShowBookings(true)
+    }
 
     return (
         <div className="profile-component-container">
@@ -50,13 +76,14 @@ const ProfileComponent = () => {
                                 <div>My Bookings</div>
                             </li>
                             <li>
-                                <div>My Reviews</div>
+                                <div onClick={handleShowReview}>My Reviews</div>
                             </li>
                         </ol>
                     </div>
-                    <div className='bottom-components-container'>
-                        <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1>
-                    </div>
+                    {/* <div className='bottom-components-container'> */}
+                    {showReviews && <MyReviewsComponent />}
+                    {/* <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1> */}
+                    {/* </div> */}
                 </div>
             </div>
         </div>

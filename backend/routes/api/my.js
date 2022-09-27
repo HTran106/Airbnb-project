@@ -58,7 +58,12 @@ router.get('/reviews', requireAuth, async (req, res, next) => {
                 attributes: ['id', 'firstName', 'lastName']
             },
             {
-                model: Spot
+                model: Spot,
+                include: {
+                    model: Image,
+                    as: 'images',
+                    attributes: ['url']
+                }
             },
             {
                 model: Image,

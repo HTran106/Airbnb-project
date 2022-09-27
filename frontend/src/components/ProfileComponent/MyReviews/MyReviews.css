@@ -1,0 +1,44 @@
+.review-card-container {
+    display: grid;
+    grid-template-columns: 12em 27em;
+    height: 10em;
+    padding-bottom: 2em;
+}
+
+.my-reviews-container {
+    margin-top: 2em;
+    border-top: 1px solid rgb(221, 221, 221);
+    padding-top: 2em;
+}
+
+.review-spot-img {
+    width: 100%;
+    height: 11em;
+    border-radius: 5px;
+}
+
+.my-reviews-content {
+    display: grid;
+    grid-template-rows: 2em 3em 1fr;
+    padding-left: 1em;
+    padding-top: .2em;
+}
+
+.my-reviews-date {
+    font-size: .8em;
+    color: rgb(153, 153, 153);
+}
+
+.my-reviews-spot-name {
+    font-size: 1.2em;
+}
+
+.review-word {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.my-reviews-review {
+    font-size: .8em;
+    /* margin-top: 1em; */
+}
