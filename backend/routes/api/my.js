@@ -60,7 +60,7 @@ router.get('/reviews', requireAuth, async (req, res, next) => {
         include: [
             {
                 model: User,
-                attributes: ['id', 'firstName', 'lastName']
+                attributes: ['id', 'firstName', 'lastName', 'profileImage', 'createdAt']
             },
             {
                 model: Spot,

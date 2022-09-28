@@ -95,7 +95,7 @@ const ProfileComponent = () => {
                         </ol>
                     </div>
                     {/* <div className='bottom-components-container'> */}
-                    {showReviews && <MyReviewsComponent />}
+                    {showReviews && <MyReviewsComponent setShowReviews={setShowReviews} />}
 
                     {/* <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1> */}
                     {/* </div> */}

@@ -86,14 +86,14 @@ export const editAReview = (reviewData, spotId) => async dispatch => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: {
+        body: JSON.stringify({
             review,
-            stars
-        }
+            stars: +stars
+        })
     })
 
     if (res.ok) {
-        const parsedRes = await res.json(parsedRes)
+        const parsedRes = await res.json(res)
         await dispatch(editedReview(parsedRes))
         return res;
     }

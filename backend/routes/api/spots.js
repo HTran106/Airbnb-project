@@ -222,7 +222,22 @@ router.put('/:spotId/reviews/:reviewId', requireAuth, validateReview, async (req
 
 
     if (spot) {
-        let reviewToUpdate = await Review.findByPk(+reviewId)
+        let reviewToUpdate = await Review.findByPk(+reviewId, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'firstName', 'lastName', 'profileImage', 'createdAt']
+                },
+                {
+                    model: Spot,
+                    include: {
+                        model: Image,
+                        as: 'images',
+                        attributes: ['url']
+                    }
+                }
+            ]
+        })
         if (reviewToUpdate) {
             if (reviewToUpdate.userId === +user.id) {
                 reviewToUpdate = await reviewToUpdate.update({
@@ -230,7 +245,7 @@ router.put('/:spotId/reviews/:reviewId', requireAuth, validateReview, async (req
                     stars,
                 })
                 res.status(200)
-                res.json(review)
+                res.json(reviewToUpdate)
             } else {
                 unauthorized(next)
             }
