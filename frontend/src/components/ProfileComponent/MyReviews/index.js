@@ -3,16 +3,19 @@ import { useEffect } from 'react';
 import { deleteReview, fetchMyReviews } from '../../../store/reviews';
 import { months } from '../../HomeDetailsComponent/ReviewsComponent/index';
 import './MyReviews.css'
+import { useHistory } from 'react-router-dom';
 import { Popup } from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 const MyReviewsComponent = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const reviews = Object.values(useSelector(state => state.reviews));
+
 
     useEffect(() => {
         dispatch(fetchMyReviews())
-    }, [dispatch])
+    }, [dispatch, reviews?.length])
 
     return (
         <>
@@ -20,11 +23,18 @@ const MyReviewsComponent = () => {
                 {reviews?.map(review => (
                     <div key={review?.id} className='review-card-container'>
                         <div className='review-spot-img-container'>
-                            <img className='review-spot-img' src={review?.Spot?.images[0].url} alt='spot' />
+                            <img
+                                onClick={() => history.push(`/spots/${review?.Spot?.id}`)}
+                                className='review-spot-img' src={review?.Spot?.images[0].url}
+                                alt='spot'
+                            />
                         </div>
                         <div className='my-reviews-content'>
                             <div className='my-reviews-spot-name-container'>
-                                <span className='my-reviews-spot-name'>{review?.Spot.name}</span>
+                                <span
+                                    onClick={() => history.push(`/spots/${review?.Spot?.id}`)}
+                                    className='my-reviews-spot-name'>{review?.Spot.name}
+                                </span>
                                 <div className='edit-delete-container'>
                                     <Popup trigger={<span className='edit-delete-buttons'>Edit</span>} position="top center">
                                         <div>Popup content here !!</div>

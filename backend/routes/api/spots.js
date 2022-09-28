@@ -156,7 +156,15 @@ router.get('/:spotId/reviews', async (req, res, next) => {
                     model: Image,
                     as: 'images',
                     attributes: ['url']
-                }
+                },
+                {
+                    model: Spot,
+                    include: {
+                        model: Image,
+                        as: 'images',
+                        attributes: ['url']
+                    }
+                },
             ]
         })
         res.status(200)

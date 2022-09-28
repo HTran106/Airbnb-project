@@ -64,7 +64,7 @@ const ProfileComponent = () => {
                         <div>
                             <span style={{ paddingTop: '1em' }} className='fa-solid fa-star'>
                                 <span className='spot-count'>
-                                    {reviews?.length} Reviews
+                                    {reviews?.length} {reviews.length === 1 ? 'Review' : 'Reviews'}
                                 </span>
                             </span>
                         </div>
