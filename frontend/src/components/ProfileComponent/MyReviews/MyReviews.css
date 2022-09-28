@@ -151,3 +151,9 @@
     border: none;
     color: white;
 }
+
+.my-reviews {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2em;
+}

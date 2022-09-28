@@ -6,15 +6,12 @@ import './MyReviews.css'
 import { useHistory } from 'react-router-dom';
 import { Popup } from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-// import { EditReviewProfile } from '../../../context/Modal';
-import EditReviewFormProfileModal from '../../EditReviewFormModal';
 
 const MyReviewsComponent = ({ setShowReviews }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const ref = useRef();
 
-    const closePopup = () => ref.current.close();
 
     const [reviewBody, setReviewBody] = useState('');
     const [reviewStars, setReviewStars] = useState(0);
@@ -78,6 +75,9 @@ const MyReviewsComponent = ({ setShowReviews }) => {
     return (
         <>
             <div className='my-reviews-container'>
+                <div className='my-reviews'>
+                <h1>My Reviews</h1>
+                </div>
                 {reviews?.map(review => (
                     <div key={review?.id} className='review-card-container'>
                         <div className='review-spot-img-container'>
