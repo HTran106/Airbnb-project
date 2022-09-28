@@ -11,6 +11,11 @@
     padding-top: 1em;
 }
 
+.reviews-star-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .avg-star {
     margin-left: .5em;
     font-size: 1em;

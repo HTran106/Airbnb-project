@@ -26,6 +26,7 @@
     position: absolute;
     background-color: white;
     border-radius: 1em;
+    height: 25em;
 }
 
 #signup-modal {
@@ -60,7 +61,7 @@
     border-radius: 1em;
 }
 
-#edit-review-modal {
+#add-review-modal {
     position: fixed;
     top: 0;
     right: 0;
@@ -71,7 +72,7 @@
     align-items: center;
 }
 
-#edit-review-modal-background {
+#add-review-modal-background {
     position: fixed;
     top: 0;
     right: 0;
@@ -80,9 +81,9 @@
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-#edit-review-modal-content {
+#add-review-modal-content {
     width: 25em;
-    /* height: 20em; */
+    height: 15em;
     display: grid;
     grid-template-rows: 25% 50% 25%;
     position: absolute;

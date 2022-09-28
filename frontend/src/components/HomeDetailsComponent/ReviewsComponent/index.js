@@ -2,6 +2,7 @@ import './ReviewsComponent.css';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSpotReviews } from '../../../store/reviews';
+import AddReviewFormModal from '../../AddReviewFormModal';
 
 export const months = {
     1: 'January',
@@ -26,6 +27,7 @@ const ReviewsComponent = ({ spot }) => {
 
     const [showReviews, setShowReviews] = useState(false);
 
+
     useEffect(() => {
         if (spot?.id) {
             dispatch(fetchSpotReviews(spot?.id))
@@ -38,15 +40,26 @@ const ReviewsComponent = ({ spot }) => {
         }
     }, [reviews])
 
+    const exist = reviews.find(review => review.userId === user?.id)
+
+
 
     return (
         <>
             {showReviews && (
                 <div id='reviews' className='reviews-container'>
-                    <div className='fa-solid fa-star reviews-star'>
-                        <span className='avg-star'>
-                            {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null} ({spot?.numReviews} reviews)
-                        </span>
+                    <div className='reviews-star-container'>
+                        <div className='fa-solid fa-star reviews-star'>
+                            <span className='avg-star'>
+                                {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null} ({spot?.numReviews} reviews)
+                            </span>
+
+
+                        </div>
+                        {exist === undefined && (
+                            <AddReviewFormModal spot={spot} />
+                        )}
+                        {/* <button>add a review</button> */}
                     </div>
                     <div className='reviews-section-container'>
                         {reviews?.map(review => (

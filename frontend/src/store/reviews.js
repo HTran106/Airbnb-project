@@ -55,10 +55,10 @@ export const createAReview = (data, spotId) => async dispatch => {
         headers: {
             "Content-Type": 'application/json'
         },
-        body: {
+        body: JSON.stringify({
             review,
             stars,
-        }
+        })
     })
 
     if (res.ok) {

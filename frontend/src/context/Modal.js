@@ -56,14 +56,14 @@ export function SignUpModal({ onClose, children }) {
 }
 
 
-export function EditReviewModal({ onClose, children }) {
+export function AddReviewModal({ onClose, children }) {
     const modalNode = useContext(ModalContext);
     if (!modalNode) return null;
 
     return ReactDOM.createPortal(
-        <div id="edit-review-modal">
-            <div id="edit-review-modal-background" onClick={onClose} />
-            <div id="edit-review-modal-content">
+        <div id="add-review-modal">
+            <div id="add-review-modal-background" onClick={onClose} />
+            <div id="add-review-modal-content">
                 {children}
             </div>
         </div>,

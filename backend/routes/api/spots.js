@@ -203,8 +203,19 @@ router.post('/:spotId/reviews', requireAuth, validateReview, async (req, res, ne
                 stars,
             })
 
+            const findReview = await Review.findOne({
+                where: {
+                    spotId: +spotId,
+                    userId: +user.id
+                },
+                include: {
+                    model: User,
+                    attributes: ['id', 'firstName', 'lastName', 'profileImage', 'createdAt']
+                }
+            })
+
             res.status(200)
-            res.json(newReview)
+            res.json(findReview)
         }
     } else {
         doesNotExist(next, 'Spot')

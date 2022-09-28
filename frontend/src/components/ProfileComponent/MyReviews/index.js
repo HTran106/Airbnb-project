@@ -154,7 +154,7 @@ const MyReviewsComponent = ({ setShowReviews }) => {
                                                         }
                                                     }}
                                                 >Update</button>
-                                                <button onClick={closePopup} className='done-button'>Done</button>
+                                                {/* <button onClick={closePopup} className='done-button'>Done</button> */}
                                             </div>
                                         </div>
                                     </Popup>
