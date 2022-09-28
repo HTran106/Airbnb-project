@@ -1,0 +1,48 @@
+.my-spots-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.my-spot-card-container {
+    display: grid;
+    grid-template-rows: 2em 10em;
+    width: 45%;
+    margin-bottom: 2em;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+.my-spot-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.my-spot-name {
+    padding-left: .5em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.name-overflow-container {
+    width: 8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.my-spot-image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.my-spot-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 0px 5px 5px;
+    cursor: pointer;
+}

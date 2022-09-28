@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchMyReviews } from '../../store/reviews'
 import { fetchMySpots } from '../../store/spots'
 import MyReviewsComponent from './MyReviews'
+import MySpotsComponent from './MySpots'
 // import { Popup } from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
 
@@ -87,7 +88,7 @@ const ProfileComponent = () => {
                     </div>
                     {/* <div className='bottom-components-container'> */}
                     {showReviews && <MyReviewsComponent setShowReviews={setShowReviews} />}
-
+                    {showSpots && <MySpotsComponent spots={spots} />}
                     {/* <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1> */}
                     {/* </div> */}
                 </div>
