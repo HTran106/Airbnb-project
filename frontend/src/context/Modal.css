@@ -59,3 +59,33 @@
     height: 60%;
     border-radius: 1em;
 }
+
+#edit-review-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-review-modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#edit-review-modal-content {
+    width: 25em;
+    /* height: 20em; */
+    display: grid;
+    grid-template-rows: 25% 50% 25%;
+    position: absolute;
+    background-color: white;
+    border-radius: 1em;
+}

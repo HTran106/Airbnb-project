@@ -6,6 +6,7 @@ import './MyReviews.css'
 import { useHistory } from 'react-router-dom';
 import { Popup } from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { EditReviewModal } from '../../../context/Modal';
 
 const MyReviewsComponent = ({ setShowReviews }) => {
     const dispatch = useDispatch();
@@ -92,12 +93,16 @@ const MyReviewsComponent = ({ setShowReviews }) => {
                                     className='my-reviews-spot-name'>{review?.Spot?.name}
                                 </span>
                                 <div className='edit-delete-container'>
+                                    {/* <EditReviewModal /> */}
+                                    {/* <span className='edit-delete-buttons'>Edit</span> */}
                                     <Popup
                                         ref={ref}
+
                                         contentStyle={{ width: '400px', height: '250px', borderRadius: '10px' }}
+                                        closeOnDocumentClick={false}
                                         trigger={<span className='edit-delete-buttons'>Edit</span>}
                                         position="top center">
-                                        <div className='edit-popup-container'>
+                                        <div ref={ref} className='edit-popup-container'>
                                             <div className='edit-popup-name-container'>
                                                 <img className='edit-review-profile-img' src={review?.User?.profileImage} alt='spot' />
                                                 <div className='edit-review-name-container'>
@@ -138,6 +143,14 @@ const MyReviewsComponent = ({ setShowReviews }) => {
                                                             return alert('Please write a review')
                                                         } else {
                                                             dispatch(editAReview({ review: reviewBody, stars: reviewStars, id: review?.id }, review?.Spot?.id))
+                                                            setReviewBody('')
+                                                            setReviewStars(0)
+                                                            setStarOne('fa-regular fa-star');
+                                                            setStarTwo('fa-regular fa-star');
+                                                            setStarThree('fa-regular fa-star');
+                                                            setStarFour('fa-regular fa-star');
+                                                            setStarFive('fa-regular fa-star');
+                                                            closePopup()
                                                         }
                                                     }}
                                                 >Update</button>
