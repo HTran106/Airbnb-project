@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchSpotReviews } from '../../../store/reviews';
 import AddReviewFormModal from '../../AddReviewFormModal';
 import { deleteReview } from '../../../store/reviews'
+import EditReviewFormModal from '../../EditReviewFormModal';
 
 export const months = {
     1: 'January',
@@ -77,7 +78,7 @@ const ReviewsComponent = ({ spot }) => {
                                             </span>
                                             {review?.userId === user?.id ?
                                                 <div>
-                                                    <span className='edit-review-button'>Edit</span>
+                                                    <EditReviewFormModal review={review} />
                                                     <span
                                                         onClick={e => {
                                                             e.preventDefault();

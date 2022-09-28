@@ -1,0 +1,19 @@
+.add-review-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-review-stars {
+    padding-right: 1em;
+}
+
+.add-review-modal-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-form-text-area {
+    font-size: 1em;
+}
