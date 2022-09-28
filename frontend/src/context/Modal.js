@@ -85,3 +85,18 @@ export function EditReviewModal({ onClose, children }) {
         modalNode
     );
 }
+
+export function EditReviewModalProfile({ onClose, children }) {
+    const modalNode = useContext(ModalContext);
+    if (!modalNode) return null;
+
+    return ReactDOM.createPortal(
+        <div id="edit-review-modal-profile">
+            <div id="edit-review-modal-background-profile" onClick={onClose} />
+            <div id="edit-review-modal-content-profile">
+                {children}
+            </div>
+        </div>,
+        modalNode
+    );
+}

@@ -123,7 +123,7 @@
 
 .update-button-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding-top: .5em;
 }

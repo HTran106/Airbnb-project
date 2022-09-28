@@ -8,7 +8,7 @@ function EditReviewFormModal({ review }) {
     return (
         <>
             <button
-                className='edit-review-button'
+                className='edit-delete-buttons'
                 style={{ backgroundColor: 'transparent', border: 'none', marginLeft: '-1.3em' }}
                 onClick={() => setShowModal(true)}>Edit</button>
             {showModal && (

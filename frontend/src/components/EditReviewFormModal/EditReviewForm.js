@@ -5,7 +5,7 @@ import { editAReview } from "../../store/reviews";
 import './EditReview.css'
 
 
-function AddReviewForm({ review, setShowModal }) {
+function EditReviewForm({ review, setShowModal }) {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
 
@@ -114,4 +114,4 @@ function AddReviewForm({ review, setShowModal }) {
     );
 }
 
-export default AddReviewForm;
+export default EditReviewForm;

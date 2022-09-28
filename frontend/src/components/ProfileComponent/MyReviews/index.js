@@ -6,7 +6,8 @@ import './MyReviews.css'
 import { useHistory } from 'react-router-dom';
 import { Popup } from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import { EditReviewModal } from '../../../context/Modal';
+// import { EditReviewProfile } from '../../../context/Modal';
+import EditReviewFormProfileModal from '../../EditReviewFormModal';
 
 const MyReviewsComponent = ({ setShowReviews }) => {
     const dispatch = useDispatch();
@@ -93,13 +94,9 @@ const MyReviewsComponent = ({ setShowReviews }) => {
                                     className='my-reviews-spot-name'>{review?.Spot?.name}
                                 </span>
                                 <div className='edit-delete-container'>
-                                    {/* <EditReviewModal /> */}
-                                    {/* <span className='edit-delete-buttons'>Edit</span> */}
                                     <Popup
                                         ref={ref}
-
                                         contentStyle={{ width: '400px', height: '250px', borderRadius: '10px' }}
-                                        closeOnDocumentClick={false}
                                         trigger={<span className='edit-delete-buttons'>Edit</span>}
                                         position="top center">
                                         <div ref={ref} className='edit-popup-container'>
@@ -150,11 +147,10 @@ const MyReviewsComponent = ({ setShowReviews }) => {
                                                             setStarThree('fa-regular fa-star');
                                                             setStarFour('fa-regular fa-star');
                                                             setStarFive('fa-regular fa-star');
-                                                            closePopup()
+                                                            history.go('/my/account')
                                                         }
                                                     }}
                                                 >Update</button>
-                                                {/* <button onClick={closePopup} className='done-button'>Done</button> */}
                                             </div>
                                         </div>
                                     </Popup>
@@ -186,4 +182,68 @@ const MyReviewsComponent = ({ setShowReviews }) => {
     )
 }
 
-export default (MyReviewsComponent)
+export default MyReviewsComponent
+
+{/* <EditReviewModal /> */ }
+{/* <span className='edit-delete-buttons'>Edit</span> */ }
+{/* <Popup
+    ref={ref}
+    contentStyle={{ width: '400px', height: '250px', borderRadius: '10px' }}
+    trigger={<span className='edit-delete-buttons'>Edit</span>}
+    position="top center">
+    <div ref={ref} className='edit-popup-container'>
+        <div className='edit-popup-name-container'>
+            <img className='edit-review-profile-img' src={review?.User?.profileImage} alt='spot' />
+            <div className='edit-review-name-container'>
+                <div>
+                    <span>
+                        {review?.User?.firstName} {review?.User?.lastName}
+                        <br></br>
+                        <span className='edit-review-joined-date'>Joined {(new Date(review?.User?.createdAt)).getFullYear()}</span>
+                    </span>
+                </div>
+            </div>
+            <div className='star-container'>
+                <i onClick={handleOneStar} className={starOne}></i>
+                <i onClick={handleTwoStar} className={starTwo}></i>
+                <i onClick={handleThreeStar} className={starThree}></i>
+                <i onClick={handleFourStar} className={starFour}></i>
+                <i onClick={handleFiveStar} className={starFive}></i>
+            </div>
+        </div>
+        <div className='edit-review-input-container'>
+            <textarea
+                value={reviewBody}
+                onChange={e => setReviewBody(e.target.value)}
+                className='edit-form-text-area'
+                placeholder='Write your review here'
+                required
+            >
+            </textarea>
+        </div>
+        <div className='update-button-container'>
+            <button
+                className='update-button'
+                onClick={e => {
+                    e.preventDefault()
+                    if (reviewStars === 0) {
+                        return alert('Please select a star rating')
+                    } else if (reviewBody === '') {
+                        return alert('Please write a review')
+                    } else {
+                        dispatch(editAReview({ review: reviewBody, stars: reviewStars, id: review?.id }, review?.Spot?.id))
+                        setReviewBody('')
+                        setReviewStars(0)
+                        setStarOne('fa-regular fa-star');
+                        setStarTwo('fa-regular fa-star');
+                        setStarThree('fa-regular fa-star');
+                        setStarFour('fa-regular fa-star');
+                        setStarFive('fa-regular fa-star');
+                        // closePopup()
+                    }
+                }}
+            >Update</button>
+            <button onClick={closePopup} className='done-button'>Done</button>
+        </div>
+    </div>
+</Popup> */}
