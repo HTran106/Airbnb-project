@@ -254,7 +254,7 @@ router.delete('/:spotId/reviews/:reviewId', requireAuth, async (req, res, next) 
         if (review) {
             if (review.userId === +user.id) {
                 await review.destroy();
-                res.json({ msg: 'Successfully deleted', statusCode: res.statusCode })
+                res.json({ id: +reviewId, msg: 'Successfully deleted', statusCode: res.statusCode })
             } else {
                 unauthorized(next)
             }

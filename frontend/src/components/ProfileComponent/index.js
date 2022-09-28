@@ -18,6 +18,9 @@ const ProfileComponent = () => {
     const [showReviews, setShowReviews] = useState(false)
     const [showSpots, setShowSpots] = useState(false)
     const [showBookings, setShowBookings] = useState(false)
+    const [reviewTabBackground, setReviewTabBackground] = useState({})
+    const [spotTabBackground, setSpotTabBackground] = useState({})
+    const [bookingTabBackground, setBookingTabBackground] = useState({})
 
     useEffect(() => {
         dispatch(fetchMyReviews())
@@ -29,6 +32,9 @@ const ProfileComponent = () => {
         setShowReviews(true)
         setShowSpots(false)
         setShowBookings(false)
+        setReviewTabBackground({ backgroundColor: '#ff385c' })
+        setSpotTabBackground({})
+        setBookingTabBackground({})
     }
 
     const handleShowSpots = e => {
@@ -36,6 +42,9 @@ const ProfileComponent = () => {
         setShowReviews(false)
         setShowSpots(true)
         setShowBookings(false)
+        setSpotTabBackground({ backgroundColor: '#ff385c' })
+        setReviewTabBackground({})
+        setBookingTabBackground({})
     }
 
     const handleShowBookings = e => {
@@ -43,6 +52,9 @@ const ProfileComponent = () => {
         setShowReviews(false)
         setShowSpots(false)
         setShowBookings(true)
+        setBookingTabBackground({ backgroundColor: '#ff385c' })
+        setReviewTabBackground({})
+        setSpotTabBackground({})
     }
 
     return (
@@ -69,15 +81,15 @@ const ProfileComponent = () => {
                             </span>
                         </div>
                     </div>
-                    <div class="menu-container">
+                    <div className="menu-container">
                         <ol>
-                            <li>
-                                <div onClick={handleShowSpots}>My Spots</div>
+                            <li style={spotTabBackground}>
+                                <div style={{}} onClick={handleShowSpots}>My Spots</div>
                             </li>
-                            <li>
+                            <li style={bookingTabBackground}>
                                 <div onClick={handleShowBookings}>My Bookings</div>
                             </li>
-                            <li>
+                            <li style={reviewTabBackground}>
                                 <div onClick={handleShowReview}>My Reviews</div>
                             </li>
                         </ol>
@@ -89,7 +101,7 @@ const ProfileComponent = () => {
                     {/* </div> */}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -12,10 +12,9 @@ const MyReviewsComponent = () => {
     const history = useHistory();
     const reviews = Object.values(useSelector(state => state.reviews));
 
-
     useEffect(() => {
         dispatch(fetchMyReviews())
-    }, [dispatch, reviews?.length])
+    }, [dispatch])
 
     return (
         <>

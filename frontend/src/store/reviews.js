@@ -126,7 +126,7 @@ export const deleteReview = (spotId, reviewId) => async dispatch => {
 const reviewsReducer = (state = {}, action) => {
     switch (action.type) {
         case MY_REVIEWS:
-            const myReviewsState = {}
+            const myReviewsState = { ...state }
             action.payload?.forEach(review => {
                 myReviewsState[review.id] = review
             })
@@ -147,7 +147,7 @@ const reviewsReducer = (state = {}, action) => {
             return editReviewState
         case DELETE_REVIEW:
             const deleteReviewState = { ...state }
-            delete deleteReviewState[action.payload]
+            delete deleteReviewState[action.payload.id]
             return deleteReviewState
         default:
             return state
