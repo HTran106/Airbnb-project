@@ -9,6 +9,7 @@ router.get('/', async (req, res, next) => {
     let spots = await Spot.findAll({
         include: {
             model: Image,
+            as: 'images',
             attributes: ['url']
         }
     })
@@ -45,7 +46,7 @@ router.get('/:spotId', async (req, res, next) => {
             attributes: ['url']
         })
 
-        spot.dataValues.Images = images
+        spot.dataValues.images = images
 
         let avgStar = 0
         stars.forEach(star => {

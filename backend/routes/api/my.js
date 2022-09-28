@@ -12,6 +12,11 @@ router.get('/spots', requireAuth, async (req, res, next) => {
     const spots = await Spot.findAll({
         where: {
             ownerId: user.id
+        },
+        include: {
+            model: Image,
+            as: 'images',
+            attributes: ['url']
         }
     })
 

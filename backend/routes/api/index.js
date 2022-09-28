@@ -56,6 +56,7 @@ router.get('/search', async (req, res) => {
         },
         {
           model: Image,
+          as: 'images',
           attributes: ['url']
         }
       ]
@@ -73,6 +74,7 @@ router.get('/search', async (req, res) => {
         },
         {
           model: Image,
+          as: 'images',
           attributes: ['url']
         }
       ]
@@ -83,6 +85,7 @@ router.get('/search', async (req, res) => {
       where: { city: where.city } || { state: where.state },
       include: {
         model: Image,
+        as: 'images',
         attributes: ['url']
       }
     })

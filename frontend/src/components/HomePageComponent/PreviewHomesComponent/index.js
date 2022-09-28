@@ -3,13 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchAllSpots } from '../../../store/spots'
 
-const HomePreviews = ({ spots }) => {
+const HomePreviews = () => {
     const dispatch = useDispatch()
-    // const spots = Object.values(useSelector(state => state.spots))
+    const spots = Object.values(useSelector(state => state.spots))
 
-    // useEffect(() => {
-    //     dispatch(fetchAllSpots())
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(fetchAllSpots())
+    }, [dispatch])
 
     return (
         <>
