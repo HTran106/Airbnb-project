@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSpotReviews } from '../../../store/reviews';
 import AddReviewFormModal from '../../AddReviewFormModal';
+import { deleteReview } from '../../../store/reviews'
 
 export const months = {
     1: 'January',
@@ -75,8 +76,15 @@ const ReviewsComponent = ({ spot }) => {
                                                 {months[new Date(review?.User?.createdAt).getMonth()]} {new Date(review?.User?.createdAt).getFullYear()}
                                             </span>
                                             {review?.userId === user?.id ?
-                                                <a className='edit-review-button'>Edit review</a>
-                                                : null}
+                                                <div>
+                                                    <span className='edit-review-button'>Edit</span>
+                                                    <span
+                                                        onClick={e => {
+                                                            e.preventDefault();
+                                                            dispatch(deleteReview(spot?.id, review?.id))
+                                                        }}
+                                                        style={{ paddingLeft: '.5em' }} className='edit-review-button'> Delete</span>
+                                                </div> : null}
                                         </div>
                                     </div>
                                 </div>

@@ -47,6 +47,7 @@
     padding-top: .3em;
     letter-spacing: .5px;
     color: blue;
+    cursor: pointer;
 }
 
 .profile-image-area {
