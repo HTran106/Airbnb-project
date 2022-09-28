@@ -50,7 +50,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                     </span>
                                 </div>
                                 <div className='big-image'>
-                                    <img className='spot-image' src={spot?.Images[0]?.url} alt='spot' />
+                                    <img className='spot-image' src={spot?.images[0]?.url} alt='spot' />
                                 </div>
                             </div>
                             <div className='description-container'>
@@ -71,14 +71,14 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                     <div style={{ paddingRight: '.2em' }}>
                                         <img
                                             style={{ borderRadius: '1em 0 0 0' }}
-                                            src={spot?.Images[1]?.url}
+                                            src={spot?.images[1]?.url}
                                             alt="previewImage"
                                         />
                                     </div>
                                     <div style={{ paddingLeft: '.2em' }}>
                                         <img
                                             style={{ borderRadius: '0 1em 0 0' }}
-                                            src={spot?.Images[2]?.url}
+                                            src={spot?.images[2]?.url}
                                             alt="previewImage"
                                         />
                                     </div>
@@ -87,20 +87,20 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                     <div style={{ paddingRight: '.2em', marginTop: '.3em' }}>
                                         <img
                                             style={{ borderRadius: '0 0 0 1em' }}
-                                            src={spot?.Images[3]?.url}
+                                            src={spot?.images[3]?.url}
                                             alt="previewImage"
                                         />
                                     </div>
                                     <div style={{ paddingLeft: '.2em', paddingRight: '.2em', marginTop: '.3em' }}>
                                         <img
-                                            src={spot?.Images[4]?.url}
+                                            src={spot?.images[4]?.url}
                                             alt="previewImage"
                                         />
                                     </div>
                                     <div style={{ paddingLeft: '.2em', marginTop: '.3em' }}>
                                         <img
                                             style={{ borderRadius: '0 0 1em 0' }}
-                                            src={spot?.Images[5]?.url}
+                                            src={spot?.images[5]?.url}
                                             alt="previewImage"
                                         />
                                     </div>

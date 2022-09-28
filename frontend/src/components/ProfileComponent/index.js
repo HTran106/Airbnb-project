@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchMyReviews } from '../../store/reviews'
 import { fetchMySpots } from '../../store/spots'
 import MyReviewsComponent from './MyReviews'
+// import { Popup } from 'reactjs-popup';
+// import 'reactjs-popup/dist/index.css';
 
 const ProfileComponent = () => {
     const dispatch = useDispatch()
@@ -70,10 +72,10 @@ const ProfileComponent = () => {
                     <div class="menu-container">
                         <ol>
                             <li>
-                                <div>My Spots</div>
+                                <div onClick={handleShowSpots}>My Spots</div>
                             </li>
                             <li>
-                                <div>My Bookings</div>
+                                <div onClick={handleShowBookings}>My Bookings</div>
                             </li>
                             <li>
                                 <div onClick={handleShowReview}>My Reviews</div>
@@ -82,6 +84,7 @@ const ProfileComponent = () => {
                     </div>
                     {/* <div className='bottom-components-container'> */}
                     {showReviews && <MyReviewsComponent />}
+
                     {/* <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1> */}
                     {/* </div> */}
                 </div>

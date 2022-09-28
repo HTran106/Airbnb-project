@@ -22,7 +22,7 @@ const HomePreviews = ({ spots }) => {
                                 {/* need real image */}
                                 <img
                                     className='preview-image'
-                                    src={spots[0]?.Images[0]?.url}
+                                    src={spots[0]?.images[0]?.url}
                                     alt='previewImage'>
                                 </img>
                             </div>
@@ -39,7 +39,7 @@ const HomePreviews = ({ spots }) => {
                                 <div >
                                     <img
                                         className='preview-image'
-                                        src={spots[1]?.Images[0]?.url}
+                                        src={spots[1]?.images[0]?.url}
                                         alt='previewImage'>
                                     </img>
                                 </div>
@@ -52,7 +52,7 @@ const HomePreviews = ({ spots }) => {
                                 <div>
                                     <img
                                         className='preview-image'
-                                        src={spots[2]?.Images[0]?.url}
+                                        src={spots[2]?.images[0]?.url}
                                         alt='previewImage'>
                                     </img>
                                 </div>
@@ -69,7 +69,7 @@ const HomePreviews = ({ spots }) => {
                                 <div>
                                     <img
                                         className='preview-image'
-                                        src={spots[3]?.Images[0]?.url}
+                                        src={spots[3]?.images[0]?.url}
                                         alt='previewImage'>
                                     </img>
                                 </div>
@@ -82,7 +82,7 @@ const HomePreviews = ({ spots }) => {
                                 <div>
                                     <img
                                         className='preview-image'
-                                        src={spots[4]?.Images[0]?.url}
+                                        src={spots[4]?.images[0]?.url}
                                         alt='previewImage'>
                                     </img>
                                 </div>
@@ -97,7 +97,7 @@ const HomePreviews = ({ spots }) => {
                                 {/* need real image */}
                                 <img
                                     className='preview-image'
-                                    src={spots[5]?.Images[0]?.url}
+                                    src={spots[5]?.images[0]?.url}
                                     alt='previewImage'>
                                 </img>
                             </div>

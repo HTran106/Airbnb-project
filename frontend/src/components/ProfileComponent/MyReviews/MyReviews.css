@@ -24,6 +24,11 @@
     padding-top: .2em;
 }
 
+.my-reviews-spot-name-container {
+    display: grid;
+    grid-template-columns: 70% 1fr;
+}
+
 .my-reviews-date {
     font-size: .8em;
     color: rgb(153, 153, 153);
@@ -31,6 +36,10 @@
 
 .my-reviews-spot-name {
     font-size: 1.2em;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .review-word {
@@ -38,7 +47,26 @@
     font-weight: 500;
 }
 
+.star-custom {
+    font-size: 12px;
+}
+
+fa-star {
+    color: yellow;
+}
+
 .my-reviews-review {
     font-size: .8em;
-    /* margin-top: 1em; */
+}
+
+.edit-delete-container {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 14px;
+    padding-top: .3em;
+}
+
+.edit-delete-buttons {
+    color: blue;
+    cursor: pointer;
 }

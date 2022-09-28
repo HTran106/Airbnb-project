@@ -42,7 +42,7 @@ const SpotCardComponent = ({ spot }) => {
                     setShowArrow(false)
                 }}
             ><div
-                style={{ backgroundImage: `url(${spot?.Images[index]?.url})` }}
+                style={{ backgroundImage: `url(${spot?.images[index]?.url})` }}
                 className='spot-card-image spot-card-image-container'
 
             >
@@ -52,7 +52,7 @@ const SpotCardComponent = ({ spot }) => {
                             </button></div>)
                         : (<div></div>)
                     }
-                    {showArrow && index !== spot?.Images.length - 1 ? (
+                    {showArrow && index !== spot?.images.length - 1 ? (
                         <div>
                             <button onClick={handleRight} className='fa-solid fa-angle-right card-right'>
                             </button>
