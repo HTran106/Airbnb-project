@@ -18,9 +18,9 @@ const ProfileComponent = () => {
     const [showReviews, setShowReviews] = useState(false)
     const [showSpots, setShowSpots] = useState(false)
     const [showBookings, setShowBookings] = useState(false)
-    const [reviewTabBackground, setReviewTabBackground] = useState({})
-    const [spotTabBackground, setSpotTabBackground] = useState({})
-    const [bookingTabBackground, setBookingTabBackground] = useState({})
+    // const [reviewTabBackground, setReviewTabBackground] = useState({})
+    // const [spotTabBackground, setSpotTabBackground] = useState({})
+    // const [bookingTabBackground, setBookingTabBackground] = useState({})
 
     useEffect(() => {
         dispatch(fetchMyReviews())
@@ -32,9 +32,6 @@ const ProfileComponent = () => {
         setShowReviews(true)
         setShowSpots(false)
         setShowBookings(false)
-        setReviewTabBackground({ backgroundColor: '#ff385c' })
-        setSpotTabBackground({})
-        setBookingTabBackground({})
     }
 
     const handleShowSpots = e => {
@@ -42,9 +39,6 @@ const ProfileComponent = () => {
         setShowReviews(false)
         setShowSpots(true)
         setShowBookings(false)
-        setSpotTabBackground({ backgroundColor: '#ff385c' })
-        setReviewTabBackground({})
-        setBookingTabBackground({})
     }
 
     const handleShowBookings = e => {
@@ -52,9 +46,6 @@ const ProfileComponent = () => {
         setShowReviews(false)
         setShowSpots(false)
         setShowBookings(true)
-        setBookingTabBackground({ backgroundColor: '#ff385c' })
-        setReviewTabBackground({})
-        setSpotTabBackground({})
     }
 
     return (
@@ -83,13 +74,13 @@ const ProfileComponent = () => {
                     </div>
                     <div className="menu-container">
                         <ol>
-                            <li style={spotTabBackground}>
+                            <li>
                                 <div style={{}} onClick={handleShowSpots}>My Spots</div>
                             </li>
-                            <li style={bookingTabBackground}>
+                            <li>
                                 <div onClick={handleShowBookings}>My Bookings</div>
                             </li>
-                            <li style={reviewTabBackground}>
+                            <li>
                                 <div onClick={handleShowReview}>My Reviews</div>
                             </li>
                         </ol>
