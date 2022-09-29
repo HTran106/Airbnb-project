@@ -97,15 +97,15 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res, next) => {
     if (spot) {
         if (spot.ownerId === +user.id) {
             await spot.update({
-                address,
-                city,
-                state,
-                country,
-                lat,
-                lng,
-                name,
-                description,
-                price,
+                address: address || spot.address,
+                city: city || spot.city,
+                state: state || spot.state,
+                country: country || spot.country,
+                lat: lat || spot.lat,
+                lng: lng || spot.lng,
+                name: name || spot.name,
+                description: description || spot.description,
+                price: price || spot.price
             })
             res.json(spot)
         } else {
