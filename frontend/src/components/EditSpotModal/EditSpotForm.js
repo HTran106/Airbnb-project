@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import ModalHomePreviewComponent from './ModalHomePreviewComponent';
 import { useDispatch, useSelector } from "react-redux";
 import './EditSpot.css'
-import { createNewSpot, fetchAllSpots } from "../../store/spots";
+import { editASpot } from "../../store/spots";
+import validator from 'validator'
 
 
 
 
-function CreateSpotForm({ setShowModal }) {
+function EditSpotForm({ setShowModal, spot }) {
     const dispatch = useDispatch();
 
     const [name, setName] = useState('');
@@ -25,9 +25,26 @@ function CreateSpotForm({ setShowModal }) {
     }
 
 
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
+
+        if (!validator.isFloat(`${lat}`)) {
+            alert('Please enter a valid latitude')
+            return
+        }
+
+        if (!validator.isFloat(`${lng}`)) {
+            alert('Please enter a valid longitude')
+            return
+        }
+
+        if (!validator.isInt(`${price}`)) {
+            alert('Please enter a valid price')
+            return
+        }
+
         const spotData = {
+            id: spot?.id,
             name,
             description,
             address,
@@ -38,6 +55,7 @@ function CreateSpotForm({ setShowModal }) {
             lng,
             price
         }
+        dispatch(editASpot(spotData))
         setShowModal(false)
     }
 
@@ -52,7 +70,6 @@ function CreateSpotForm({ setShowModal }) {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    required
                 />
                 <label className="create-spot-label">Address</label>
                 <input
@@ -60,7 +77,6 @@ function CreateSpotForm({ setShowModal }) {
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    required
                 />
                 <label className="create-spot-label">City</label>
                 <input
@@ -68,7 +84,6 @@ function CreateSpotForm({ setShowModal }) {
                     type="text"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    required
                 />
                 <label className="create-spot-label">State</label>
                 <input
@@ -76,7 +91,6 @@ function CreateSpotForm({ setShowModal }) {
                     type="text"
                     value={state}
                     onChange={(e) => setState(e.target.value)}
-                    required
                 />
                 <label className="create-spot-label">Country</label>
                 <input
@@ -84,7 +98,6 @@ function CreateSpotForm({ setShowModal }) {
                     type="text"
                     value={country}
                     onChange={(e) => setCountry(e.target.value)}
-                    required
                 />
                 <label className="create-spot-label">Lat</label>
                 <input
@@ -92,7 +105,6 @@ function CreateSpotForm({ setShowModal }) {
                     type="text"
                     value={lat}
                     onChange={(e) => setLat(e.target.value)}
-                    required
                 />
                 <label className="create-spot-label">Lng</label>
                 <input
@@ -100,15 +112,14 @@ function CreateSpotForm({ setShowModal }) {
                     type="text"
                     value={lng}
                     onChange={(e) => setLng(e.target.value)}
-                    required
                 />
                 <label className="create-spot-label">Description</label>
-                <input
+                <textarea
+                    style={{ height: "100px" }}
                     className="create-spot-input"
                     type="text"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    required
                 />
                 <label className="create-spot-label">Price</label>
                 <input
@@ -116,7 +127,6 @@ function CreateSpotForm({ setShowModal }) {
                     type="text"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
-                    required
                 />
                 <div className="create-spot-button-container">
                     <button onClick={closeModal} className="create-spot-cancel">Cancel</button>
@@ -127,7 +137,7 @@ function CreateSpotForm({ setShowModal }) {
     )
 }
 
-export default CreateSpotForm;
+export default EditSpotForm;
 
 // userId: user.id,
 //     name,

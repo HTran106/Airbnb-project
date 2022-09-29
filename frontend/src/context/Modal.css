@@ -203,8 +203,8 @@
 }
 
 #edit-spot-modal-content {
-    width: 90%;
-    height: 75%;
+    width: 50%;
+    height: 65%;
     position: absolute;
     background-color: whitesmoke;
     border-radius: 5px;

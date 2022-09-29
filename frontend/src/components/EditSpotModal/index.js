@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { EditSpotModal } from '../../context/Modal';
 import EditSpotForm from './EditSpotForm';
 
-function EditSpotFormModal() {
+function EditSpotFormModal({ spot }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
         <>
-            <button className='update-button' onClick={() => setShowModal(true)}>Host a spot</button>
+            <span className='edit-delete-buttons' onClick={() => setShowModal(true)}>Edit</span>
             {showModal && (
                 <EditSpotModal onClose={() => setShowModal(false)}>
-                    <EditSpotForm setShowModal={setShowModal} />
+                    <EditSpotForm spot={spot} setShowModal={setShowModal} />
                 </EditSpotModal>
             )}
         </>

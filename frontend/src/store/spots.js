@@ -101,7 +101,6 @@ export const editSpot = spot => ({
 })
 
 export const editASpot = spot => async dispatch => {
-    const user = useSelector(state => state.session.user)
     const { address, city, state, country, lat, lng, name, description, price, squareFt } = spot
 
     const res = await csrfFetch(`/api/spots/${spot.id}`, {
@@ -109,8 +108,7 @@ export const editASpot = spot => async dispatch => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: {
-            userId: user.id,
+        body: JSON.stringify({
             address,
             city,
             state,
@@ -121,13 +119,13 @@ export const editASpot = spot => async dispatch => {
             description,
             price,
             squareFt
-        }
+        })
     })
 
     if (res.ok) {
         const parsedRes = await res.json(res)
         await dispatch(editSpot(parsedRes))
-        return res
+        return parsedRes;
     }
 }
 
@@ -207,7 +205,12 @@ const spotsReducer = (state = {}, action) => {
             return newSpotState
         case EDIT_SPOT:
             const editSpotState = { ...state }
-            editSpotState[action.payload?.id] = action.payload
+            for (let key in editSpotState) {
+                if (editSpotState[key].id === action.payload.id) {
+                    editSpotState[key] = action.payload
+                }
+            }
+            // editSpotState[action.payload?.id] = action.payload
             return editSpotState
         case DELETE_SPOT:
             const deletedSpotState = { ...state }

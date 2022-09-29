@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import CreateSpotFormModal from '../../CreateSpotModal'
 import { useDispatch } from 'react-redux'
 import { deleteSpot } from '../../../store/spots'
+import EditSpotFormModal from '../../EditSpotModal'
 
 const MySpotsComponent = ({ spots }) => {
     const history = useHistory()
@@ -21,8 +22,8 @@ const MySpotsComponent = ({ spots }) => {
                 </div>
             </div>
             <div className='my-spots-container'>
-                {spots?.map(spot => (
-                    <div key={spot?.id} className='my-spot-card-container'>
+                {spots?.map((spot, i) => (
+                    <div key={i} className='my-spot-card-container'>
                         <div className='my-spot-card-top'>
                             <div className='name-overflow-container'>
                                 <span
@@ -33,7 +34,7 @@ const MySpotsComponent = ({ spots }) => {
                                 </span>
                             </div>
                             <div>
-                                <span className='edit-delete-buttons'>Edit</span>
+                                <EditSpotFormModal spot={spot} />
                                 <span
                                     onClick={() => handleSpotDelete(spot?.id)}
                                     style={{ paddingLeft: '1em', paddingRight: '.5em' }}
