@@ -24,10 +24,12 @@ module.exports = (sequelize, DataTypes) => {
     senderId: {
       allowNull: false,
       type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
     },
     recipientId: {
       allowNull: false,
       type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
     },
     messageId: DataTypes.INTEGER,
     body: DataTypes.STRING

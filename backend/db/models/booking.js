@@ -24,12 +24,13 @@ module.exports = (sequelize, DataTypes) => {
     userId: {
       allowNull: false,
       type: DataTypes.INTEGER,
-      unique: true
+      unique: true,
+      onDelete: 'CASCADE',
     },
     spotId: {
       allowNull: false,
       type: DataTypes.INTEGER,
-
+      onDelete: 'CASCADE',
     },
     startDate: {
       allowNull: false,

@@ -24,11 +24,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     userId: {
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
     },
     spotId: {
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
     },
     review: {
       allowNull: false,

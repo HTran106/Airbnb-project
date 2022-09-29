@@ -23,11 +23,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     spotId: {
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
     },
     reviewId: {
       allowNull: true,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
     },
     imageType: {
       allowNull: false,
