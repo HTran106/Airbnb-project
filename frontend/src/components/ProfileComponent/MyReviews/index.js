@@ -76,7 +76,7 @@ const MyReviewsComponent = ({ setShowReviews }) => {
         <>
             <div className='my-reviews-container'>
                 <div className='my-reviews'>
-                <h1>My Reviews</h1>
+                    <h1>My Reviews</h1>
                 </div>
                 {reviews?.map(review => (
                     <div key={review?.id} className='review-card-container'>
@@ -166,7 +166,7 @@ const MyReviewsComponent = ({ setShowReviews }) => {
                                 ))}
                                 <span className='my-reviews-date'> {months[new Date(review?.createdAt).getMonth()]} {new Date(review?.createdAt).getFullYear()}</span>
                             </div>
-                            <div>
+                            <div className='review-body-container'>
                                 <span className='review-word'>
                                     Review:
                                 </span>
