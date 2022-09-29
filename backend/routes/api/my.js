@@ -13,11 +13,18 @@ router.get('/spots', requireAuth, async (req, res, next) => {
         where: {
             ownerId: user.id
         },
-        include: {
-            model: Image,
-            as: 'images',
-            attributes: ['url']
-        }
+        include: [
+            {
+                model: Image,
+                as: 'images',
+                attributes: ['url']
+            },
+            {
+                model: User,
+                as: 'Owner',
+                attributes: ['firstName', 'lastName', 'email']
+            }
+        ]
     })
 
     if (spot) {

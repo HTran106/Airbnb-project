@@ -65,7 +65,7 @@ router.get('/:spotId', async (req, res, next) => {
 
 // CREATE A SPOT
 router.post('/', requireAuth, validateSpot, async (req, res, next) => {
-    const { address, city, state, country, lat, lng, name, description, price } = req.body
+    const { address, city, state, country, lat, lng, name, description, price, images } = req.body
     const { user } = req
 
     const newSpot = await Spot.create({
@@ -81,8 +81,34 @@ router.post('/', requireAuth, validateSpot, async (req, res, next) => {
         price,
     })
 
+    images.forEach(image => {
+        Image.create({
+            spotId: newSpot.id,
+            imageType: 'spot',
+            url: image
+        })
+    })
+
+    const spot = await Spot.findOne({
+        where: {
+            id: +newSpot.id
+        },
+        include: [
+            {
+                model: User,
+                as: 'Owner',
+                attributes: ['id', 'firstName', 'lastName']
+            },
+            {
+                model: Image,
+                as: 'images',
+                attributes: ['url']
+            }
+        ]
+    })
+
     res.status(201)
-    res.json(newSpot)
+    res.json(spot)
 })
 
 
