@@ -14,7 +14,7 @@
 
 .create-spot-container input {
     margin-bottom: .3em;
-    
+
 }
 
 .create-spot-button-container {
@@ -33,7 +33,7 @@
 }
 
 .create-spot-preview-container {
-    overflow: scroll;
+    overflow: auto;
     height: 100%;
     width: 100%;
 }

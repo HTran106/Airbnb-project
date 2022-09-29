@@ -178,6 +178,6 @@
     grid-template-columns: 35% 65%;
     position: absolute;
     background-color: whitesmoke;
-    border-radius: 1em;
+    border-radius: 5px;
     margin-top: 4em;
 }
