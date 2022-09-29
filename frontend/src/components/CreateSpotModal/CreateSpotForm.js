@@ -68,21 +68,6 @@ function CreateSpotForm({ setShowModal }) {
         const images = [image1, image2, image3, image4, image5, image6]
         dispatch(createNewSpot(spotData, images))
         setShowModal(false)
-        // setName('')
-        // setDescription('')
-        // setAddress('')
-        // setCity('')
-        // setState('')
-        // setCountry('')
-        // setLat('')
-        // setLng('')
-        // setPrice('')
-        // setImage1('')
-        // setImage2('')
-        // setImage3('')
-        // setImage4('')
-        // setImage5('')
-        // setImage6('')
     }
 
 
@@ -146,20 +131,21 @@ function CreateSpotForm({ setShowModal }) {
                     onChange={(e) => setLng(e.target.value)}
                     required
                 />
-                <label className="create-spot-label">Description</label>
-                <input
-                    className="create-spot-input"
-                    type="text"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                />
                 <label className="create-spot-label">Price</label>
                 <input
                     className="create-spot-input"
                     type="text"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
+                    required
+                />
+                <label className="create-spot-label">Description</label>
+                <textarea
+                    style={{ height: '75px' }}
+                    className="create-spot-input"
+                    type="text"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     required
                 />
                 <label className="create-spot-label">Image Url (for more exposure, please add 6 images)</label>

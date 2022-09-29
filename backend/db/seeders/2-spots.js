@@ -263,7 +263,6 @@ module.exports = {
         description: "Let us host your next event!  Our spacious warehouse offers all the space needed for any event.",
         price: 1240
       },
-
     ])
     /**
      * Add seed commands here.

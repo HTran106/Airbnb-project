@@ -1,0 +1,14 @@
+.hosted-by {
+    font-size: .9rem;
+    font-weight: 500;
+    color: rgb(167, 165, 165);
+    letter-spacing: .5px;
+}
+
+.my-booking-dates {
+    font-size: 1.2em;
+}
+
+.booking-date-container {
+    padding-top: 2em;
+}

@@ -173,7 +173,7 @@
 
 #create-spot-modal-content {
     width: 90%;
-    height: 75%;
+    height: 80%;
     display: grid;
     grid-template-columns: 35% 65%;
     position: absolute;

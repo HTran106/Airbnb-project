@@ -43,9 +43,23 @@ router.get('/bookings', requireAuth, async (req, res) => {
         where: {
             userId: +user.id
         },
-        include: {
-            model: Spot
-        }
+        include: [
+            {
+                model: Spot,
+                include: [
+                    {
+                        model: Image,
+                        as: 'images',
+                        attributes: ['url']
+                    },
+                    {
+                        model: User,
+                        as: 'Owner',
+                        attributes: ['firstName', 'lastName', 'email']
+                    }
+                ]
+            },
+        ]
     })
 
     if (bookings) {

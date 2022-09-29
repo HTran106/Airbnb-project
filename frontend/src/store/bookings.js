@@ -124,7 +124,7 @@ export const deleteBooking = bookingId => async dispatch => {
 const bookingsReducer = (state = {}, action) => {
     switch (action.type) {
         case MY_BOOKINGS:
-            const myBookingsState = { ...state }
+            const myBookingsState = {}
             action.payload.Bookings?.forEach(booking => {
                 myBookingsState[booking.id] = booking
             })

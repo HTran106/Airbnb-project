@@ -113,12 +113,23 @@ router.post('/', requireAuth, validateSpot, async (req, res, next) => {
 
 
 // EDIT A SPOT
-router.put('/:spotId', requireAuth, validateSpot, async (req, res, next) => {
+router.put('/:spotId', requireAuth, async (req, res, next) => {
     const { spotId } = req.params;
     const { user } = req
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
-    const spot = await Spot.findByPk(spotId)
+    const spot = await Spot.findOne({
+        where: {
+            id: +spotId
+        },
+        include: [
+            {
+                model: Image,
+                as: 'images',
+                attributes: ['url']
+            },
+        ]
+    })
 
     if (spot) {
         if (spot.ownerId === +user.id) {
