@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
-import { useDispatch, useSelector } from "react-redux";
-import { createAReview } from "../../store/reviews";
+import React, { useState, useEffect } from "react";
 import ModalHomePreviewComponent from './ModalHomePreviewComponent';
+import { useDispatch, useSelector } from "react-redux";
 import './CreateSpot.css'
+import { createNewSpot, fetchAllSpots } from "../../store/spots";
+import { addImageToSpot } from "../../store/images";
+
 
 
 function CreateSpotForm({ setShowModal }) {
+    const dispatch = useDispatch();
+
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
@@ -28,9 +31,43 @@ function CreateSpotForm({ setShowModal }) {
     }
 
 
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const spotData = {
+            name,
+            description,
+            address,
+            city,
+            state,
+            country,
+            lat,
+            lng,
+            price
+        }
+        const images = [image1, image2, image3, image4, image5, image6]
+        dispatch(createNewSpot(spotData, images))
+        setShowModal(false)
+        // setName('')
+        // setDescription('')
+        // setAddress('')
+        // setCity('')
+        // setState('')
+        // setCountry('')
+        // setLat('')
+        // setLng('')
+        // setPrice('')
+        // setImage1('')
+        // setImage2('')
+        // setImage3('')
+        // setImage4('')
+        // setImage5('')
+        // setImage6('')
+    }
+
+
     return (
         <>
-            <form className="create-spot-container">
+            <form onSubmit={handleSubmit} className="create-spot-container">
                 <label className="create-spot-label">Name
                 </label>
                 <input

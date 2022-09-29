@@ -2,9 +2,12 @@ import './PreviewHomesComponent.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchAllSpots } from '../../../store/spots'
+import { useHistory } from 'react-router-dom'
 
 const HomePreviews = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
+
     const spots = Object.values(useSelector(state => state.spots))
 
     useEffect(() => {
@@ -16,26 +19,28 @@ const HomePreviews = () => {
             {
                 spots.length && (<div className='preview-homes-container'>
                     <div className='preview-homes-left'>
-                        {/* add onClick to home details */}
-                        <div className='left-top'>
+                        <div
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => history.push(`/search/${spots[0]?.city}`)}
+                            className='left-top'>
                             <div>
-                                {/* need real image */}
-                                <img
+                                {spots[0]?.images[0] && <img
                                     className='preview-image'
                                     src={spots[0]?.images[0]?.url}
                                     alt='previewImage'>
-                                </img>
+                                </img>}
                             </div>
-                            {/* {spotsLeft[0] && (
-                        <img src={spotsLeft[0]?.}
-                    )} */}
                             <div style={{ fontSize: '1.3em' }} className='city-name'>
                                 <span className='stays'>100+ stays</span>
                                 <span>{spots[0]?.city}</span>
                             </div>
                         </div>
                         <div className='left-bottom-container'>
-                            <div className='left-bottom' style={{ marginRight: '.3em' }}>
+                            <div
+
+                                onClick={() => history.push(`/search/${spots[1]?.city}`)}
+                                className='left-bottom'
+                                style={{ marginRight: '.3em', cursor: 'pointer' }}>
                                 <div >
                                     <img
                                         className='preview-image'
@@ -48,7 +53,10 @@ const HomePreviews = () => {
                                     <span>{spots[1]?.city}</span>
                                 </div>
                             </div>
-                            <div style={{ marginLeft: '.5em' }} className='left-bottom'>
+                            <div
+                                onClick={() => history.push(`/search/${spots[2]?.city}`)}
+                                style={{ marginLeft: '.5em', cursor: 'pointer' }}
+                                className='left-bottom'>
                                 <div>
                                     <img
                                         className='preview-image'
@@ -65,7 +73,10 @@ const HomePreviews = () => {
                     </div>
                     <div className='preview-homes-right'>
                         <div className='left-bottom-container'>
-                            <div className='right-top' style={{ marginRight: '1em' }}>
+                            <div
+                                onClick={() => history.push(`/search/${spots[3]?.city}`)}
+                                className='right-top'
+                                style={{ cursor: 'pointer', marginRight: '1em' }}>
                                 <div>
                                     <img
                                         className='preview-image'
@@ -78,7 +89,10 @@ const HomePreviews = () => {
                                     <span>{spots[3]?.city}</span>
                                 </div>
                             </div>
-                            <div className='right-top'>
+                            <div
+                                onClick={() => history.push(`/search/${spots[4]?.city}`)}
+                                style={{ cursor: 'pointer' }}
+                                className='right-top'>
                                 <div>
                                     <img
                                         className='preview-image'
@@ -92,18 +106,17 @@ const HomePreviews = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='right-bottom'>
+                        <div
+                            onClick={() => history.push(`/search/${spots[5]?.city}`)}
+                            style={{ cursor: 'pointer' }}
+                            className='right-bottom'>
                             <div>
-                                {/* need real image */}
                                 <img
                                     className='preview-image'
                                     src={spots[5]?.images[0]?.url}
                                     alt='previewImage'>
                                 </img>
                             </div>
-                            {/* {spotsLeft[0] && (
-                        <img src={spotsLeft[0]?.}
-                    )} */}
                             <div style={{ fontSize: '1.3em' }} className='city-name'>
                                 <span className='stays'>100+ stays</span>
                                 <span>{spots[5]?.city}</span>

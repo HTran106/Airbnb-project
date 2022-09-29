@@ -1,9 +1,16 @@
 import './MySpotsComponent.css'
 import { useHistory } from 'react-router-dom'
 import CreateSpotFormModal from '../../CreateSpotModal'
+import { useDispatch } from 'react-redux'
+import { deleteSpot } from '../../../store/spots'
 
 const MySpotsComponent = ({ spots }) => {
     const history = useHistory()
+    const dispatch = useDispatch()
+
+    const handleSpotDelete = spotId => {
+        dispatch(deleteSpot(spotId))
+    }
 
     return (
         <>
@@ -28,6 +35,7 @@ const MySpotsComponent = ({ spots }) => {
                             <div>
                                 <span className='edit-delete-buttons'>Edit</span>
                                 <span
+                                    onClick={() => handleSpotDelete(spot?.id)}
                                     style={{ paddingLeft: '1em', paddingRight: '.5em' }}
                                     className='edit-delete-buttons'>Delete
                                 </span>
