@@ -181,3 +181,32 @@
     border-radius: 5px;
     margin-top: 4em;
 }
+
+#edit-spot-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-spot-modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#edit-spot-modal-content {
+    width: 90%;
+    height: 75%;
+    position: absolute;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin-top: 4em;
+}

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ModalHomePreviewComponent from './ModalHomePreviewComponent';
 import { useDispatch, useSelector } from "react-redux";
-import './CreateSpot.css'
+import './EditSpot.css'
 import { createNewSpot, fetchAllSpots } from "../../store/spots";
-import validator from 'validator'
 
 
 
@@ -20,12 +19,6 @@ function CreateSpotForm({ setShowModal }) {
     const [lat, setLat] = useState('');
     const [lng, setLng] = useState('');
     const [price, setPrice] = useState('');
-    const [image1, setImage1] = useState('');
-    const [image2, setImage2] = useState('');
-    const [image3, setImage3] = useState('');
-    const [image4, setImage4] = useState('');
-    const [image5, setImage5] = useState('');
-    const [image6, setImage6] = useState('');
 
     const closeModal = e => {
         setShowModal(false)
@@ -34,26 +27,6 @@ function CreateSpotForm({ setShowModal }) {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        if (!validator.isFloat(`${lat}`)) {
-            alert('Please enter a valid latitude')
-            return
-        }
-
-        if (!validator.isFloat(`${lng}`)) {
-            alert('Please enter a valid longitude')
-            return
-        }
-
-        if (!validator.isInt(`${price}`)) {
-            alert('Please enter a valid price')
-            return
-        }
-
-        if (!validator.isURL(`${image1}`) || validator.isURL(`${image2}`) || validator.isURL(`${image3}`) || validator.isURL(`${image4}`) || validator.isURL(`${image5}`) || validator.isURL(`${image6}`)) {
-            alert('Please enter a valid URL')
-            return
-        }
-
         const spotData = {
             name,
             description,
@@ -65,24 +38,7 @@ function CreateSpotForm({ setShowModal }) {
             lng,
             price
         }
-        const images = [image1, image2, image3, image4, image5, image6]
-        dispatch(createNewSpot(spotData, images))
         setShowModal(false)
-        // setName('')
-        // setDescription('')
-        // setAddress('')
-        // setCity('')
-        // setState('')
-        // setCountry('')
-        // setLat('')
-        // setLng('')
-        // setPrice('')
-        // setImage1('')
-        // setImage2('')
-        // setImage3('')
-        // setImage4('')
-        // setImage5('')
-        // setImage6('')
     }
 
 
@@ -162,55 +118,11 @@ function CreateSpotForm({ setShowModal }) {
                     onChange={(e) => setPrice(e.target.value)}
                     required
                 />
-                <label className="create-spot-label">Image Url (for more exposure, please add 6 images)</label>
-                <input
-                    className="create-spot-input"
-                    type="text"
-                    value={image1}
-                    onChange={(e) => setImage1(e.target.value)}
-                    required
-                />
-                <input
-                    className="create-spot-input"
-                    type="text"
-                    value={image2}
-                    onChange={(e) => setImage2(e.target.value)}
-                    required
-                />
-                <input
-                    className="create-spot-input"
-                    type="text"
-                    value={image3}
-                    onChange={(e) => setImage3(e.target.value)}
-                    required
-                />
-                <input
-                    className="create-spot-input"
-                    type="text"
-                    value={image4}
-                    onChange={(e) => setImage4(e.target.value)}
-                    required
-                />
-                <input
-                    className="create-spot-input"
-                    type="text"
-                    value={image5}
-                    onChange={(e) => setImage5(e.target.value)}
-                    required
-                />
-                <input
-                    className="create-spot-input"
-                    type="text"
-                    value={image6}
-                    onChange={(e) => setImage6(e.target.value)}
-                    required
-                />
                 <div className="create-spot-button-container">
                     <button onClick={closeModal} className="create-spot-cancel">Cancel</button>
-                    <button type='submit' className="create-spot-button">Host Spot</button>
+                    <button type='submit' className="create-spot-button">Confirm</button>
                 </div>
             </form>
-            <ModalHomePreviewComponent />
         </>
     )
 }

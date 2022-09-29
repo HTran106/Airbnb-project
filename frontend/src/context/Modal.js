@@ -115,3 +115,18 @@ export function CreateSpotModal({ onClose, children }) {
         modalNode
     );
 }
+
+export function EditSpotModal({ onClose, children }) {
+    const modalNode = useContext(ModalContext);
+    if (!modalNode) return null;
+
+    return ReactDOM.createPortal(
+        <div id="edit-spot-modal">
+            <div id="edit-spot-modal-background" onClick={onClose} />
+            <div id="edit-spot-modal-content">
+                {children}
+            </div>
+        </div>,
+        modalNode
+    );
+}
