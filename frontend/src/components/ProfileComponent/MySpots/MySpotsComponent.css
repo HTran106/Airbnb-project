@@ -4,6 +4,24 @@
     justify-content: space-around;
 }
 
+.my-spots {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2em;
+    border-top: 1px solid rgb(221, 221, 221);
+    margin-top: 2em;
+    padding-top: 2em;
+    padding-left: 2em;
+    width: 94%;
+}
+
+.host-spot-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 2em;
+}
+
 .my-spot-card-container {
     display: grid;
     grid-template-rows: 2em 10em;
@@ -13,6 +31,7 @@
     border: none;
     background-color: white;
     box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+    width: 18em;
 }
 
 .my-spot-card-top {

@@ -1,17 +1,21 @@
 import './MySpotsComponent.css'
 import { useHistory } from 'react-router-dom'
+import CreateSpotFormModal from '../../CreateSpotModal'
 
 const MySpotsComponent = ({ spots }) => {
     const history = useHistory()
 
     return (
         <>
-            <div className='my-reviews'>
-                <h1>My Spots</h1>
+            <div className='my-spots'>
+                <h1 style={{ paddingLeft: '.4em' }}>My Spots</h1>
+                <div className='host-spot-button-container'>
+                    <CreateSpotFormModal />
+                </div>
             </div>
             <div className='my-spots-container'>
                 {spots?.map(spot => (
-                    <div className='my-spot-card-container'>
+                    <div key={spot?.id} className='my-spot-card-container'>
                         <div className='my-spot-card-top'>
                             <div className='name-overflow-container'>
                                 <span

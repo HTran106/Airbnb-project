@@ -16,12 +16,12 @@ const ProfileComponent = () => {
     const reviews = Object.values(useSelector(state => state.reviews))
     const spots = Object.values(useSelector(state => state.spots))
 
-    const [showReviews, setShowReviews] = useState(false)
+    const [showReviews, setShowReviews] = useState(true)
     const [showSpots, setShowSpots] = useState(false)
     const [showBookings, setShowBookings] = useState(false)
-    // const [reviewTabBackground, setReviewTabBackground] = useState({})
-    // const [spotTabBackground, setSpotTabBackground] = useState({})
-    // const [bookingTabBackground, setBookingTabBackground] = useState({})
+    const [reviewTabBackground, setReviewTabBackground] = useState({})
+    const [spotTabBackground, setSpotTabBackground] = useState({})
+    const [bookingTabBackground, setBookingTabBackground] = useState({})
 
     useEffect(() => {
         dispatch(fetchMyReviews())

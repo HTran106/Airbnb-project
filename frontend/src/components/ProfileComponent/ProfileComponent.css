@@ -59,7 +59,7 @@
 div.menu-container {
     margin-right: 30px;
     padding-top: 2em;
-    width: 35em;
+    width: 45em;
 }
 
 ol>li {
@@ -95,6 +95,7 @@ ol {
     position: relative;
 }
 
+
 ol>li>div:after,
 ol>li>div:before {
     content: "";
@@ -119,6 +120,6 @@ ol>li>div:before {
     border-width: 14px;
     display: block;
     border-color: transparent transparent transparent whitesmoke;
-    z-index: 2;
+    z-index: 1;
     top: 1px;
 }

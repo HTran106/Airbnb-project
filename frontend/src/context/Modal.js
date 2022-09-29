@@ -100,3 +100,18 @@ export function EditReviewModalProfile({ onClose, children }) {
         modalNode
     );
 }
+
+export function CreateSpotModal({ onClose, children }) {
+    const modalNode = useContext(ModalContext);
+    if (!modalNode) return null;
+
+    return ReactDOM.createPortal(
+        <div id="edit-review-modal">
+            <div id="create-spot-modal-background" onClick={onClose} />
+            <div id="create-spot-modal-content">
+                {children}
+            </div>
+        </div>,
+        modalNode
+    );
+}
