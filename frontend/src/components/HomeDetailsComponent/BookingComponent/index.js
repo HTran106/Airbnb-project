@@ -123,7 +123,9 @@ const BookingComponent = ({ spot, showReserve }) => {
                     <div className='total-container'>
                         <div className='total-card-top-container'>
                             <div className='top-card-img-container'>
-                                <img className='small-image' src={spot?.images[0]?.url}>
+                                <img
+                                    className='small-image'
+                                    src={spot?.images[0]?.url ? spot?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}>
                                 </img>
                             </div>
                             <div className='top-card-wording-container'>

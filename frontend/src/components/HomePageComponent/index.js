@@ -34,7 +34,10 @@ const HomePageComponent = ({ setLocation }) => {
                 {images?.map((imgSrc, i) => {
                     return (
                         <div key={i} className='image-container'>
-                            <img className='image' src={imgSrc.split(" ")[0]} alt='included' />
+                            <img
+                                className='image'
+                                src={imgSrc.split(" ")[0] ? imgSrc.split(" ")[0] : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
+                                alt='included' />
                             <span className='amenity-word'>{imgSrc.split(" ")[1]}</span>
                         </div>
                     )

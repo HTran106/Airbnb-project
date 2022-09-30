@@ -26,7 +26,7 @@ const HomePreviews = () => {
                             <div>
                                 {spots[0]?.images[0] && <img
                                     className='preview-image'
-                                    src={spots[0]?.images[0]?.url}
+                                    src={spots[0]?.images[0]?.url ? spots[0]?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                     alt='previewImage'>
                                 </img>}
                             </div>
@@ -44,7 +44,7 @@ const HomePreviews = () => {
                                 <div >
                                     <img
                                         className='preview-image'
-                                        src={spots[1]?.images[0]?.url}
+                                        src={spots[1]?.images[0]?.url ? spots[1]?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                         alt='previewImage'>
                                     </img>
                                 </div>
@@ -60,7 +60,7 @@ const HomePreviews = () => {
                                 <div>
                                     <img
                                         className='preview-image'
-                                        src={spots[2]?.images[0]?.url}
+                                        src={spots[2]?.images[0]?.url ? spots[2]?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                         alt='previewImage'>
                                     </img>
                                 </div>
@@ -80,7 +80,7 @@ const HomePreviews = () => {
                                 <div>
                                     <img
                                         className='preview-image'
-                                        src={spots[3]?.images[0]?.url}
+                                        src={spots[3]?.images[0]?.url ? spots[3]?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                         alt='previewImage'>
                                     </img>
                                 </div>
@@ -96,7 +96,7 @@ const HomePreviews = () => {
                                 <div>
                                     <img
                                         className='preview-image'
-                                        src={spots[4]?.images[0]?.url}
+                                        src={spots[4]?.images[0]?.url ? spots[4]?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                         alt='previewImage'>
                                     </img>
                                 </div>
@@ -113,7 +113,7 @@ const HomePreviews = () => {
                             <div>
                                 <img
                                     className='preview-image'
-                                    src={spots[5]?.images[0]?.url}
+                                    src={spots[5]?.images[0]?.url ? spots[5]?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                     alt='previewImage'>
                                 </img>
                             </div>

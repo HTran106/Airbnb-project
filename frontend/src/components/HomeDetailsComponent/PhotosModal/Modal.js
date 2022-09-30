@@ -45,7 +45,10 @@ const PicModal = ({ showModal, setShowModal, images, setNavBar, i, setI }) => {
                                         </button></div>)
                                     : (<div></div>)}
                                 <div className='current-image'>
-                                    <img className='mid-image' src={images[i].url} alt='preview' />
+                                    <img
+                                        className='mid-image'
+                                        src={images[i].url ? images[i].url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
+                                        alt='preview' />
                                 </div>
                                 {i !== images.length - 1 ? (
                                     <div className='arrow-container'>

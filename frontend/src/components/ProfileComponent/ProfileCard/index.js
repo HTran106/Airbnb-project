@@ -11,7 +11,9 @@ const ProfileCard = () => {
             <div className='whole-card'>
                 <div className="profile-card-container">
                     <div className='profile-card-image-container'>
-                        <img src={user?.profileImage} alt="profile" />
+                        <img
+                            src={user?.profileImage ? user?.profileImage : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
+                            alt="profile" />
                     </div>
                     <div className='shield-check'>
                         <span className='fa-solid fa-shield-halved fa-xl'>

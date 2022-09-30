@@ -50,7 +50,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                     </span>
                                 </div>
                                 <div className='big-image'>
-                                    <img className='spot-image' src={spot?.images[0]?.url} alt='spot' />
+                                    <img className='spot-image' src={spot?.images[0]?.url ? spot?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'} alt='spot' />
                                 </div>
                             </div>
                             <div className='description-container'>
@@ -71,14 +71,14 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                     <div style={{ paddingRight: '.2em' }}>
                                         <img
                                             style={{ borderRadius: '1em 0 0 0' }}
-                                            src={spot?.images[1]?.url}
+                                            src={spot?.images[1]?.url ? spot?.images[1]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                             alt="previewImage"
                                         />
                                     </div>
                                     <div style={{ paddingLeft: '.2em' }}>
                                         <img
                                             style={{ borderRadius: '0 1em 0 0' }}
-                                            src={spot?.images[2]?.url}
+                                            src={spot?.images[2]?.url ? spot?.images[2]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                             alt="previewImage"
                                         />
                                     </div>
@@ -87,20 +87,20 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                     <div style={{ paddingRight: '.2em', marginTop: '.3em' }}>
                                         <img
                                             style={{ borderRadius: '0 0 0 1em' }}
-                                            src={spot?.images[3]?.url}
+                                            src={spot?.images[3]?.url ? spot?.images[3]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                             alt="previewImage"
                                         />
                                     </div>
                                     <div style={{ paddingLeft: '.2em', paddingRight: '.2em', marginTop: '.3em' }}>
                                         <img
-                                            src={spot?.images[4]?.url}
+                                            src={spot?.images[4]?.url ? spot?.images[4]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                             alt="previewImage"
                                         />
                                     </div>
                                     <div style={{ paddingLeft: '.2em', marginTop: '.3em' }}>
                                         <img
                                             style={{ borderRadius: '0 0 1em 0' }}
-                                            src={spot?.images[5]?.url}
+                                            src={spot?.images[5]?.url ? spot?.images[5]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                             alt="previewImage"
                                         />
                                     </div>

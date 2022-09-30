@@ -83,7 +83,8 @@ const MyReviewsComponent = ({ setShowReviews }) => {
                         <div className='review-spot-img-container'>
                             <img
                                 onClick={() => history.push(`/spots/${review?.Spot?.id}`)}
-                                className='review-spot-img' src={review?.Spot?.images[0].url}
+                                className='review-spot-img'
+                                src={review?.Spot?.images[0].url ? review?.Spot?.images[0].url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                 alt='spot'
                             />
                         </div>
@@ -101,7 +102,10 @@ const MyReviewsComponent = ({ setShowReviews }) => {
                                         position="top center">
                                         <div ref={ref} className='edit-popup-container'>
                                             <div className='edit-popup-name-container'>
-                                                <img className='edit-review-profile-img' src={review?.User?.profileImage} alt='spot' />
+                                                <img
+                                                    className='edit-review-profile-img'
+                                                    src={review?.User?.profileImage ? review?.User?.profileImage : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
+                                                    alt='spot' />
                                                 <div className='edit-review-name-container'>
                                                     <div>
                                                         <span>

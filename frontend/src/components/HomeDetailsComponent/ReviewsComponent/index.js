@@ -67,7 +67,10 @@ const ReviewsComponent = ({ spot }) => {
                         {reviews?.map(review => (
                             <div key={review?.id} className='reviews-card-container'>
                                 <div className='profile-image-area'>
-                                    <img className='review-profile-image' src={review?.User?.profileImage} alt='profileImage' />
+                                    <img
+                                        className='review-profile-image'
+                                        src={review?.User?.profileImage ? review?.User?.profileImage : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
+                                        alt='profileImage' />
                                     <div className='name-container'>
                                         <span style={{ fontWeight: '600' }}>
                                             {review?.User?.firstName}

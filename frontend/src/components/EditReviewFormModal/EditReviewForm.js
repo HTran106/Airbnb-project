@@ -66,7 +66,7 @@ function EditReviewForm({ review, setShowModal }) {
         <>
             <div className='add-review-container'>
                 <div className="add-review-username-area">
-                    <img className='edit-review-profile-img' src={user?.profileImage} alt='spot' />
+                    <img className='edit-review-profile-img' src={user?.profileImage ? user?.profileImage : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'} alt='spot' />
 
                 </div>
                 <div className='add-review-stars'>
