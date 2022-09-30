@@ -9,7 +9,6 @@ export const addedImageSpot = image => ({
 })
 
 export const addImageToSpot = (url, spotId) => async dispatch => {
-    console.log(url)
     const res = await csrfFetch(`/api/spots/${spotId}/images`, {
         method: 'POST',
         headers: {

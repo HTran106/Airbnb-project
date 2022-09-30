@@ -9,7 +9,6 @@ const MyBookings = () => {
     const history = useHistory();
     const bookings = Object.values(useSelector(state => state.bookings))
     const todaysDate = new Date();
-    console.log(new Date().toLocaleString().split(', ')[0])
 
     useEffect(() => {
         dispatch(fetchMyBookings())

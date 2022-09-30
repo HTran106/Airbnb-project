@@ -5,19 +5,18 @@ import SpotCardComponent from '../../SpotCardComponent';
 import { useHistory } from 'react-router-dom';
 
 const GoogleMapComponentSearch = ({ spots }) => {
-    let lat = spots?.length <= 10 ? +spots[0]?.lat?.toFixed(2) : 37.17
-    let lng = spots?.length <= 10 ? +spots[0]?.lng?.toFixed(2) : -119.73
+    let lat = spots?.length <= 10 ? +spots[0]?.lat?.toFixed(2) : 36.53
+    let lng = spots?.length <= 10 ? +spots[0]?.lng?.toFixed(2) : -116.93
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     })
 
-
     const center = useMemo(() => {
         if (lat && lng) {
             return { lat, lng }
         } else {
-            return { lat: 37.17, lng: -119.73 }
+            return { lat: 36.53, lng: -116.93 }
         }
     }, [lat, lng])
 

@@ -23,7 +23,6 @@ const ProfileComponent = () => {
     const [reviewTabBackground, setReviewTabBackground] = useState({})
     const [spotTabBackground, setSpotTabBackground] = useState({})
     const [bookingTabBackground, setBookingTabBackground] = useState({})
-    console.log(spots)
 
     useEffect(() => {
         dispatch(fetchMyReviews())

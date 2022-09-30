@@ -32,6 +32,11 @@ const LoginButton = () => {
         setOpenMenu(!openMenu)
     }
 
+    const handleAccountBtn = () => {
+        setOpenMenu(!openMenu)
+        history.push('/my/account')
+    }
+
     if (sessionUser) {
         return (
             <div className='login-button-container'>
@@ -41,7 +46,7 @@ const LoginButton = () => {
                 </button>
                 {openMenu && (
                     <div className='opened-menu-container'>
-                        <div>Profile</div>
+                        <div onClick={handleAccountBtn}>Account</div>
                         <div>Host an event</div>
                         <div onClick={handleLogout}>Logout</div>
                     </div>
