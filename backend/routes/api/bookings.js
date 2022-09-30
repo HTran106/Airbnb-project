@@ -1,6 +1,6 @@
 const express = require('express');
 const { requireAuth, doesNotExist, unauthorized } = require('../../utils/auth');
-const { Booking } = require('../../db/models');
+const { Booking, Image, User, Spot } = require('../../db/models');
 const router = express.Router();
 
 // EDIT A BOOKING
@@ -53,8 +53,29 @@ router.put('/:bookingId', requireAuth, async (req, res, next) => {
                     startDate,
                     endDate,
                 })
+
+                const updatedBookingWithSpot = await Booking.findByPk(+bookingId, {
+                    include: [
+                        {
+                            model: Spot,
+                            include: [
+                                {
+                                    model: Image,
+                                    as: 'images',
+                                    attributes: ['url']
+                                },
+                                {
+                                    model: User,
+                                    as: 'Owner',
+                                    attributes: ['firstName', 'lastName', 'email']
+                                }
+                            ]
+                        }
+                    ]
+                })
+
                 res.status(200)
-                res.json(updatedBooking)
+                res.json(updatedBookingWithSpot)
             }
         } else {
             unauthorized(next)

@@ -78,9 +78,9 @@ export const editedBooking = booking => ({
     payload: booking
 })
 
-export const editABooking = booking => async dispatch => {
-    const { startDate, endDate } = booking
-    const res = await csrfFetch(`/api/bookings/${booking?.id}`, {
+export const editABooking = (dates, bookingId) => async dispatch => {
+    const { startDate, endDate } = dates
+    const res = await csrfFetch(`/api/bookings/${bookingId}`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"

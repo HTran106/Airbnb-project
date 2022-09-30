@@ -1,6 +1,6 @@
 .review-card-container {
     display: grid;
-    grid-template-columns: 12em 27em;
+    grid-template-columns: 12em 1fr;
     height: 10em;
     padding-bottom: 2em;
 }

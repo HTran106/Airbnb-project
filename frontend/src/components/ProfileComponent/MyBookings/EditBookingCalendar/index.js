@@ -1,20 +1,19 @@
-import './BookingComponent.css';
 import Calendar from 'react-calendar';
-import './Datepicker.css';
 import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchBookingsForSpot } from '../../../store/bookings';
 import { subDays, addDays, getTime } from 'date-fns';
-import { createBooking } from '../../../store/bookings';
+import { editABooking } from '../../../../store/bookings';
+import './EditBookingCalendar.css'
 
-const BookingComponent = ({ spot, showReserve }) => {
+
+const EditBookingCalendar = ({ spot, bookingId }) => {
     const dispatch = useDispatch();
 
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [showSummary, setShowSummary] = useState(false);
-    const [confirmButton, setConfirmButton] = useState('Reserve')
+    const [confirmButton, setConfirmButton] = useState('Edit Booking')
     const [disabled, setDisabled] = useState(false);
     console.log(spot)
 
@@ -51,39 +50,25 @@ const BookingComponent = ({ spot, showReserve }) => {
         setShowSummary(true);
     }
 
-    const handleBooking = e => {
+    const handleEditBooking = e => {
         e.preventDefault();
-        dispatch(createBooking({ startDate, endDate }, spot?.id))
+        dispatch(editABooking({ startDate, endDate }, bookingId))
             .then(() => {
                 setDisabled(true)
                 setConfirmButton('Confirmed ✓')
-                dispatch(fetchBookingsForSpot(spot?.id))
-                bookings.push({ start: new Date(startDate), end: new Date(endDate) })
             })
     }
-
-    useEffect(() => {
-        if (spot?.id) {
-            dispatch(fetchBookingsForSpot(spot?.id));
-        }
-    }, [dispatch, spot?.id])
-
 
     return (
         <>
             <div className="booking-component-container">
-                <div style={showSummary ? { justifyContent: 'center' } : null} className="booking-card-container">
+                <div className="booking-card-container">
                     <div className='booking-card'>
                         <div className='title'>
                             <span className='price'>
                                 ${(spot?.price)?.toLocaleString("en-US")}
                                 <span className='night'> night</span>
                             </span>
-                            <div className='fa-solid fa-star review-star fa-sm booking-reviews'>
-                                <span className='avg-review'>{spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null} ·
-                                    <a className='all-reviews' href={`#reviews`}>{spot?.numReviews} reviews</a>
-                                </span>
-                            </div>
                         </div>
                         <div className='checkin-out-container'>
                             <div style={{ paddingLeft: '1em' }} className='checkin-out-words'>
@@ -132,13 +117,6 @@ const BookingComponent = ({ spot, showReserve }) => {
                             <div className='top-card-wording-container'>
                                 <span className='entire'>Entire villa</span>
                                 <span className='name'>{spot?.name}</span>
-                                <span className='fa-solid fa-star fa-xs booking-star'>
-                                    <span className='booking-star-words'>
-                                        {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null}
-                                        <span style={{ color: 'rgb(179, 174, 174)' }}> ({spot?.numReviews} reviews)
-                                        </span>
-                                    </span>
-                                </span>
                             </div>
                         </div>
                         <div className='total-price-details-container'>
@@ -167,7 +145,7 @@ const BookingComponent = ({ spot, showReserve }) => {
                             </div>
                             <div className='long-reserve-container2'>
                                 <button
-                                    onClick={handleBooking}
+                                    onClick={handleEditBooking}
                                     className='long-reserve-button'
                                     disabled={disabled}
                                 >{confirmButton}</button>
@@ -181,4 +159,4 @@ const BookingComponent = ({ spot, showReserve }) => {
 
 }
 
-export default BookingComponent
+export default EditBookingCalendar
