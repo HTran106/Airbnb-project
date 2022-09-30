@@ -24,7 +24,7 @@ export const fetchSearchSpots = searchValues => async dispatch => {
         res = await csrfFetch(`/api/search?location=${location}`)
     }
 
-    if (res) {
+    if (res.ok) {
         if (res.ok) {
             const parsedRes = await res.json(res)
             await dispatch(searchSpot(parsedRes))
@@ -54,7 +54,7 @@ const searchReducer = (state = {}, action) => {
     switch (action.type) {
         case SEARCH_SPOT:
             const searchSpotState = {}
-            action.payload.forEach(spot => {
+            action.payload?.forEach(spot => {
                 searchSpotState[spot.id] = spot
             })
             return searchSpotState
