@@ -106,7 +106,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div id='hey' >
+                            <div id='calendar' >
                                 {/* <div className='show-all-photos-container'> */}
                                 <PhotosModal setNavBar={setNavBar} images={spot?.images} />
                                 {/* </div> */}

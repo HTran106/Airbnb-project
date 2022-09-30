@@ -41,7 +41,7 @@
     display: grid;
     min-width: 0;
     grid-template-columns: repeat(2, 1fr);
-    width: 97.5%;
+    width: 100%;
     /* max-width: %; */
 }
 

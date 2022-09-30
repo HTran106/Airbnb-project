@@ -70,7 +70,7 @@ const BookingComponent = ({ spot, showReserve }) => {
 
     return (
         <>
-            <div id='calendar' className="booking-component-container">
+            <div className="booking-component-container">
                 <div style={showSummary ? { justifyContent: 'center' } : null} className="booking-card-container">
                     <div className='booking-card'>
                         <div className='title'>
