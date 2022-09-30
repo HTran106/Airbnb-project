@@ -110,7 +110,10 @@ export const deletedBooking = bookingId => ({
 
 export const deleteBooking = bookingId => async dispatch => {
     const res = await csrfFetch(`/api/bookings/${bookingId}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json"
+        }
     })
 
     if (res.ok) {

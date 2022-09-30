@@ -1,18 +1,23 @@
 import './MyBookings.css';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMyBookings } from '../../../store/bookings';
+import { deleteBooking, fetchMyBookings } from '../../../store/bookings';
 import { useHistory } from 'react-router-dom';
 
 const MyBookings = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const bookings = Object.values(useSelector(state => state.bookings))
+    const todaysDate = new Date();
     console.log(new Date().toLocaleString().split(', ')[0])
 
     useEffect(() => {
         dispatch(fetchMyBookings())
     }, [dispatch]);
+
+    const handleDeleteBooking = (bookingId) => {
+        dispatch(deleteBooking(bookingId))
+    }
 
     return (
         <div className='my-reviews-container'>
@@ -36,10 +41,24 @@ const MyBookings = () => {
                                     className='my-reviews-spot-name'
                                 >{booking?.Spot?.city}
                                 </span>
-                                <div className='edit-delete-container'>
+                                {new Date(booking?.startDate) <= todaysDate && new Date(booking?.endDate) >= todaysDate ?
+                                    <span className='current-booking-txt'>Current Booking</span> :
+                                    new Date(booking?.endDate) < todaysDate ?
+                                        <span className='current-booking-txt'>Past Booking</span> :
+                                        <div className='edit-delete-container'>
+                                            <span className='edit-delete-buttons'>Edit</span>
+                                            <span
+                                                onClick={() => handleDeleteBooking(booking?.id)}
+                                                className='edit-delete-buttons'
+                                            >Delete</span>
+                                        </div>}
+                                {/* <div className='edit-delete-container'>
                                     <span className='edit-delete-buttons'>Edit</span>
-                                    <span className='edit-delete-buttons'>Delete</span>
-                                </div>
+                                    <span
+                                        onClick={() => handleDeleteBooking(booking?.id)}
+                                        className='edit-delete-buttons'
+                                    >Delete</span>
+                                </div> */}
                             </div>
                             <span className='hosted-by'>Hosted by {booking?.Spot?.Owner?.firstName} {booking?.Spot?.Owner?.lastName}</span>
                             <div className='booking-date-container'>

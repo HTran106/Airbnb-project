@@ -12,3 +12,7 @@
 .booking-date-container {
     padding-top: 2em;
 }
+
+.current-booking-txt {
+    font-size: 15px;
+}
