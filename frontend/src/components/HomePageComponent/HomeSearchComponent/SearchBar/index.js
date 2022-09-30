@@ -15,12 +15,7 @@ const SearchBar = () => {
     const [location, setLocation] = useState('')
     const [checkIn, setCheckIn] = useState(null)
     const [checkOut, setCheckOut] = useState(null)
-
-    // if (location.length !== 0 || checkIn || checkOut) {
-    //     dispatch(fetchSearchSpots({ location, checkIn, checkOut }))
-    // } else {
-    //     dispatch(searchAllSpot())
-    // }
+    
     const handleSearch = e => {
         e.preventDefault()
 

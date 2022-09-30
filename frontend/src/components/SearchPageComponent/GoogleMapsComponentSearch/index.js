@@ -1,23 +1,28 @@
 import './GoogleMapsSearch.css'
 import { GoogleMap, useLoadScript, Marker, InfoBox, InfoWindow } from '@react-google-maps/api';
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, forceUpdate } from 'react';
 import SpotCardComponent from '../../SpotCardComponent';
 import { useHistory } from 'react-router-dom';
 
 const GoogleMapComponentSearch = ({ spots }) => {
-    const history = useHistory()
     let lat = spots?.length <= 10 ? +spots[0]?.lat?.toFixed(2) : 37.17
     let lng = spots?.length <= 10 ? +spots[0]?.lng?.toFixed(2) : -119.73
 
     const [zoom, setZoom] = useState(6);
     const [openWindow, setOpenWindow] = useState(false);
+    // const [lat, setLat] = useState(37.17);
+    // const [lng, setLng] = useState(-119.73);
+
+    // useEffect(() => {
+    //     if (spots?.length <= 10) {
+    //         setLat(+spots[0]?.lat?.toFixed(2))
+    //         setLng(+spots[0]?.lng?.toFixed(2))
+    //     }
+    // }, [lat, lng])
 
     useEffect(() => {
         spots?.length <= 10 ? setZoom(10) : setZoom(6)
     }, [spots])
-
-
-
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
@@ -27,6 +32,8 @@ const GoogleMapComponentSearch = ({ spots }) => {
     const center = useMemo(() => {
         if (lat && lng) {
             return { lat, lng }
+        } else {
+            return { lat: 37.17, lng: -119.73 }
         }
     }, [lat, lng])
 
@@ -50,7 +57,8 @@ const GoogleMapComponentSearch = ({ spots }) => {
                                     <div
                                         id={spot.id} className='info-box-container'
                                         style={{ backgroundColor: 'white', borderRadius: '1em', height: '2em' }}
-                                    ><span className='info-box-price'>
+                                    >
+                                        <span className='info-box-price'>
                                             ${spot?.price?.toLocaleString("en-US")}
                                         </span>
                                     </div>

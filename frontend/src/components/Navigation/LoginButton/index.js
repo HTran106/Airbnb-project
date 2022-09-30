@@ -4,10 +4,12 @@ import SignupFormModal from '../../SignupFormModal'
 import { logout, login } from '../../../store/session'
 import './LoginButton.css'
 import LoginFormModal from '../../LoginFormModal'
+import { useHistory } from 'react-router-dom'
 
 
 const LoginButton = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const [openMenu, setOpenMenu] = useState(false)
     const sessionUser = useSelector(state => state.session.user)
 
@@ -21,6 +23,7 @@ const LoginButton = () => {
         e.preventDefault()
         dispatch(logout())
         setOpenMenu(!openMenu)
+        history.push('/')
     }
 
     const handleLogin = e => {
