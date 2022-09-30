@@ -49,7 +49,7 @@ function CreateSpotForm({ setShowModal }) {
             return
         }
 
-        if (!validator.isURL(`${image1}`) || validator.isURL(`${image2}`) || validator.isURL(`${image3}`) || validator.isURL(`${image4}`) || validator.isURL(`${image5}`) || validator.isURL(`${image6}`)) {
+        if (!validator.isURL(`${image1}`) || !validator.isURL(`${image2}`) || !validator.isURL(`${image3}`) || !validator.isURL(`${image4}`) || !validator.isURL(`${image5}`) || !validator.isURL(`${image6}`)) {
             alert('Please enter a valid URL')
             return
         }

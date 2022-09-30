@@ -194,7 +194,7 @@ const spotsReducer = (state = {}, action) => {
             })
             return allSpotsState
         case MY_SPOTS:
-            const mySpotsState = { ...state }
+            const mySpotsState = {}
             action.payload?.Spots?.forEach((spot, i) => {
                 mySpotsState[i] = spot
             })
