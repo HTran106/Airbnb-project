@@ -15,7 +15,6 @@ const EditBookingCalendar = ({ spot, bookingId }) => {
     const [showSummary, setShowSummary] = useState(false);
     const [confirmButton, setConfirmButton] = useState('Edit Booking')
     const [disabled, setDisabled] = useState(false);
-    console.log(spot)
 
     let bookings = Object.values(useSelector(state => state.bookings));
 

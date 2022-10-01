@@ -11,7 +11,6 @@ const BookmarkComponent = ({ setLocation }) => {
     const bookmarks = Object.values(useSelector(state => state.bookmarks))
 
     useEffect(() => {
-        setLocation(window.location.pathname)
         dispatch(fetchMyBookmarks())
     }, [dispatch])
 

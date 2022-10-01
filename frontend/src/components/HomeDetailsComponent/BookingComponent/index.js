@@ -8,7 +8,7 @@ import { fetchBookingsForSpot } from '../../../store/bookings';
 import { subDays, addDays, getTime } from 'date-fns';
 import { createBooking } from '../../../store/bookings';
 
-const BookingComponent = ({ spot, showReserve }) => {
+const BookingComponent = ({ spot }) => {
     const dispatch = useDispatch();
 
     const [startDate, setStartDate] = useState(null);
@@ -94,8 +94,7 @@ const BookingComponent = ({ spot, showReserve }) => {
                             </div>
                         </div>
                         <div className='datepicker-container'>
-                            <div className='left-input'>
-                                <DatePicker
+                            <DatePicker
                                     className='left-input-radius'
                                     selected={startDate}
                                     onChange={date => setStartDate(date)}
@@ -113,7 +112,6 @@ const BookingComponent = ({ spot, showReserve }) => {
                                     excludeDateIntervals={bookings}
                                     placeholderText='mm/dd/yyyy'
                                 />
-                            </div>
                         </div>
                         <div className='long-reserve-container'>
                             <button onClick={openSummary} className='long-reserve-button'>Summary</button>

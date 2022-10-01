@@ -21,11 +21,11 @@ module.exports = {
       {
         ownerId: 3,
         address: '1454 Berkeley Drive',
-        city: 'San Jose',
+        city: 'Santa Barbara',
         state: 'California',
         country: 'USA',
-        lat: 36.961666,
-        lng: -122.022781,
+        lat: 34.516892,
+        lng: -120.080127,
         squareFt: 10000,
         name: 'The Beach House',
         description: "Enjoy the elegance of a by-gone era while staying in this Art Deco home. Beautifully decorated and featuring a sweeping staircase, original stained-glass windows, period furniture, and a stunningly unique black-and-white tiled bathroom.",
@@ -86,14 +86,14 @@ module.exports = {
       {
         ownerId: 5,
         address: '1514 Finay Rd',
-        city: 'San Jose',
+        city: 'Santa Barbara',
         state: 'California',
         country: 'USA',
-        lat: 37.401666,
-        lng: -121.782781,
+        lat: 34.461065,
+        lng: -119.596306,
         squareFt: 16411,
         name: 'Beach Tree Cottage',
-        description: "Beach Tree Cottage is one of San Jose’s most historic and architecturally eclectic neighborhood. You’ll be close to everything in (CN) but far enough to enjoy a relaxing trip. We are both born and raised here so we know all the good spots like the delicious pancakes, vanilla infused orange juice and freshly brewed coffee, down the street at one of our favorite restaurants",
+        description: "Beach Tree Cottage is one of Santa Barbaras’s most historic and architecturally eclectic neighborhood. You’ll be close to everything in (CN) but far enough to enjoy a relaxing trip. We are both born and raised here so we know all the good spots like the delicious pancakes, vanilla infused orange juice and freshly brewed coffee, down the street at one of our favorite restaurants",
         price: 3500
       },
       {
