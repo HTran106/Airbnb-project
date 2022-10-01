@@ -15,7 +15,7 @@ const BookingComponent = ({ spot }) => {
     const [endDate, setEndDate] = useState(null);
     const [showSummary, setShowSummary] = useState(false);
     const [confirmButton, setConfirmButton] = useState('Reserve')
-    const [disabled, setDisabled] = useState(false);
+    const [disabled, setDisabled] = useState(true);
     console.log(spot)
 
     let bookings = Object.values(useSelector(state => state.bookings));
