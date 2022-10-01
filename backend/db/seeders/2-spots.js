@@ -15,20 +15,20 @@ module.exports = {
         lng: -121.9905908,
         squareFt: 20154,
         name: 'Rose Cottage',
-        description: "Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, cycling and watersports.",
+        description: "Located in Santa Cruz in the Tarentaise Valley near Grenoble, Rose Cottage is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of Santa Cruz is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, cycling and watersports.",
         price: 6400
       },
       {
         ownerId: 3,
         address: '1454 Berkeley Drive',
-        city: 'Santa Cruz',
+        city: 'San Jose',
         state: 'California',
         country: 'USA',
         lat: 36.961666,
         lng: -122.022781,
         squareFt: 10000,
         name: 'The Beach House',
-        description: "Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, cycling and watersports.Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, cycling and watersports.Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, cycling and watersports.cycling and watersports.",
+        description: "Enjoy the elegance of a by-gone era while staying in this Art Deco home. Beautifully decorated and featuring a sweeping staircase, original stained-glass windows, period furniture, and a stunningly unique black-and-white tiled bathroom.",
         price: 6800
       },
       {
@@ -41,46 +41,46 @@ module.exports = {
         lng: -121.942781,
         squareFt: 20154,
         name: 'Meadow View',
-        description: "Let us host your next event!  Our spacious warehouse offers all the space needed for any event.",
+        description: "Retreat to the deck of this sustainable getaway and gaze at the twinkling constellations under a cosy tartan blanket. AirShip 2 is an iconic, insulated aluminium pod designed by Roderick James with views of the Sound of Mull from dragonfly windows. Airship002 is comfortable, quirky and cool. It does not pretend to be a five-star hotel. The reviews tell the story.",
         price: 7800
       },
       {
         ownerId: 6,
         address: '9231 Technology Dr',
-        city: 'San Jose',
+        city: 'Oceanside',
         state: 'California',
         country: 'USA',
         lat: 37.3482082,
         lng: -121.8663286,
         squareFt: 18401,
         name: 'Woodland Retreat',
-        description: "We have nothing but space! you can host any kind of event including weddings!",
+        description: "Take an early morning stroll and enjoy the Trevi Fountain without the tourists. Wander around the historic streets while the city sleeps, then head back for a morning coffee at this urban-chic studio with a suspended loft bedroom.",
         price: 5600
       },
       {
         ownerId: 1,
         address: '3561 Milky Way',
-        city: 'Monterey',
+        city: 'San Diego',
         state: 'California',
         country: 'USA',
         lat: 36.651666,
         lng: -121.802781,
         squareFt: 10154,
         name: 'The Willows',
-        description: "One of the most beautiful spots in San Jose with over 10,000 square feet",
+        description: "Unwind at this stunning French Provencal beachside cottage. The house was lovingly built with stone floors, high-beamed ceilings, and antique details for a luxurious yet charming feel. Enjoy the sea and mountain views from the pool and lush garden. The house is located in the enclave of Llandudno Beach, a locals-only spot with unspoilt, fine white sand and curling surfing waves. Although shops and restaurants are only a five-minute drive away, the area feels peaceful and secluded.",
         price: 4800
       },
       {
         ownerId: 3,
         address: '8845 Wayne St',
-        city: 'San Jose',
+        city: 'San Francisco',
         state: 'California',
         country: 'USA',
         lat: 37.321666,
         lng: -121.882781,
         squareFt: 12854,
         name: 'Paradise Palms',
-        description: "This house will be an eye opener!, no catfishing here, 100% real photos",
+        description: "Pretend you are lost in a magical forest as you perch on a log or curl up in the swinging chair. Soak in the tub, then fall asleep in a heavenly bedroom with cloud-painted walls and twinkling lights. And when you wake up, the espresso machine awaits.",
         price: 2150
       },
       {
@@ -93,7 +93,7 @@ module.exports = {
         lng: -121.782781,
         squareFt: 16411,
         name: 'Beach Tree Cottage',
-        description: "Ready to setup your next event? Our place fits up to 5,000 people!",
+        description: "Beach Tree Cottage is one of San Jose’s most historic and architecturally eclectic neighborhood. You’ll be close to everything in (CN) but far enough to enjoy a relaxing trip. We are both born and raised here so we know all the good spots like the delicious pancakes, vanilla infused orange juice and freshly brewed coffee, down the street at one of our favorite restaurants",
         price: 3500
       },
       {
@@ -106,7 +106,7 @@ module.exports = {
         lng: -122.486916,
         squareFt: 8164,
         name: 'Bulverton House',
-        description: "This house is suitable for any kind of event including parties! Book with us today!",
+        description: "Enjoy a comfy retreat in this 100 year old home in Pacifica. Cook in a retro kitchen and dine in surrounded by the original built-in corner shelfs. Take in all of Pacifica as you’ll be only minutes away from everything!",
         price: 6500
       },
       {
@@ -119,7 +119,7 @@ module.exports = {
         lng: -122.506916,
         squareFt: 20154,
         name: 'Stonehurst',
-        description: "Situated next to the beach, this house has amazing views of the pacific ocean and will leave you in awe.",
+        description: "A lovely space to unwind and relax after a busy day whether it is work or play. Awake refreshed and ready for a day exploring the city via this clean, sunny apartment with impressive views. Head out and wander through the nearby farmers’ market and pick up local ingredients to later craft a meal in the fully stocked kitchen.",
         price: 3400
       },
       {
@@ -132,7 +132,7 @@ module.exports = {
         lng: -122.502781,
         squareFt: 20154,
         name: 'Highland House',
-        description: "Let us host your next event!  Our spacious warehouse offers all the space needed for any event.",
+        description: "This modern, sun-drenched apartment offers a tranquil residential vibe alongside quick, easy access to the downtown areas. Admire the crisp, contemporary decor of the open-plan living space and take in the peaceful surroundings from the cute terrace.",
         price: 8000
       },
       {
@@ -145,7 +145,7 @@ module.exports = {
         lng: -122.402781,
         squareFt: 20154,
         name: 'Highclere Castle',
-        description: "This is my description",
+        description: "In a charming neighborhood with wonderful restaurants and shops, and sights within walking distance, as well as the city center, all within 5 minutes. I love the atmosphere in my neighborhood, you will find local and specialty stores (organic food, vintage clothes, vinyl records, wineries, vintage decor), mix of cultures, the architectural style of the old city, good restaurants, terraces in summer , cultural centers.",
         price: 8500
       },
       {
@@ -158,7 +158,7 @@ module.exports = {
         lng: -121.812781,
         squareFt: 20154,
         name: 'Orchard House',
-        description: "This home in big sur is beautiful",
+        description: "Situated on one of the city’s most beautiful streets, in one of the world’s most beautiful cities, this two-bedroom apartment enjoys an extremely prestigious and convenient location in bustling downtown Big Sur.",
         price: 5500
       },
       {
@@ -171,7 +171,7 @@ module.exports = {
         lng: -121.752781,
         squareFt: 20154,
         name: 'Hillcrest Cottage',
-        description: "My home in point lobos",
+        description: "Whatever brings you to Big Sur – wish to explore the city, just have a good time and enjoy nightlife, cultural events, sporting events, visiting university, business, or any other reason, the location of the house and the way it is suited makes Hillcrest Cottage your perfect choice! ",
         price: 4800
       },
       {
@@ -184,7 +184,7 @@ module.exports = {
         lng: -117.262781,
         squareFt: 20154,
         name: 'Haven House',
-        description: "Mesmerizing house",
+        description: "Feel Like Home in this spacious and stylish Apartment with a view at the Cathedral, located in the pedestrian area of the City Center Old Town. You get to feel the “Genius Local” spirit of the town, being surrounded by the main city attractions. Whether you visit San Diego for sightseeing or business, find retreat in this Apartment",
         price: 5000
       },
       {
@@ -197,7 +197,7 @@ module.exports = {
         lng: -118.022781,
         squareFt: 20154,
         name: 'The Palms Villa',
-        description: "House is biggggggg",
+        description: " Your second home is located directly in the center of Huntington Beach, so if you decided to go to the castle, monuments, gardens or best pubs, discos and famous restaurants, you will be there in few minutes by feet so forget about buses, cabs, trains and etc.",
         price: 12000
       },
       {
@@ -210,7 +210,7 @@ module.exports = {
         lng: -121.922781,
         squareFt: 20154,
         name: 'Crystal Cottage',
-        description: "Def a big house in carmel",
+        description: "The flat is located directly on Carmel Way (the shopping street) – one of the central streets of Carmel, with houses from 18th century. There are various restaurants, cafés, and shops along the whole street. The pedestrian historical centre is just few minutes away by foot.",
         price: 10000
       },
       {
@@ -249,7 +249,7 @@ module.exports = {
         lng: -118.322781,
         squareFt: 20154,
         name: 'Villa el Sol',
-        description: "Let us host your next event!  Our spacious warehouse offers all the space needed for any event.",
+        description: "Whatever brings you to Hollywood – wish to explore the city, just have a good time and enjoy nightlife, cultural events, sporting events, visiting university, business, or any other reason, the location of the apartment and the way it is suited makes Villa El Sol your perfect choice! ",
         price: 14500
       },
       {
@@ -262,7 +262,7 @@ module.exports = {
         lng: -117.272781,
         squareFt: 20154,
         name: 'Moroccan-themed estate',
-        description: "Let us host your next event!  Our spacious warehouse offers all the space needed for any event.",
+        description: "We know how important it is to feel comfortable & relaxed when you arrive back from a long day of sightseeing. This idea is what inspired us to build our apartment studio and provide everyone that stays a place to recharge, relax and enjoy",
         price: 1240
       },
     ])
