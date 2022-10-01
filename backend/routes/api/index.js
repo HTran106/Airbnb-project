@@ -35,21 +35,22 @@ router.get('/search', async (req, res) => {
     checkOut = new Date(checkOut)
   }
 
-  let where = {}
+  let params = {}
 
   if (location) {
     if (isProduction) {
-      where.city = { [Op.iLike]: `%${location}%` }
-      where.state = { [Op.iLike]: `%${location}%` }
+      params.city = { [Op.iLike]: `%${location}%` }
+      params.state = { [Op.iLike]: `%${location}%` }
+
     } else {
-      where.city = { [Op.like]: `%${location}%` }
-      where.state = { [Op.like]: `%${location}%` }
+      params.city = { [Op.like]: `%${location}%` }
+      params.state = { [Op.like]: `%${location}%` }
     }
   }
 
   if (location && checkIn && checkOut) {
     const spots = await Spot.findAll({
-      where: { city: where.city } || { state: where.state },
+      where: { [Op.or]: [{ city: params.city }, { state: params.state }] },
       include: [
         {
           model: Booking,
@@ -86,7 +87,7 @@ router.get('/search', async (req, res) => {
     res.json(spots)
   } else if (location) {
     const spots = await Spot.findAll({
-      where: { city: where.city } || { state: where.state },
+      where: { [Op.or]: [{ city: params.city }, { state: params.state }] },
       include: {
         model: Image,
         as: 'images',
