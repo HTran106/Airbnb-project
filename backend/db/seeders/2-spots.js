@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     return queryInterface.bulkInsert('Spots', [
@@ -26,7 +28,7 @@ module.exports = {
         lng: -122.022781,
         squareFt: 10000,
         name: 'The Beach House',
-        description: "Situated in the heart of berkeley, you can host any kind of event here.",
+        description: "Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, cycling and watersports.Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, cycling and watersports.Located in the sublime French Alps in the Tarentaise Valley near Grenoble, Chalet Marfik is a luxury home set to provide a dream alpine vacation. This luxury villa is located within Les Trois Vallées, the largest linked ski area in the world. While this area of France is great for winter lovers, the warmer months also bring plenty of opportunities for fun including spas, golfing, cycling and watersports.cycling and watersports.",
         price: 6800
       },
       {

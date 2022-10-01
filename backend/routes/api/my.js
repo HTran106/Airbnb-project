@@ -119,12 +119,18 @@ router.get('/bookmarks', requireAuth, async (req, res, next) => {
         include:
         {
             model: Spot,
-            include:
-            {
-                model: Image,
-                as: 'images',
-                attributes: ['url']
-            }
+            include: [
+                {
+                    model: Image,
+                    as: 'images',
+                    attributes: ['url']
+                },
+                {
+                    model: User,
+                    as: 'Owner',
+                    attributes: ['firstName', 'lastName', 'email']
+                }
+            ]
         }
 
     })

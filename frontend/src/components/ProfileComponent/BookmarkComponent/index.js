@@ -9,25 +9,10 @@ const BookmarkComponent = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const bookmarks = Object.values(useSelector(state => state.bookmarks))
-    console.log(bookmarks)
-
-    const [bookmarkIcon, setBookmarkIcon] = useState('fa-solid fa-bookmark')
-
-
 
     useEffect(() => {
         dispatch(fetchMyBookmarks())
     }, [dispatch])
-
-    const handleClick = async (spotId) => {
-        if (bookmarkIcon === 'fa-solid fa-bookmark') {
-            dispatch(deleteBookmark(spotId))
-            setBookmarkIcon('fa-regular fa-bookmark')
-        } else {
-            dispatch(createBookmark(spotId))
-            setBookmarkIcon('fa-solid fa-bookmark')
-        }
-    }
 
     return (
         <div className='my-reviews-container'>
@@ -40,7 +25,7 @@ const BookmarkComponent = () => {
                         <img
                             onClick={() => history.push(`/spots/${bookmark?.Spot?.id}`)}
                             className='review-spot-img'
-                            src={bookmark?.Spot?.images[0].url ? bookmark?.Spot?.images[0].url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
+                            src={bookmark?.Spot?.images[0]?.url ? bookmark?.Spot?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                             alt='spot'
                         />
                     </div>
