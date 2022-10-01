@@ -77,7 +77,7 @@ const bookmarksReducer = (state = {}, action) => {
             delete deleteBookmarkState[action.payload.id]
             return deleteBookmarkState
         case CREATE_BOOKMARK:
-            const createBookmarkState = { ...state }
+            const createBookmarkState = {}
             createBookmarkState[action.payload.id] = action.payload
             return createBookmarkState
         default:
