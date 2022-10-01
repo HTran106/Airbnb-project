@@ -8,6 +8,7 @@ import BookingComponent from './BookingComponent';
 import IncludedComponent from './IncludedComponent';
 import ReviewsComponent from './ReviewsComponent';
 import GoogleMapComponentSpot from './GoogleMapsComponent';
+import { createBookmark, deleteBookmark } from '../../store/bookmarks';
 
 const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
     const { spotId } = useParams();
@@ -15,6 +16,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
     const dispatch = useDispatch();
     const spot = useSelector(state => state.spots[spotId]);
     const user = useSelector(state => state.session.user);
+    const [bookmarkIcon, setBookmarkIcon] = useState('fa-regular fa-bookmark');
 
     const [showReserve, setShowReserve] = useState(true);
 
@@ -56,6 +58,18 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                             <div className='description-container'>
                                 <div className='city-description'>
                                     <span className='city-state'>Luxury Stay in {spot?.city}, {spot?.state}, {spot?.country}</span>
+                                    <span
+                                        onClick={() => {
+                                            if (bookmarkIcon === 'fa-regular fa-bookmark') {
+                                                dispatch(createBookmark(spot?.id))
+                                                setBookmarkIcon('fa-solid fa-bookmark')
+                                            } else {
+                                                dispatch(deleteBookmark(spot?.id))
+                                                setBookmarkIcon('fa-regular fa-bookmark')
+                                            }
+                                        }}
+                                        style={{ fontSize: '24px' }}
+                                        className={bookmarkIcon}></span>
                                 </div>
                                 <div style={{ marginTop: '2em' }}>
                                     <p>{spot?.description}</p>

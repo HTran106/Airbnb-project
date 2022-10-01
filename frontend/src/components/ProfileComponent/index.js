@@ -8,6 +8,7 @@ import MyReviewsComponent from './MyReviews'
 import MySpotsComponent from './MySpots'
 import MyBookings from './MyBookings'
 import BookmarkComponent from './BookmarkComponent'
+import { fetchMyBookmarks } from '../../store/bookmarks'
 // import { Popup } from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
 
@@ -17,6 +18,7 @@ const ProfileComponent = () => {
     const user = useSelector(state => state.session.user)
     const reviews = Object.values(useSelector(state => state.reviews))
     const spots = Object.values(useSelector(state => state.spots))
+    const numBookmarks = Object.values(useSelector(state => state.bookmarks)).length
 
     const [showReviews, setShowReviews] = useState(true)
     const [showSpots, setShowSpots] = useState(false)
@@ -29,6 +31,7 @@ const ProfileComponent = () => {
     useEffect(() => {
         dispatch(fetchMyReviews())
         dispatch(fetchMySpots())
+        dispatch(fetchMyBookmarks())
     }, [dispatch])
 
     const handleShowReview = e => {
@@ -85,6 +88,9 @@ const ProfileComponent = () => {
                                     {reviews?.length} {reviews.length === 1 ? 'Review' : 'Reviews'}
                                 </span>
                             </span>
+                        </div>
+                        <div style={{ paddingTop: '1em', paddingLeft: '.2em' }} className='fa-solid fa-bookmark'>
+                            <span className='spot-count'>{numBookmarks} Bookmarks</span>
                         </div>
                     </div>
                     <div className="menu-container">
