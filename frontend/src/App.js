@@ -8,6 +8,7 @@ import HomePageComponent from "./components/HomePageComponent";
 import HomeDetailsComponent from "./components/HomeDetailsComponent";
 import SearchPageComponent from "./components/SearchPageComponent";
 import ProfileComponent from "./components/ProfileComponent";
+import MyMessagesComponent from "./components/MyMessages";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,7 +45,10 @@ function App() {
           <Route path="/spots/:spotId">
             <HomeDetailsComponent setLocation={setLocation} setNavBar={setNavBar} />
           </Route>
-          <Route path='/my/account'>
+          <Route exact path='/my/messages'>
+            <MyMessagesComponent />
+          </Route>
+          <Route exact path='/my/account'>
             <ProfileComponent />
           </Route>
           <Route path="/signup">

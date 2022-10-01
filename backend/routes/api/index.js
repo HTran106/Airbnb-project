@@ -7,6 +7,8 @@ const reviewsRouter = require('./reviews.js')
 const bookingsRouter = require('./bookings.js')
 const imagesRouter = require('./images.js')
 const { Spot, Booking, Image } = require('../../db/models');
+// const messagesRouter = require('./messages.js')
+const bookmarksRouter = require('./bookmarks.js')
 const { Op } = require('sequelize');
 const { environment } = require('../../config/index.js');
 const isProduction = environment === 'production'
@@ -18,6 +20,8 @@ router.use('/my', myRouter)
 router.use('/reviews', reviewsRouter)
 router.use('/bookings', bookingsRouter)
 router.use('/images', imagesRouter)
+router.use('/bookmarks', bookmarksRouter)
+// router.use('/messages', messagesRouter)
 
 router.post('/test', (req, res) => {
   res.json({ requestBody: req.body });

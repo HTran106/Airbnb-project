@@ -1,6 +1,6 @@
 const express = require('express');
 const { requireAuth, doesNotExist, restoreUser } = require('../../utils/auth');
-const { Spot, Booking, Review, User, Image } = require('../../db/models');
+const { Spot, Booking, Review, User, Image, Bookmark } = require('../../db/models');
 const spot = require('../../db/models/spot');
 const router = express.Router();
 
@@ -108,7 +108,31 @@ router.get('/reviews', requireAuth, async (req, res, next) => {
 })
 
 
+//MY BOOKMARKS
+router.get('/bookmarks', requireAuth, async (req, res, next) => {
+    const { user } = req
 
+    const bookmarks = await Bookmark.findAll({
+        include:
+        {
+            model: Spot,
+            include:
+            {
+                model: Image,
+                as: 'images',
+                attributes: ['url']
+            }
+        }
+
+    })
+
+    if (bookmarks) {
+        res.status(200)
+        res.json({ Bookmarks: bookmarks })
+    } else {
+        doesNotExist(next, 'Bookmarks')
+    }
+})
 
 
 
