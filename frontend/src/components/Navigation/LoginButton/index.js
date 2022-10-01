@@ -5,12 +5,14 @@ import { logout, login } from '../../../store/session'
 import './LoginButton.css'
 import LoginFormModal from '../../LoginFormModal'
 import { useHistory } from 'react-router-dom'
+import CreateSpotFormModal from '../CreateSpotModal'
 
 
 const LoginButton = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [openMenu, setOpenMenu] = useState(false)
+    const [showModal, setShowModal] = useState(false)
     const sessionUser = useSelector(state => state.session.user)
 
 
@@ -47,9 +49,15 @@ const LoginButton = () => {
                 {openMenu && (
                     <div className='opened-menu-container'>
                         <div onClick={handleAccountBtn}>Account</div>
-                        <div>Host an event</div>
+                        <div onClick={() => {
+                            setOpenMenu(!openMenu)
+                            setShowModal(true)
+                        }}>Host a spot</div>
                         <div onClick={handleLogout}>Logout</div>
                     </div>
+                )}
+                {showModal && (
+                    <CreateSpotFormModal setOpenMenu={setOpenMenu} setShowModal={setShowModal} />
                 )}
             </div>
         )

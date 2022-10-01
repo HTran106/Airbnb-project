@@ -10,7 +10,7 @@ import MyBookings from './MyBookings'
 import BookmarkComponent from './BookmarkComponent'
 import { fetchMyBookmarks } from '../../store/bookmarks'
 
-const ProfileComponent = () => {
+const ProfileComponent = ({ setLocation }) => {
     const dispatch = useDispatch()
 
     const user = useSelector(state => state.session.user)
@@ -27,6 +27,7 @@ const ProfileComponent = () => {
         dispatch(fetchMyReviews())
         dispatch(fetchMySpots())
         dispatch(fetchMyBookmarks())
+        setLocation(window.location.pathname)
     }, [dispatch])
 
     const handleShowReview = e => {

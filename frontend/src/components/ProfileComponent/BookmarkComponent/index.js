@@ -5,12 +5,13 @@ import { fetchMyBookmarks } from '../../../store/bookmarks';
 import { deleteBookmark, createBookmark } from '../../../store/bookmarks';
 import { useHistory } from 'react-router-dom';
 
-const BookmarkComponent = () => {
+const BookmarkComponent = ({ setLocation }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const bookmarks = Object.values(useSelector(state => state.bookmarks))
 
     useEffect(() => {
+        setLocation(window.location.pathname)
         dispatch(fetchMyBookmarks())
     }, [dispatch])
 

@@ -47,10 +47,10 @@ function App() {
             <HomeDetailsComponent setLocation={setLocation} setNavBar={setNavBar} />
           </Route>
           <Route exact path='/a'>
-            <BookmarkComponent />
+            <BookmarkComponent setLocation={setLocation}/>
           </Route>
           <Route exact path='/my/account'>
-            <ProfileComponent />
+            <ProfileComponent setLocation={setLocation} />
           </Route>
           <Route path="/signup">
             <SignupFormPage setLocation={setLocation} />
