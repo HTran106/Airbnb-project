@@ -43,7 +43,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                             <div className='home-details-name-image-container'>
                                 <div className='spot-name'>
                                     <span>{spot?.name}</span>
-                                    {showReserve && <a className='reserve' href="#calendar">Reserve</a>}
+                                    {user && showReserve && <a className='reserve' href="#calendar">Reserve</a>}
                                 </div>
                                 <div className='fa-solid fa-star avg-reviews-area'>
                                     <span className='ratings-font'>
@@ -58,18 +58,23 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                             <div className='description-container'>
                                 <div className='city-description'>
                                     <span className='city-state'>Luxury Stay in {spot?.city}, {spot?.state}, {spot?.country}</span>
-                                    <span
-                                        onClick={() => {
-                                            if (bookmarkIcon === 'fa-regular fa-bookmark') {
-                                                dispatch(createBookmark(spot?.id))
-                                                setBookmarkIcon('fa-solid fa-bookmark')
-                                            } else {
-                                                dispatch(deleteBookmark(spot?.id))
-                                                setBookmarkIcon('fa-regular fa-bookmark')
-                                            }
-                                        }}
-                                        style={{ fontSize: '24px' }}
-                                        className={bookmarkIcon}></span>
+                                    {user && (
+                                        <span
+                                            onClick={() => {
+                                                if (bookmarkIcon === 'fa-regular fa-bookmark') {
+                                                    dispatch(createBookmark(spot?.id))
+                                                    setBookmarkIcon('fa-solid fa-bookmark')
+                                                } else {
+                                                    dispatch(deleteBookmark(spot?.id))
+                                                    setBookmarkIcon('fa-regular fa-bookmark')
+                                                }
+                                            }}
+                                            style={{ fontSize: '24px' }}
+                                            className={bookmarkIcon}>
+                                        </span>
+
+                                    )
+                                    }
                                 </div>
                                 <div style={{ marginTop: '2em' }}>
                                     <p>{spot?.description}</p>
@@ -125,7 +130,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                 <PhotosModal setNavBar={setNavBar} images={spot?.images} />
                                 {/* </div> */}
                             </div>
-                            {showReserve && <BookingComponent spot={spot} />}
+                            {user && showReserve && <BookingComponent spot={spot} />}
                         </div>
                         <div className='luxe-description-container'>
                             <div className='luxe-description-content-container'>

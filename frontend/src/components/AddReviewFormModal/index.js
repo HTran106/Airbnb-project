@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { AddReviewModal } from '../../context/Modal';
 import AddReviewForm from './AddReviewForm';
+import { useSelector } from 'react-redux';
 
 function AddReviewFormModal({ spot }) {
     const [showModal, setShowModal] = useState(false);
+    const user = useSelector(state => state.session.user)
+    // console.log(user)
 
     return (
         <>
-            <button className='update-button' style={{ marginLeft: '-1.3em' }} onClick={() => setShowModal(true)}>Add Review</button>
+            {user && <button className='update-button' style={{ marginLeft: '-1.3em' }} onClick={() => setShowModal(true)}>Add Review</button>}
             {showModal && (
                 <AddReviewModal onClose={() => setShowModal(false)}>
                     <AddReviewForm spot={spot} />
