@@ -25,6 +25,10 @@ const EditBookingCalendar = ({ spot, bookingId }) => {
         }
     })
 
+    useEffect = () => (() => {
+        
+    },[dispatch])
+
     const numDays = (startDate, endDate) => {
         if (startDate <= endDate) {
             const oneDay = 24 * 60 * 60 * 1000;

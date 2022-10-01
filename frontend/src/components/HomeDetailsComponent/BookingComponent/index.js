@@ -94,7 +94,8 @@ const BookingComponent = ({ spot }) => {
                             </div>
                         </div>
                         <div className='datepicker-container'>
-                            <DatePicker
+                            <div className='left-input'>
+                                <DatePicker
                                     className='left-input-radius'
                                     selected={startDate}
                                     onChange={date => setStartDate(date)}
@@ -112,6 +113,7 @@ const BookingComponent = ({ spot }) => {
                                     excludeDateIntervals={bookings}
                                     placeholderText='mm/dd/yyyy'
                                 />
+                            </div>
                         </div>
                         <div className='long-reserve-container'>
                             <button onClick={openSummary} className='long-reserve-button'>Summary</button>
