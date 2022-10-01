@@ -39,6 +39,30 @@ export const deleteBookmark = spotId => async dispatch => {
     }
 }
 
+export const CREATE_BOOKMARK = 'bookmarks/createBookmark'
+
+export const createdBookmark = bookmark => ({
+    type: CREATE_BOOKMARK,
+    payload: bookmark
+})
+
+export const createBookmark = spotId => async dispatch => {
+    const res = await csrfFetch(`/api/bookmarks/${spotId}`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ spotId })
+    })
+
+    if (res.ok) {
+        const parsedRes = await res.json(res)
+        dispatch(createdBookmark(parsedRes))
+        return parsedRes
+    }
+}
+
+
 
 const bookmarksReducer = (state = {}, action) => {
     switch (action.type) {
@@ -52,6 +76,10 @@ const bookmarksReducer = (state = {}, action) => {
             const deleteBookmarkState = { ...state }
             delete deleteBookmarkState[action.payload.id]
             return deleteBookmarkState
+        case CREATE_BOOKMARK:
+            const createBookmarkState = { ...state }
+            createBookmarkState[action.payload.id] = action.payload
+            return createBookmarkState
         default:
             return state
     }

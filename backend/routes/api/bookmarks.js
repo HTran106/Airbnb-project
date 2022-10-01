@@ -19,45 +19,23 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
     const bookmarkId = bookmark.dataValues.id
     await bookmark.destroy()
 
-    // const myBookmarks = await Bookmark.findAll({
-    //     where: {
-    //         userId: +user.id
-    //     },
-    // })
     res.status(200)
     res.json({ id: bookmarkId, message: 'Bookmark deleted' })
 })
 
-// //GET ALL MESSAGES
-// router.get('/', requireAuth, async (req, res, next) => {
-//     const { user } = req
-//     const messages = await Message.findAll({
-//         where: {
-//             [Op.or]: [
-//                 { senderId: user.id },
-//                 { recipientId: user.id }
-//             ]
-//         },
-//         include: [
-//             {
-//                 model: User,
-//                 as: 'sender',
-//                 attributes: ['id', 'firstName', 'lastName', 'email', 'profileImage']
-//             },
-//             {
-//                 model: User,
-//                 as: 'recipient',
-//                 attributes: ['id', 'firstName', 'lastName', 'email', 'profileImage']
-//             }
-//         ]
-//     })
-//     res.json(messages)
-// })
+//CREATE BOOKMARK
+router.post('/:spotId', requireAuth, async (req, res, next) => {
+    const { user } = req
+    const { spotId } = req.params
 
-// //GET MESSAGES BETWEEN 2 USERS
-// router.get('/:userIdOne/:userIdTwo', requireAuth, async (req, res, next) => {
+    const bookmark = await Bookmark.create({
+        userId: +user.id,
+        spotId: +spotId
+    })
 
-// }
+    res.status(200)
+    res.json(bookmark)
+})
 
 
 module.exports = router

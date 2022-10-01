@@ -2,7 +2,7 @@ import './BookmarkComponent.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { fetchMyBookmarks } from '../../../store/bookmarks';
-import { deleteBookmark } from '../../../store/bookmarks';
+import { deleteBookmark, createBookmark } from '../../../store/bookmarks';
 
 const BookmarkComponent = () => {
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const BookmarkComponent = () => {
     }, [dispatch])
 
     const handleDelete = () => {
-        dispatch(deleteBookmark())
+        dispatch(createBookmark(2))
     }
 
     return (
