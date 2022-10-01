@@ -7,6 +7,7 @@ import { fetchMySpots } from '../../store/spots'
 import MyReviewsComponent from './MyReviews'
 import MySpotsComponent from './MySpots'
 import MyBookings from './MyBookings'
+import BookmarkComponent from './BookmarkComponent'
 // import { Popup } from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
 
@@ -20,6 +21,7 @@ const ProfileComponent = () => {
     const [showReviews, setShowReviews] = useState(true)
     const [showSpots, setShowSpots] = useState(false)
     const [showBookings, setShowBookings] = useState(false)
+    const [showBookmarks, setShowBookmarks] = useState(false)
     const [reviewTabBackground, setReviewTabBackground] = useState({})
     const [spotTabBackground, setSpotTabBackground] = useState({})
     const [bookingTabBackground, setBookingTabBackground] = useState({})
@@ -34,6 +36,7 @@ const ProfileComponent = () => {
         setShowReviews(true)
         setShowSpots(false)
         setShowBookings(false)
+        setShowBookmarks(false)
     }
 
     const handleShowSpots = e => {
@@ -41,6 +44,7 @@ const ProfileComponent = () => {
         setShowReviews(false)
         setShowSpots(true)
         setShowBookings(false)
+        setShowBookmarks(false)
     }
 
     const handleShowBookings = e => {
@@ -48,6 +52,15 @@ const ProfileComponent = () => {
         setShowReviews(false)
         setShowSpots(false)
         setShowBookings(true)
+        setShowBookmarks(false)
+    }
+
+    const handleShowBookmarks = e => {
+        e.preventDefault()
+        setShowReviews(false)
+        setShowSpots(false)
+        setShowBookings(false)
+        setShowBookmarks(true)
     }
 
     return (
@@ -85,12 +98,16 @@ const ProfileComponent = () => {
                             <li>
                                 <div onClick={handleShowReview}>My Reviews</div>
                             </li>
+                            <li>
+                                <div onClick={handleShowBookmarks}>My Bookmarks</div>
+                            </li>
                         </ol>
                     </div>
                     {/* <div className='bottom-components-container'> */}
                     {showReviews && <MyReviewsComponent setShowReviews={setShowReviews} />}
                     {showSpots && <MySpotsComponent spots={spots} />}
                     {showBookings && <MyBookings />}
+                    {showBookmarks && <BookmarkComponent />}
                     {/* <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1> */}
                     {/* </div> */}
                 </div>

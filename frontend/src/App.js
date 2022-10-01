@@ -8,7 +8,7 @@ import HomePageComponent from "./components/HomePageComponent";
 import HomeDetailsComponent from "./components/HomeDetailsComponent";
 import SearchPageComponent from "./components/SearchPageComponent";
 import ProfileComponent from "./components/ProfileComponent";
-import BookmarkComponent from "./components/AddReviewFormModal/BookmarkComponent";
+import BookmarkComponent from "./components/ProfileComponent/BookmarkComponent";
 
 
 function App() {

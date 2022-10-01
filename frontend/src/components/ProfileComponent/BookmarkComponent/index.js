@@ -13,7 +13,7 @@ const BookmarkComponent = () => {
     }, [dispatch])
 
     const handleDelete = () => {
-        dispatch(deleteBookmark(2))
+        dispatch(deleteBookmark())
     }
 
     return (
