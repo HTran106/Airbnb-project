@@ -51,8 +51,6 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Booking, { foreignKey: 'userId' })
       User.hasMany(models.Spot, { foreignKey: 'ownerId' })
       User.hasMany(models.Review, { foreignKey: 'userId' })
-      User.hasMany(models.Message, { foreignKey: 'senderId' })
-      User.hasMany(models.Message, { foreignKey: 'recipientId' })
       User.hasMany(models.Bookmark, { foreignKey: 'userId' })
     }
   }

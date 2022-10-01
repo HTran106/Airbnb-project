@@ -113,6 +113,9 @@ router.get('/bookmarks', requireAuth, async (req, res, next) => {
     const { user } = req
 
     const bookmarks = await Bookmark.findAll({
+        where: {
+            userId: +user.id
+        },
         include:
         {
             model: Spot,
@@ -128,7 +131,7 @@ router.get('/bookmarks', requireAuth, async (req, res, next) => {
 
     if (bookmarks) {
         res.status(200)
-        res.json({ Bookmarks: bookmarks })
+        res.json(bookmarks)
     } else {
         doesNotExist(next, 'Bookmarks')
     }

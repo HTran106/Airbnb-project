@@ -8,7 +8,8 @@ import HomePageComponent from "./components/HomePageComponent";
 import HomeDetailsComponent from "./components/HomeDetailsComponent";
 import SearchPageComponent from "./components/SearchPageComponent";
 import ProfileComponent from "./components/ProfileComponent";
-import MyMessagesComponent from "./components/MyMessages";
+import BookmarkComponent from "./components/AddReviewFormModal/BookmarkComponent";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -45,8 +46,8 @@ function App() {
           <Route path="/spots/:spotId">
             <HomeDetailsComponent setLocation={setLocation} setNavBar={setNavBar} />
           </Route>
-          <Route exact path='/my/messages'>
-            <MyMessagesComponent />
+          <Route exact path='/a'>
+            <BookmarkComponent />
           </Route>
           <Route exact path='/my/account'>
             <ProfileComponent />

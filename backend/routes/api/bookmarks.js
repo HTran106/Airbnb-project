@@ -5,8 +5,7 @@ const router = express.Router();
 const { Op } = require('sequelize');
 
 
-// GET MY BOOKMARKS
-
+//DELETE BOOKMARK
 router.delete('/:spotId', requireAuth, async (req, res, next) => {
     const { user } = req
     const { spotId } = req.params
@@ -17,15 +16,16 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
             spotId: +spotId
         }
     })
+    const bookmarkId = bookmark.dataValues.id
     await bookmark.destroy()
 
-    const myBookmarks = await Bookmark.findAll({
-        where: {
-            userId: +user.id
-        },
-    })
+    // const myBookmarks = await Bookmark.findAll({
+    //     where: {
+    //         userId: +user.id
+    //     },
+    // })
     res.status(200)
-    res.json(myBookmarks)
+    res.json({ id: bookmarkId, message: 'Bookmark deleted' })
 })
 
 // //GET ALL MESSAGES
