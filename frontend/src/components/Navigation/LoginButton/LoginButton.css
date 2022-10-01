@@ -35,7 +35,7 @@ html:not([data-scroll='0']) .login-button {
     margin-left: -2.8em;
     background-color: white;
     z-index: 100;
-    border-radius: 10%;
+    border-radius: 5px;
     box-shadow: 0px 0px 5px 1px lightgray;
 }
 

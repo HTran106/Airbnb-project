@@ -48,7 +48,7 @@ const GoogleMapComponentSearch = ({ spots }) => {
                         )
                     })}
                 </GoogleMap>)}
-                {spots?.length >= 10 && (<GoogleMap zoom={6} center={center} mapContainerClassName="search-map-container">
+                {spots?.length > 10 && (<GoogleMap zoom={6} center={center} mapContainerClassName="search-map-container">
                     {spots?.map(spot => {
                         const position = { lat: +spot?.lat, lng: +spot?.lng }
                         return (
