@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { Popup } from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-const MyReviewsComponent = ({ setShowReviews }) => {
+const MyReviewsComponent = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const ref = useRef();
@@ -152,6 +152,7 @@ const MyReviewsComponent = ({ setShowReviews }) => {
                                                             setStarFour('fa-regular fa-star');
                                                             setStarFive('fa-regular fa-star');
                                                             history.go('/my/account')
+
                                                         }
                                                     }}
                                                 >Update</button>

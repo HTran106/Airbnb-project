@@ -9,8 +9,6 @@ import MySpotsComponent from './MySpots'
 import MyBookings from './MyBookings'
 import BookmarkComponent from './BookmarkComponent'
 import { fetchMyBookmarks } from '../../store/bookmarks'
-// import { Popup } from 'reactjs-popup';
-// import 'reactjs-popup/dist/index.css';
 
 const ProfileComponent = () => {
     const dispatch = useDispatch()
@@ -24,9 +22,6 @@ const ProfileComponent = () => {
     const [showSpots, setShowSpots] = useState(false)
     const [showBookings, setShowBookings] = useState(false)
     const [showBookmarks, setShowBookmarks] = useState(false)
-    const [reviewTabBackground, setReviewTabBackground] = useState({})
-    const [spotTabBackground, setSpotTabBackground] = useState({})
-    const [bookingTabBackground, setBookingTabBackground] = useState({})
 
     useEffect(() => {
         dispatch(fetchMyReviews())
@@ -110,7 +105,7 @@ const ProfileComponent = () => {
                         </ol>
                     </div>
                     {/* <div className='bottom-components-container'> */}
-                    {showReviews && <MyReviewsComponent setShowReviews={setShowReviews} />}
+                    {showReviews && <MyReviewsComponent />}
                     {showSpots && <MySpotsComponent spots={spots} />}
                     {showBookings && <MyBookings />}
                     {showBookmarks && <BookmarkComponent />}
