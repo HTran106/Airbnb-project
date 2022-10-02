@@ -64,6 +64,8 @@
 
 .big-image {
     width: 100%;
+    min-height: 37em;
+    max-height: 45em;
 }
 
 .big-image img {

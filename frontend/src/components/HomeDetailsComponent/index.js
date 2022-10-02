@@ -84,7 +84,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                                     setBookmarkIcon('fa-regular fa-bookmark')
                                                 }
                                             }}
-                                            style={{ fontSize: '24px' }}
+                                            style={{ fontSize: '24px', cursor: 'pointer' }}
                                             className={bookmarkIcon}>
                                         </span>
 

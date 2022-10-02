@@ -27,7 +27,7 @@
 .images {
     display: flex;
     flex-wrap: wrap;
-    width: 50em;
+    width: 100%;
     justify-content: space-between;
     margin-top: 1em;
 }
