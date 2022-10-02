@@ -36,6 +36,7 @@ const LoginButton = () => {
 
     const handleAccountBtn = () => {
         setOpenMenu(!openMenu)
+        setShowModal(false)
         history.push('/my/account')
     }
 
