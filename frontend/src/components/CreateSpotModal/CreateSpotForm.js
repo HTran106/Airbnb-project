@@ -26,6 +26,7 @@ function CreateSpotForm({ setShowModal }) {
     const [image4, setImage4] = useState('');
     const [image5, setImage5] = useState('');
     const [image6, setImage6] = useState('');
+    const data = [name, description, address, city, state, country, lat, lng, price, image1, image2, image3, image4, image5, image6]
 
     const closeModal = e => {
         setShowModal(false)
@@ -196,7 +197,7 @@ function CreateSpotForm({ setShowModal }) {
                     <button type='submit' className="create-spot-button">Host Spot</button>
                 </div>
             </form>
-            <ModalHomePreviewComponent />
+            <ModalHomePreviewComponent data={data} />
         </>
     )
 }

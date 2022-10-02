@@ -1,5 +1,4 @@
 import './ModalHomePreviewComponent.css';
-import Navigation from '../..';
 import validator from 'validator'
 import IncludedComponent from '../HostSpotIncludedComponent';
 import GoogleMapComponentSpot from '../GoogleMapsComponent';

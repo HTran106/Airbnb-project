@@ -59,7 +59,7 @@ const BookingComponent = ({ bookings, spot }) => {
             .then(() => {
                 setDisabled(true)
                 setConfirmButton('Confirmed ✓')
-                dispatch(fetchBookingsForSpot(spot?.id))
+                // dispatch(fetchBookingsForSpot(spot?.id))
                 bookings.push({ start: new Date(startDate), end: new Date(endDate) })
             })
     }
