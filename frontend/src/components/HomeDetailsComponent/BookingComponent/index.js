@@ -8,7 +8,7 @@ import { fetchBookingsForSpot } from '../../../store/bookings';
 import { subDays, addDays, getTime } from 'date-fns';
 import { createBooking } from '../../../store/bookings';
 
-const BookingComponent = ({ spot }) => {
+const BookingComponent = ({ bookings, spot }) => {
     const dispatch = useDispatch();
 
     const [startDate, setStartDate] = useState(null);
@@ -16,16 +16,6 @@ const BookingComponent = ({ spot }) => {
     const [showSummary, setShowSummary] = useState(false);
     const [confirmButton, setConfirmButton] = useState('Reserve')
     const [disabled, setDisabled] = useState(true);
-
-    let bookings = Object.values(useSelector(state => state.bookings));
-
-
-    useEffect(() => {
-        if (spot.id) {
-            dispatch(fetchBookingsForSpot(spot.id));
-        }
-    }, [dispatch, spot.id])
-
 
     useEffect(() => {
         if (startDate && endDate) {

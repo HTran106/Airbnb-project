@@ -9,6 +9,7 @@ import IncludedComponent from './IncludedComponent';
 import ReviewsComponent from './ReviewsComponent';
 import GoogleMapComponentSpot from './GoogleMapsComponent';
 import { createBookmark, deleteBookmark } from '../../store/bookmarks';
+import { fetchBookingsForSpot } from '../../store/bookings';
 
 const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
     const { spotId } = useParams();
@@ -16,12 +17,14 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
     const dispatch = useDispatch();
     const spot = useSelector(state => state.spots[spotId]);
     const user = useSelector(state => state.session.user);
+    const bookings = Object.values(useSelector(state => state.bookings))
     const [bookmarkIcon, setBookmarkIcon] = useState('fa-regular fa-bookmark');
 
     const [showReserve, setShowReserve] = useState(true);
 
     useEffect(() => {
         dispatch(fetchOneSpot(+spotId))
+        dispatch(fetchBookingsForSpot(+spotId))
     }, [dispatch, spotId])
 
     useEffect(() => {
@@ -130,7 +133,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                 <PhotosModal setNavBar={setNavBar} images={spot?.images} />
                                 {/* </div> */}
                             </div>
-                            {user && showReserve && <BookingComponent spot={spot} />}
+                            {user && showReserve && <BookingComponent bookings={bookings} spot={spot} />}
                         </div>
                         <div className='luxe-description-container'>
                             <div className='luxe-description-content-container'>

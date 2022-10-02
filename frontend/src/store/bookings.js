@@ -133,9 +133,9 @@ const bookingsReducer = (state = {}, action) => {
             })
             return myBookingsState
         case SPOT_BOOKINGS:
-            const spotBookingsState = { ...state }
-            action.payload.Bookings?.forEach(booking => {
-                spotBookingsState[booking.id] = booking
+            const spotBookingsState = {}
+            action.payload.Bookings?.forEach((booking, i) => {
+                spotBookingsState[i] = booking
             })
             return spotBookingsState
         case CREATE_BOOKING:
