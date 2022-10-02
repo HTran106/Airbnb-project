@@ -31,7 +31,7 @@ const ProfileComponent = ({ setLocation }) => {
         dispatch(fetchMyBookmarks())
         dispatch(fetchMyBookings())
         setLocation(window.location.pathname)
-    }, [dispatch])
+    }, [dispatch, setLocation])
 
     const handleShowReview = e => {
         e.preventDefault()
@@ -108,13 +108,10 @@ const ProfileComponent = ({ setLocation }) => {
                             </li>
                         </ol>
                     </div>
-                    {/* <div className='bottom-components-container'> */}
                     {showReviews && <MyReviewsComponent />}
                     {showSpots && <MySpotsComponent spots={spots} />}
                     {showBookings && <MyBookings bookings={bookings} />}
                     {showBookmarks && <BookmarkComponent />}
-                    {/* <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1> */}
-                    {/* </div> */}
                 </div>
             </div>
         </div >

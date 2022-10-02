@@ -1,5 +1,4 @@
 import { csrfFetch } from './csrf';
-import { useSelector } from 'react-redux';
 
 const GET_SPOT = 'spots/getOneSpot'
 

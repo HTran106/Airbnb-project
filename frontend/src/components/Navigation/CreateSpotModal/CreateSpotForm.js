@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ModalHomePreviewComponent from './ModalHomePreviewComponent';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import './CreateSpot.css'
-import { createNewSpot, fetchAllSpots } from "../../../store/spots";
+import { createNewSpot } from "../../../store/spots";
 import validator from 'validator'
 
 
@@ -205,4 +205,3 @@ function CreateSpotForm({ setShowModal }) {
 }
 
 export default CreateSpotForm;
-

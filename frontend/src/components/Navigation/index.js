@@ -1,5 +1,4 @@
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import LoginButton from './LoginButton';
 import './Navigation.css';
 
@@ -10,13 +9,11 @@ document.addEventListener('scroll', () => {
 
 function Navigation({ isLoaded, location }) {
     const history = useHistory()
-    const sessionUser = useSelector(state => state.session.user);
 
 
     const homeButtonOnClick = e => {
         history.push('/')
     }
-
 
 
     let sessionLinks;

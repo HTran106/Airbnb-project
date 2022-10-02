@@ -1,11 +1,9 @@
 import './BookingComponent.css';
-import Calendar from 'react-calendar';
 import './Datepicker.css';
 import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchBookingsForSpot } from '../../../store/bookings';
-import { subDays, addDays, getTime } from 'date-fns';
+import { useDispatch } from 'react-redux';
+import { subDays, addDays } from 'date-fns';
 import { createBooking } from '../../../store/bookings';
 
 const BookingComponent = ({ bookings, spot }) => {
@@ -123,8 +121,9 @@ const BookingComponent = ({ bookings, spot }) => {
                             <div className='top-card-img-container'>
                                 <img
                                     className='small-image'
-                                    src={spot?.images[0]?.url ? spot?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}>
-                                </img>
+                                    src={spot?.images[0]?.url ? spot?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
+                                    alt='house-pic'
+                                />
                             </div>
                             <div className='top-card-wording-container'>
                                 <span className='entire'>Entire villa</span>

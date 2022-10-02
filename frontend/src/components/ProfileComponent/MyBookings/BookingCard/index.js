@@ -23,7 +23,7 @@ const BookingCard = ({ booking }) => {
                         onClick={() => history.push(`/spots/${booking?.Spot?.id}`)}
                         className='review-spot-img'
                         src={booking?.Spot?.images[0]?.url ? booking?.Spot?.images[0]?.url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
-                        alt='booking-image' />
+                        alt='booking-pic' />
                 </div>
                 <div className='my-reviews-content'>
                     <div className='my-reviews-spot-name-container'>

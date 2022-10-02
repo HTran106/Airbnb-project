@@ -47,7 +47,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
 
     useEffect(() => {
         setLocation(window.location.pathname)
-    }, [dispatch])
+    }, [dispatch, setLocation])
 
     return (
         <>
@@ -141,9 +141,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                 </div>
                             </div>
                             <div id='calendar' >
-                                {/* <div className='show-all-photos-container'> */}
                                 <PhotosModal setNavBar={setNavBar} images={spot?.images} />
-                                {/* </div> */}
                             </div>
                             {user && showReserve && <BookingComponent bookings={bookings} spot={spot} />}
                         </div>

@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
-import { useState } from 'react';
 
 
 const PicModal = ({ showModal, setShowModal, images, setNavBar, i, setI }) => {

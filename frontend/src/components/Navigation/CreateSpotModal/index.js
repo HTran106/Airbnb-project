@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CreateSpotModal } from '../../../context/Modal';
 import CreateSpotForm from './CreateSpotForm';
 

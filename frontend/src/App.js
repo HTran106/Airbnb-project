@@ -28,7 +28,6 @@ function App() {
       {
         navBar && <Navigation location={location} isLoaded={isLoaded} />
       }
-      {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
           <Route path='/search/:location/:checkIn/:checkOut'>
