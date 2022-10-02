@@ -16,11 +16,17 @@ const BookingComponent = ({ spot }) => {
     const [showSummary, setShowSummary] = useState(false);
     const [confirmButton, setConfirmButton] = useState('Reserve')
     const [disabled, setDisabled] = useState(true);
-    console.log(spot)
+
+    useEffect(() => {
+        if (spot?.id) {
+            dispatch(fetchBookingsForSpot(spot?.id));
+        }
+    }, [dispatch, spot?.id])
 
     let bookings = Object.values(useSelector(state => state.bookings));
+    console.log(bookings)
 
-    bookings = bookings?.map(booking => {
+    const excludedDates = bookings?.map(booking => {
         return {
             start: subDays(new Date(booking.startDate), 1),
             end: addDays(new Date(booking.endDate), 1)
@@ -62,13 +68,6 @@ const BookingComponent = ({ spot }) => {
             })
     }
 
-    useEffect(() => {
-        if (spot?.id) {
-            dispatch(fetchBookingsForSpot(spot?.id));
-        }
-    }, [dispatch, spot?.id])
-
-
     return (
         <>
             <div className="booking-component-container">
@@ -100,7 +99,7 @@ const BookingComponent = ({ spot }) => {
                                     selected={startDate}
                                     onChange={date => setStartDate(date)}
                                     minDate={addDays(new Date(), 1)}
-                                    excludeDateIntervals={[{ start: new Date(), end: new Date() }, ...bookings]}
+                                    excludeDateIntervals={excludedDates}
                                     placeholderText='mm/dd/yyyy'
                                 />
                             </div>
@@ -110,7 +109,7 @@ const BookingComponent = ({ spot }) => {
                                     selected={endDate}
                                     onChange={date => setEndDate(date)}
                                     minDate={addDays(startDate, 1)}
-                                    excludeDateIntervals={bookings}
+                                    excludeDateIntervals={excludedDates}
                                     placeholderText='mm/dd/yyyy'
                                 />
                             </div>

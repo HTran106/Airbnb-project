@@ -14,7 +14,7 @@ const EditBookingCalendar = ({ spot, bookingId }) => {
     const [endDate, setEndDate] = useState(null);
     const [showSummary, setShowSummary] = useState(false);
     const [confirmButton, setConfirmButton] = useState('Edit Booking')
-    const [disabled, setDisabled] = useState(false);
+    const [disabled, setDisabled] = useState(true);
 
     let bookings = Object.values(useSelector(state => state.bookings));
 
@@ -24,10 +24,6 @@ const EditBookingCalendar = ({ spot, bookingId }) => {
             end: addDays(new Date(booking.endDate), 1)
         }
     })
-
-    useEffect = () => (() => {
-        
-    },[dispatch])
 
     const numDays = (startDate, endDate) => {
         if (startDate <= endDate) {
@@ -40,10 +36,12 @@ const EditBookingCalendar = ({ spot, bookingId }) => {
     }
 
     useEffect(() => {
-        if (startDate <= endDate) {
-            setDisabled(false)
-        } else {
-            setDisabled(true)
+        if (startDate && endDate) {
+            if ((startDate <= endDate)) {
+                setDisabled(false)
+            } else {
+                setDisabled(true)
+            }
         }
     }, [startDate, endDate])
 
