@@ -218,15 +218,3 @@ function CreateSpotForm({ setShowModal }) {
 }
 
 export default CreateSpotForm;
-
-// userId: user.id,
-//     name,
-//     address,
-//     city,
-//     state,
-//     country,
-//     lat,
-//     lng,
-//     description,
-//     price,
-//     squareFt

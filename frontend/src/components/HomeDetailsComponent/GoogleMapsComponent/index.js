@@ -40,16 +40,3 @@ const GoogleMapComponentSpot = ({ spot }) => {
 }
 
 export default GoogleMapComponentSpot
-
-
-// <InfoBox
-                //     onLoad={onLoad}
-                //     options={options}
-                //     position={center}
-                // >
-                //     <div style={{ backgroundColor: 'white', padding: 12 }}>
-                //         <div style={{ fontSize: 16, fontColor: `#08233B` }}>
-                //             Hello, World!
-                //         </div>
-                //     </div>
-                // </InfoBox>

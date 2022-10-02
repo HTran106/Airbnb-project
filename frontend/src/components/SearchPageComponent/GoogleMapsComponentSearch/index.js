@@ -1,8 +1,7 @@
 import './GoogleMapsSearch.css'
-import { GoogleMap, useLoadScript, Marker, InfoBox, InfoWindow } from '@react-google-maps/api';
-import { useMemo, useState, useEffect, forceUpdate } from 'react';
-import SpotCardComponent from '../../SpotCardComponent';
-import { useHistory } from 'react-router-dom';
+import { GoogleMap, useLoadScript, InfoBox } from '@react-google-maps/api';
+import { useMemo} from 'react';
+
 
 const GoogleMapComponentSearch = ({ spots }) => {
     let lat = spots?.length <= 10 ? +spots[0]?.lat?.toFixed(2) : 36.53
@@ -54,8 +53,6 @@ const GoogleMapComponentSearch = ({ spots }) => {
                         return (
                             <div key={spot?.id} id={`spot${spot?.id}`}>
                                 <InfoBox
-                                    // onLoad={onLoad}
-                                    // options={options}
                                     position={position}
                                 >
                                     <div
@@ -77,21 +74,3 @@ const GoogleMapComponentSearch = ({ spots }) => {
 }
 
 export default GoogleMapComponentSearch;
-
-// const options = { closeBoxURL: '', enableEventPropagation: true };
-
-// const onLoad = infoBox => {
-//     console.log('infoBox: ', infoBox)
-// };
-
-// <InfoBox
-//     onLoad={onLoad}
-//     options={options}
-//     position={center}
-// >
-//     <div style={{ backgroundColor: 'white', padding: 12 }}>
-                //         <div style={{ fontSize: 16, fontColor: `#08233B` }}>
-                //             Hello, World!
-                //         </div>
-                //     </div>
-                // </InfoBox>

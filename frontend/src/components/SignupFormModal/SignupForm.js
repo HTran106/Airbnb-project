@@ -93,7 +93,3 @@ const SignupForm = () => {
 export default SignupForm
 
 
-//first name
-//last name
-// email
-//password

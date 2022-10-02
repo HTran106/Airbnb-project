@@ -1,9 +1,8 @@
-// import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LoginButton from './LoginButton';
 import './Navigation.css';
-import { useState } from 'react';
+
 
 document.addEventListener('scroll', () => {
     document.documentElement.dataset.scroll = window.scrollY;

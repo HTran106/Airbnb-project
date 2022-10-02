@@ -45,7 +45,6 @@ const LoginButton = () => {
             <div className='login-button-container'>
                 <button onClick={handleOnClick} className="login-button fa-solid fa-bars">
                     <span className='profile-pic fa-solid fa-circle-user fa-2xl'></span>
-                    {/* <img className='profile-pic' src={sessionUser?.profileImage}></img> */}
                 </button>
                 {openMenu && (
                     <div className='opened-menu-container'>

@@ -3,11 +3,6 @@
     grid-template-rows: 45em 8em;
     width: 100vw;
     margin-left: -.52em;
-    /* background: url('https://airbnb-files.s3.us-west-1.amazonaws.com/search-background.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
 }
 
 .home-search-area-container {

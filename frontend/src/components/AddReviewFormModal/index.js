@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 function AddReviewFormModal({ spot }) {
     const [showModal, setShowModal] = useState(false);
     const user = useSelector(state => state.session.user)
-    // console.log(user)
 
     return (
         <>

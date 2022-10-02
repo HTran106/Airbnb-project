@@ -38,15 +38,6 @@ const MyMessagesComponent = () => {
                                     </div>
                                 </div>
                             </div>
-                            // <div className='left-message-container' key={message?.id}>
-                            //     <div className='message-card'>
-                            //         <img src={message?.recipient.profileImage} alt='profile image' />
-                            //         <span>{message?.recipient.firstName} {message?.recipient.lastName}</span>
-                            //     </div>
-                            //     <div className='message-content'>
-                            //         <span>{message?.body}</span>
-                            //     </div>
-                            // </div>
                         )
                     }
                 })}

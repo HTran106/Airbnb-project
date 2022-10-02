@@ -61,7 +61,6 @@ const ReviewsComponent = ({ spot }) => {
                         {exist === undefined && (
                             <AddReviewFormModal spot={spot} />
                         )}
-                        {/* <button>add a review</button> */}
                     </div>
                     <div className='reviews-section-container'>
                         {reviews?.map(review => (

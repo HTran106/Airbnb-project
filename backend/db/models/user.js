@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
 
     toSafeObject() {
-      const { id, username, email, profileImage, firstName, lastName, createdAt } = this; // context will be the User instance
+      const { id, username, email, profileImage, firstName, lastName, createdAt } = this;
       return { id, username, email, profileImage, firstName, lastName, createdAt };
     }
 

@@ -1,9 +1,8 @@
 import './ProfileCard.css'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector} from 'react-redux'
 
 
 const ProfileCard = () => {
-    const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
 
     return (

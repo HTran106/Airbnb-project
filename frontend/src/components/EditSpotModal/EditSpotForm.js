@@ -138,15 +138,3 @@ function EditSpotForm({ setShowModal, spot }) {
 }
 
 export default EditSpotForm;
-
-// userId: user.id,
-//     name,
-//     address,
-//     city,
-//     state,
-//     country,
-//     lat,
-//     lng,
-//     description,
-//     price,
-//     squareFt
