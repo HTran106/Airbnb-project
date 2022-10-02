@@ -27,20 +27,25 @@ function EditSpotForm({ setShowModal, spot }) {
 
     const handleSubmit = e => {
         e.preventDefault();
-
-        if (!validator.isFloat(`${lat}`)) {
-            alert('Please enter a valid latitude')
-            return
+        if (lat) {
+            if (!validator.isFloat(`${lat}`)) {
+                alert('Please enter a valid latitude')
+                return
+            }
         }
 
-        if (!validator.isFloat(`${lng}`)) {
-            alert('Please enter a valid longitude')
-            return
+        if (lng) {
+            if (!validator.isFloat(`${lng}`)) {
+                alert('Please enter a valid longitude')
+                return
+            }
         }
 
-        if (!validator.isInt(`${price}`)) {
-            alert('Please enter a valid price')
-            return
+        if (price) {
+            if (!validator.isInt(`${price}`)) {
+                alert('Please enter a valid price')
+                return
+            }
         }
 
         const spotData = {

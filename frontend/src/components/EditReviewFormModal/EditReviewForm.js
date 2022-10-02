@@ -96,7 +96,7 @@ function EditReviewForm({ review, setShowModal }) {
                         } else if (reviewBody === '') {
                             return alert('Please write a review')
                         } else {
-                            dispatch(editAReview({ review: reviewBody, stars: reviewStars, id: review?.id }, review?.Spot?.id))
+                            dispatch(editAReview({ review: reviewBody, stars: reviewStars, id: review?.id }, review?.spotId))
                             setShowModal(false)
                             setReviewBody('')
                             setReviewStars(0)
