@@ -9,6 +9,7 @@ import HomeDetailsComponent from "./components/HomeDetailsComponent";
 import SearchPageComponent from "./components/SearchPageComponent";
 import ProfileComponent from "./components/ProfileComponent";
 import BookmarkComponent from "./components/ProfileComponent/BookmarkComponent";
+import ErrorPage from "./components/404Component";
 
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
             <HomeDetailsComponent setLocation={setLocation} setNavBar={setNavBar} />
           </Route>
           <Route exact path='/a'>
-            <BookmarkComponent setLocation={setLocation}/>
+            <BookmarkComponent setLocation={setLocation} />
           </Route>
           <Route exact path='/my/account'>
             <ProfileComponent setLocation={setLocation} />
@@ -56,6 +57,9 @@ function App() {
           </Route>
           <Route exact path='/'>
             <HomePageComponent setLocation={setLocation} />
+          </Route>
+          <Route>
+            <ErrorPage />
           </Route>
         </Switch>
       )}
