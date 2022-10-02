@@ -60,11 +60,11 @@ const BookingCard = ({ booking }) => {
                     </div>
                 </div>
             </div>
-            {
-                showCalendar && (<div>
+            {showCalendar && (
+                <div>
                     <MyEditBookingCalendar bookingId={booking?.id} spot={booking?.Spot} />
-                </div>)
-            }
+                </div>
+            )}
         </>
     )
 }
