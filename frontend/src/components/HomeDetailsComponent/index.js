@@ -8,24 +8,36 @@ import BookingComponent from './BookingComponent';
 import IncludedComponent from './IncludedComponent';
 import ReviewsComponent from './ReviewsComponent';
 import GoogleMapComponentSpot from './GoogleMapsComponent';
-import { createBookmark, deleteBookmark } from '../../store/bookmarks';
+import { createBookmark, deleteBookmark, fetchMyBookmarks } from '../../store/bookmarks';
 import { fetchBookingsForSpot } from '../../store/bookings';
 
 const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
-    const { spotId } = useParams();
-
     const dispatch = useDispatch();
+
+    const { spotId } = useParams();
+    const [bookmarkIcon, setBookmarkIcon] = useState('fa-regular fa-bookmark');
+    const [showReserve, setShowReserve] = useState(true);
+
     const spot = useSelector(state => state.spots[spotId]);
     const user = useSelector(state => state.session.user);
     const bookings = Object.values(useSelector(state => state.bookings))
-    const [bookmarkIcon, setBookmarkIcon] = useState('fa-regular fa-bookmark');
+    const bookmarks = Object.values(useSelector(state => state.bookmarks))
 
-    const [showReserve, setShowReserve] = useState(true);
+    const exist = bookmarks?.find(bookmark => (bookmark?.spotId === spot?.id) && bookmark?.userId === user?.id)
 
     useEffect(() => {
         dispatch(fetchOneSpot(+spotId))
         dispatch(fetchBookingsForSpot(+spotId))
+        dispatch(fetchMyBookmarks())
     }, [dispatch, spotId])
+
+    useEffect(() => {
+        if (exist) {
+            setBookmarkIcon('fa-solid fa-bookmark')
+        } else {
+            setBookmarkIcon('fa-regular fa-bookmark')
+        }
+    }, [exist])
 
     useEffect(() => {
         if (spot && user && spot?.ownerId === user?.id) {

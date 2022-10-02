@@ -87,7 +87,7 @@ const ReviewsComponent = ({ spot }) => {
                                                             e.preventDefault();
                                                             dispatch(deleteReview(spot?.id, review?.id))
                                                         }}
-                                                        style={{ paddingLeft: '.5em' }} className='edit-review-button'> Delete</span>
+                                                        style={{ color: 'blue', paddingLeft: '.5em' }} className='edit-review-buttons'> Delete</span>
                                                 </div> : null}
                                         </div>
                                     </div>
