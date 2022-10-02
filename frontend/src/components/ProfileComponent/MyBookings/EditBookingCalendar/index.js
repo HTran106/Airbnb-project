@@ -7,7 +7,7 @@ import { editABooking } from '../../../../store/bookings';
 import './EditBookingCalendar.css'
 
 
-const EditBookingCalendar = ({ spot, bookingId }) => {
+const MyEditBookingCalendar = ({ spot, bookingId }) => {
     const dispatch = useDispatch();
 
     const [startDate, setStartDate] = useState(null);
@@ -160,4 +160,4 @@ const EditBookingCalendar = ({ spot, bookingId }) => {
 
 }
 
-export default EditBookingCalendar
+export default MyEditBookingCalendar

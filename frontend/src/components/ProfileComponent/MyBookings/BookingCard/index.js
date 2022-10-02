@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import EditBookingCalendar from '../EditBookingCalendar';
+import MyEditBookingCalendar from '../EditBookingCalendar';
 import { deleteBooking } from "../../../../store/bookings";
 
 
@@ -62,7 +62,7 @@ const BookingCard = ({ booking }) => {
             </div>
             {
                 showCalendar && (<div>
-                    <EditBookingCalendar bookingId={booking?.id} spot={booking?.Spot} />
+                    <MyEditBookingCalendar bookingId={booking?.id} spot={booking?.Spot} />
                 </div>)
             }
         </>

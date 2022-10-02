@@ -9,6 +9,7 @@ import MySpotsComponent from './MySpots'
 import MyBookings from './MyBookings'
 import BookmarkComponent from './BookmarkComponent'
 import { fetchMyBookmarks } from '../../store/bookmarks'
+import { fetchMyBookings } from '../../store/bookings'
 
 const ProfileComponent = ({ setLocation }) => {
     const dispatch = useDispatch()
@@ -17,6 +18,7 @@ const ProfileComponent = ({ setLocation }) => {
     const reviews = Object.values(useSelector(state => state.reviews))
     const spots = Object.values(useSelector(state => state.spots))
     const numBookmarks = Object.values(useSelector(state => state.bookmarks)).length
+    const bookings = Object.values(useSelector(state => state.bookings))
 
     const [showReviews, setShowReviews] = useState(true)
     const [showSpots, setShowSpots] = useState(false)
@@ -27,6 +29,7 @@ const ProfileComponent = ({ setLocation }) => {
         dispatch(fetchMyReviews())
         dispatch(fetchMySpots())
         dispatch(fetchMyBookmarks())
+        dispatch(fetchMyBookings())
         setLocation(window.location.pathname)
     }, [dispatch])
 
@@ -108,7 +111,7 @@ const ProfileComponent = ({ setLocation }) => {
                     {/* <div className='bottom-components-container'> */}
                     {showReviews && <MyReviewsComponent />}
                     {showSpots && <MySpotsComponent spots={spots} />}
-                    {showBookings && <MyBookings />}
+                    {showBookings && <MyBookings bookings={bookings} />}
                     {showBookmarks && <BookmarkComponent />}
                     {/* <h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1><h1>HEY</h1> */}
                     {/* </div> */}

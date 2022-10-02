@@ -6,21 +6,13 @@ import { useHistory } from 'react-router-dom';
 import EditBookingCalendar from './EditBookingCalendar';
 import BookingCard from './BookingCard';
 
-const MyBookings = () => {
+const MyBookings = ({ bookings }) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const bookings = Object.values(useSelector(state => state.bookings))
+    // const bookings = Object.values(useSelector(state => state.bookings))
     const todaysDate = new Date();
     const [showCalendar, setShowCalendar] = useState(false);
     const [index, setIndex] = useState(null);
-
-    useEffect(() => {
-        dispatch(fetchMyBookings())
-    }, [dispatch]);
-
-    const handleDeleteBooking = (bookingId) => {
-        dispatch(deleteBooking(bookingId))
-    }
 
     return (
         <div className='my-reviews-container'>
@@ -28,9 +20,9 @@ const MyBookings = () => {
                 <h1>My Bookings</h1>
             </div>
             <div className='my-bookings-body-container'>
-                {bookings.map((booking, i) => (
+                {bookings?.map((booking, i) => (
                     <div key={i}>
-                        <BookingCard booking={booking}/>
+                        <BookingCard booking={booking} />
                     </div>
                 ))}
             </div>
