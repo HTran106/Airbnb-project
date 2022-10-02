@@ -17,21 +17,34 @@ const BookingComponent = ({ spot }) => {
     const [confirmButton, setConfirmButton] = useState('Reserve')
     const [disabled, setDisabled] = useState(true);
 
-    useEffect(() => {
-        if (spot?.id) {
-            dispatch(fetchBookingsForSpot(spot?.id));
-        }
-    }, [dispatch, spot?.id])
-
     let bookings = Object.values(useSelector(state => state.bookings));
-    console.log(bookings)
+
+
+    useEffect(() => {
+        if (spot.id) {
+            dispatch(fetchBookingsForSpot(spot.id));
+        }
+    }, [dispatch, spot.id])
+
+
+    useEffect(() => {
+        if (startDate && endDate) {
+            if (new Date(startDate) <= new Date(endDate)) {
+                setDisabled(false)
+            } else {
+                setDisabled(true)
+            }
+        }
+    }, [startDate, endDate])
+
 
     const excludedDates = bookings?.map(booking => {
         return {
-            start: subDays(new Date(booking.startDate), 1),
-            end: addDays(new Date(booking.endDate), 1)
+            start: subDays(new Date(booking?.startDate), 1),
+            end: addDays(new Date(booking?.endDate), 1)
         }
     })
+
 
     const numDays = (startDate, endDate) => {
         if (startDate <= endDate) {
@@ -43,13 +56,6 @@ const BookingComponent = ({ spot }) => {
         }
     }
 
-    useEffect(() => {
-        if (startDate <= endDate) {
-            setDisabled(false)
-        } else {
-            setDisabled(true)
-        }
-    }, [startDate, endDate])
 
 
     const openSummary = e => {

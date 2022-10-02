@@ -342,10 +342,10 @@ router.get('/:spotId/bookings', requireAuth, async (req, res, next) => {
                 where: {
                     userId: +spotId
                 },
-                include: {
+                include: [{
                     model: User,
                     attributes: ['id', 'firstName', 'lastName']
-                }
+                }]
             })
             res.status(200)
             res.json({ Bookings: bookings })
@@ -354,7 +354,9 @@ router.get('/:spotId/bookings', requireAuth, async (req, res, next) => {
                 where: {
                     spotId: +spotId
                 },
-                attributes: ['spotId', 'startDate', 'endDate']
+                include: {
+                    model: Spot
+                }
             })
             res.status(200)
             res.json({ Bookings: bookings })
