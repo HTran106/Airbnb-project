@@ -76,8 +76,8 @@ const ReviewsComponent = ({ spot }) => {
                                         </span>
                                         <div className='join-date-container'>
                                             <span className='user-join-date'>
-                                                {new Array(review.stars).fill(0).map(star => (
-                                                    <i className='fas fa-star' style={{ color: 'black' }}></i>
+                                                {new Array(review.stars).fill(0).map((star, i) => (
+                                                    <i key={i} className='fas fa-star' style={{ color: 'black' }}></i>
                                                 ))} {months[new Date(review?.User?.createdAt).getMonth()]} {new Date(review?.User?.createdAt).getFullYear()}
                                             </span>
                                             {review?.userId === user?.id ?
