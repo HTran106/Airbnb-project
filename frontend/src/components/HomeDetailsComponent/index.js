@@ -27,9 +27,11 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
 
     useEffect(() => {
         dispatch(fetchOneSpot(+spotId))
-        dispatch(fetchBookingsForSpot(+spotId))
-        dispatch(fetchMyBookmarks())
-    }, [dispatch, spotId])
+        if (user) {
+            dispatch(fetchBookingsForSpot(+spotId))
+            dispatch(fetchMyBookmarks())
+        }
+    }, [dispatch, spotId, user])
 
     useEffect(() => {
         if (exist) {

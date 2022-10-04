@@ -49,7 +49,7 @@ router.put('/:bookingId', requireAuth, async (req, res, next) => {
                 err.status = 403;
                 next(err);
             } else {
-                const updatedBooking = await booking.update({
+                await booking.update({
                     startDate,
                     endDate,
                 })

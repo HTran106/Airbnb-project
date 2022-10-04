@@ -1,6 +1,6 @@
 import './GoogleMapsSearch.css'
 import { GoogleMap, useLoadScript, InfoBox } from '@react-google-maps/api';
-import { useMemo} from 'react';
+import { useMemo } from 'react';
 
 
 const GoogleMapComponentSearch = ({ spots }) => {
@@ -26,7 +26,28 @@ const GoogleMapComponentSearch = ({ spots }) => {
             <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&callback=initMap`}>
             </script>
             <div className='search-google-maps-container'>
-                {spots?.length <= 10 && (<GoogleMap zoom={10} center={center} mapContainerClassName="search-map-container">
+                {spots?.length === 0 && (<GoogleMap zoom={2.5} center={center} mapContainerClassName="search-map-container">
+                    {spots?.map(spot => {
+                        const position = { lat: +spot?.lat, lng: +spot?.lng }
+                        return (
+                            <div key={spot?.id} id={`spot${spot?.id}`}>
+                                <InfoBox
+                                    position={position}
+                                >
+                                    <div
+                                        id={spot.id} className='info-box-container'
+                                        style={{ backgroundColor: 'white', borderRadius: '1em', height: '2em' }}
+                                    >
+                                        <span className='info-box-price'>
+                                            ${spot?.price?.toLocaleString("en-US")}
+                                        </span>
+                                    </div>
+                                </InfoBox>
+                            </div>
+                        )
+                    })}
+                </GoogleMap>)}
+                {(spots?.length > 0) && (spots?.length <= 10) && (<GoogleMap zoom={10} center={center} mapContainerClassName="search-map-container">
                     {spots?.map(spot => {
                         const position = { lat: +spot?.lat, lng: +spot?.lng }
                         return (
@@ -52,18 +73,20 @@ const GoogleMapComponentSearch = ({ spots }) => {
                         const position = { lat: +spot?.lat, lng: +spot?.lng }
                         return (
                             <div key={spot?.id} id={`spot${spot?.id}`}>
-                                <InfoBox
-                                    position={position}
-                                >
-                                    <div
-                                        id={spot.id} className='info-box-container'
-                                        style={{ backgroundColor: 'white', borderRadius: '1em', height: '2em' }}
+                                <div className='infobox-container'>
+                                    <InfoBox
+                                        position={position}
                                     >
-                                        <span className='info-box-price'>
-                                            ${spot?.price?.toLocaleString("en-US")}
-                                        </span>
-                                    </div>
-                                </InfoBox>
+                                        <div
+                                            id={spot.id} className='info-box-container'
+                                            style={{ backgroundColor: 'white', borderRadius: '1em', height: '2em' }}
+                                        >
+                                            <span className='info-box-price'>
+                                                ${spot?.price?.toLocaleString("en-US")}
+                                            </span>
+                                        </div>
+                                    </InfoBox>
+                                </div>
                             </div>
                         )
                     })}
