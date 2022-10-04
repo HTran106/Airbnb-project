@@ -28,6 +28,8 @@ const ReviewsComponent = ({ spot }) => {
     const user = useSelector(state => state.session.user)
 
     const [showReviews, setShowReviews] = useState(false);
+    console.log(reviews)
+
 
 
     useEffect(() => {
@@ -76,7 +78,9 @@ const ReviewsComponent = ({ spot }) => {
                                         </span>
                                         <div className='join-date-container'>
                                             <span className='user-join-date'>
-                                                {months[new Date(review?.User?.createdAt).getMonth()]} {new Date(review?.User?.createdAt).getFullYear()}
+                                                {new Array(review.stars).fill(0).map(star => (
+                                                    <i className='fas fa-star' style={{ color: 'black' }}></i>
+                                                ))} {months[new Date(review?.User?.createdAt).getMonth()]} {new Date(review?.User?.createdAt).getFullYear()}
                                             </span>
                                             {review?.userId === user?.id ?
                                                 <div>
