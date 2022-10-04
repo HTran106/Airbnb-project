@@ -1,5 +1,5 @@
 import './SearchPageComponent.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import GoogleMapComponentSearch from './GoogleMapsComponentSearch';
 import SpotCardComponent from '../SpotCardComponent';
