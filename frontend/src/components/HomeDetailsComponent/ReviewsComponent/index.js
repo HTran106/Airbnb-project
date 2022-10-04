@@ -28,8 +28,6 @@ const ReviewsComponent = ({ spot }) => {
     const user = useSelector(state => state.session.user)
 
     const [showReviews, setShowReviews] = useState(false);
-    console.log(reviews)
-
 
 
     useEffect(() => {

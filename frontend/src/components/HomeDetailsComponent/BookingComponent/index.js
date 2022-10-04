@@ -32,9 +32,7 @@ const BookingComponent = ({ bookings, spot }) => {
             end: addDays(new Date(booking?.endDate), 1)
         }
     })
-
-    console.log(excludedDates)
-
+    
 
     const numDays = (startDate, endDate) => {
         if (startDate <= endDate) {
