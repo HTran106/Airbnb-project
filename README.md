@@ -70,4 +70,4 @@ Frontend .env.local must include:
 - [ ] Add CRUD features for messages so a user can message the owner of the spot if they have questions.
 
 
-[Original Design Docs](https://github.com/HTran106/Soundcloud-Project/wiki/Soundcloud-Clone-Original-Design-Docs)
+[Original Design Docs](https://github.com/HTran106/Airbnb-project/wiki/Original-Design-Docs)
