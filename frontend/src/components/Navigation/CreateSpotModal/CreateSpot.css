@@ -7,6 +7,7 @@
     border-right: 1px solid rgb(221, 221, 221);
     max-height: 100%;
     overflow: auto;
+    padding-bottom: 2em;
 }
 
 .create-spot-label {
