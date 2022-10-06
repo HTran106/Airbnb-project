@@ -26,7 +26,7 @@
     position: absolute;
     background-color: white;
     border-radius: 1em;
-    height: 15em;
+    max-height: 20em;
 }
 
 #signup-modal {

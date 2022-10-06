@@ -21,6 +21,7 @@ function LoginForm() {
     };
 
     return (
+
         <div>
             <div className="login-word-container">
                 <h3>Login</h3>
@@ -50,7 +51,7 @@ function LoginForm() {
                 />
             </div>
             <div className="login-button-modal-container">
-                <button onClick={handleSubmit} className="login-button-modal" type="submit" onClick={handleSubmit}>Login</button>
+                <button onClick={handleSubmit} className="login-button-modal" type="submit">Login</button>
             </div>
         </div>
     );
