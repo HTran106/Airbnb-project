@@ -53,6 +53,8 @@ const MySpotsComponent = () => {
                                 history.push(`/spots/${spot?.id}`)
                             }}
                             className='my-spot-image-container'>
+                            {console.log("SPOT        ", spot)}
+                            {console.log("spot images =>", spot?.images)}
                             <img
                                 src={spot?.images[0].url ? spot?.images[0].url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                 alt='spotImage'
