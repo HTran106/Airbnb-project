@@ -1,19 +1,13 @@
 import './MySpotsComponent.css'
 import { useHistory } from 'react-router-dom'
 import CreateSpotFormModal from '../../CreateSpotModal'
-import { useDispatch, useSelector } from 'react-redux'
-import { deleteSpot, fetchMySpots } from '../../../store/spots'
+import { useDispatch } from 'react-redux'
+import { deleteSpot } from '../../../store/spots'
 import EditSpotFormModal from '../../EditSpotModal'
-import { useEffect } from 'react'
 
-const MySpotsComponent = () => {
+const MySpotsComponent = ({ spots }) => {
     const history = useHistory()
     const dispatch = useDispatch()
-    const spots = Object.values(useSelector(state => state.spots))
-
-    useEffect(() => {
-        dispatch(fetchMySpots())
-    }, [])
 
     const handleSpotDelete = spotId => {
         dispatch(deleteSpot(spotId))
@@ -53,8 +47,6 @@ const MySpotsComponent = () => {
                                 history.push(`/spots/${spot?.id}`)
                             }}
                             className='my-spot-image-container'>
-                            {console.log("SPOT        ", spot)}
-                            {console.log("spot images =>", spot?.images)}
                             <img
                                 src={spot?.images[0].url ? spot?.images[0].url : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'}
                                 alt='spotImage'
