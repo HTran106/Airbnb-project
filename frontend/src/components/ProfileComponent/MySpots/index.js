@@ -1,13 +1,19 @@
 import './MySpotsComponent.css'
 import { useHistory } from 'react-router-dom'
 import CreateSpotFormModal from '../../CreateSpotModal'
-import { useDispatch } from 'react-redux'
-import { deleteSpot } from '../../../store/spots'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteSpot, fetchMySpots } from '../../../store/spots'
 import EditSpotFormModal from '../../EditSpotModal'
+import { useEffect } from 'react'
 
-const MySpotsComponent = ({ spots }) => {
+const MySpotsComponent = () => {
     const history = useHistory()
     const dispatch = useDispatch()
+    const spots = Object.values(useSelector(state => state.spots))
+
+    useEffect(() => {
+        dispatch(fetchMySpots())
+    }, [])
 
     const handleSpotDelete = spotId => {
         dispatch(deleteSpot(spotId))
