@@ -81,13 +81,20 @@ router.post('/', requireAuth, validateSpot, async (req, res, next) => {
         price,
     })
 
-    images.forEach(async image => {
+    // images.forEach(async image => {
+    //     await Image.create({
+    //         spotId: newSpot.id,
+    //         imageType: 'spot',
+    //         url: image
+    //     })
+    // })
+    for (let i = 0; i < images.length; i++) {
         await Image.create({
             spotId: newSpot.id,
             imageType: 'spot',
-            url: image
+            url: images[i]
         })
-    })
+    }
 
     const spot = await Spot.findOne({
         where: {
