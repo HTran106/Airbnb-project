@@ -81,8 +81,8 @@ router.post('/', requireAuth, validateSpot, async (req, res, next) => {
         price,
     })
 
-    images.forEach(image => {
-        Image.create({
+    images.forEach(async image => {
+        await Image.create({
             spotId: newSpot.id,
             imageType: 'spot',
             url: image
