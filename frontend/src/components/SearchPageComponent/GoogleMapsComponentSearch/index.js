@@ -26,7 +26,7 @@ const GoogleMapComponentSearch = ({ spots }) => {
             <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&callback=initMap`}>
             </script>
             <div className='search-google-maps-container'>
-                {spots?.length === 0 && (<GoogleMap zoom={2.5} center={center} mapContainerClassName="search-map-container">
+                {spots?.length === 0 && (<GoogleMap zoom={2.5} center={{ lat: 36.53, lng: -116.93 }} mapContainerClassName="search-map-container">
                     {spots?.map(spot => {
                         const position = { lat: +spot?.lat, lng: +spot?.lng }
                         return (
@@ -68,7 +68,7 @@ const GoogleMapComponentSearch = ({ spots }) => {
                         )
                     })}
                 </GoogleMap>)}
-                {spots?.length > 10 && (<GoogleMap zoom={6} center={center} mapContainerClassName="search-map-container">
+                {spots?.length > 10 && (<GoogleMap zoom={6} center={{ lat: 36.53, lng: -116.93 }} mapContainerClassName="search-map-container">
                     {spots?.map(spot => {
                         const position = { lat: +spot?.lat, lng: +spot?.lng }
                         return (
