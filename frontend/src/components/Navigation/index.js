@@ -28,6 +28,7 @@ function Navigation({ isLoaded, location }) {
                     <button className='github-button'>
                         <img
                             className='github-logo'
+                            // src='https://airbnb-files.s3.us-west-1.amazonaws.com/linkedin-logo.png'
                             src="https://airbnb-files.s3.us-west-1.amazonaws.com/github-logo.png"
                             alt='github' />
                     </button>
