@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import LoginButton from './LoginButton';
 import './Navigation.css';
 
@@ -22,6 +22,19 @@ function Navigation({ isLoaded, location }) {
             <div className='logo-container'>
                 <span onClick={homeButtonOnClick} className={location === '/' ? 'luxe' : 'luxe2'}>Luxe</span>
                 <span className={location === '/' ? 'EVENTS' : 'EVENTS2'}>EVENTS</span>
+            </div>
+            <div className='github-linked'>
+                <a href='https://github.com/htran106'>
+                    <button className='github-button'>
+                        <img
+                            className='github-logo'
+                            src="https://airbnb-files.s3.us-west-1.amazonaws.com/github-logo.png"
+                            alt='github' />
+                    </button>
+                </a>
+                <div>
+
+                </div>
             </div>
             <LoginButton />
         </div>

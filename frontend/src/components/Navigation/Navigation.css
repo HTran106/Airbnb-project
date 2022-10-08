@@ -87,3 +87,24 @@ html[data-scroll='0'] .EVENTS {
 html[data-scroll='0'] .luxe {
     color: white
 }
+
+.github-linked {
+    display: flex;
+    align-items: center;
+}
+
+html[data-scroll='0'] .github-button {
+    background-color: transparent;
+}
+
+.github-button {
+    background-color: white;
+    border: none;
+    width: 6em;
+    height: 100%;
+}
+
+.github-logo {
+    height: 100%;
+    width: 100%;
+}
