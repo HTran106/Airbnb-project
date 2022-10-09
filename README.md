@@ -38,7 +38,7 @@ Frontend .env.local must include:
 
 
 ##Home View:
-![home-page]("https://airbnb-files.s3.us-west-1.amazonaws.com/welcome.gif")
+![home-page]("https://airbnb-files.s3.us-west-1.amazonaws.com/welcome-view.png")
 
 ## Technical Details:
 
