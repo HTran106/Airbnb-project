@@ -40,6 +40,7 @@ const MyEditBookingCalendar = ({ spot, bookingId }) => {
                 setDisabled(false)
             } else {
                 setDisabled(true)
+                alert('Please select a valid date range')
             }
         }
     }, [startDate, endDate])
