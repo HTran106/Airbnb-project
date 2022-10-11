@@ -52,11 +52,15 @@ const MyEditBookingCalendar = ({ spot, bookingId }) => {
 
     const handleEditBooking = e => {
         e.preventDefault();
-        dispatch(editABooking({ startDate, endDate }, bookingId))
-            .then(() => {
-                setDisabled(true)
-                setConfirmButton('Confirmed ✓')
-            })
+        if (new Date(endDate) > new Date(startDate)) {
+            dispatch(editABooking({ startDate, endDate }, bookingId))
+                .then(() => {
+                    setDisabled(true)
+                    setConfirmButton('Confirmed ✓')
+                })
+        } else {
+            alert('Please select a valid date range')
+        }
     }
 
     return (

@@ -1,29 +1,27 @@
 import './SearchBar.css'
-import Calendar from 'react-calendar'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import DatePicker from 'react-datepicker'
-import { addDays, subDays } from 'date-fns'
-import { fetchSearchSpots, searchAllSpot } from '../../../../store/search'
-import { useDispatch, useSelector } from 'react-redux'
-import SearchPageComponent from '../../../SearchPageComponent'
 
 const SearchBar = () => {
     const history = useHistory()
-    const dispatch = useDispatch()
 
     const [location, setLocation] = useState('')
     const [checkIn, setCheckIn] = useState(null)
     const [checkOut, setCheckOut] = useState(null)
-    
+
     const handleSearch = e => {
         e.preventDefault()
+
 
         if (location.length && checkIn && checkOut) {
             history.push(`/search/${location}/${checkIn}/${checkOut}`)
         } else if (checkIn) {
             if (checkOut) {
-                history.push(`/search/${checkIn}/${checkOut}`)
+                if (checkOut < checkIn) {
+                    alert('Please select a valid date range')
+                } else {
+                    history.push(`/search/${checkIn}/${checkOut}`)
+                }
             } else {
                 window.alert("Please select a check out date")
             }
