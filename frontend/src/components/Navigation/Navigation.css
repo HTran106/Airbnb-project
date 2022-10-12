@@ -105,6 +105,27 @@ html[data-scroll='0'] .github-button {
 }
 
 .github-logo {
+    height: 80%;
+    width: 75%;
+}
+
+.linkedin-container {
+    border-left: 1.5px solid black;
+    height: 70%;
+    margin-bottom: .2em;
+}
+
+.linkedin-button {
+    background-color: transparent;
+    border: none;
+    width: 6em;
     height: 100%;
-    width: 100%;
+    margin-left: .3em;
+    margin-top: .3em;
+}
+
+.linkedin-logo {
+    height: 100%;
+    width: 85%;
+    background-color: transparent;
 }

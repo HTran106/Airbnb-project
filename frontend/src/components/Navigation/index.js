@@ -1,4 +1,4 @@
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import LoginButton from './LoginButton';
 import './Navigation.css';
 
@@ -28,14 +28,20 @@ function Navigation({ isLoaded, location }) {
                     <button className='github-button'>
                         <img
                             className='github-logo'
-                            // src='https://airbnb-files.s3.us-west-1.amazonaws.com/linkedin-logo.png'
                             src="https://airbnb-files.s3.us-west-1.amazonaws.com/github-logo.png"
                             alt='github' />
                     </button>
                 </a>
-                <div>
-
+                <div className='linkedin-container'>
                 </div>
+                <a href='https://www.linkedin.com/in/huydu-tran/'>
+                    <button className='linkedin-button'>
+                        <img
+                            className='linkedin-logo'
+                            src="https://airbnb-files.s3.us-west-1.amazonaws.com/linklogo.png"
+                            alt='github' />
+                    </button>
+                </a>
             </div>
             <LoginButton />
         </div>
