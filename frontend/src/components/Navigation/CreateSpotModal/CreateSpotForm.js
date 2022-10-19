@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ModalHomePreviewComponent from './ModalHomePreviewComponent';
 import { useDispatch } from "react-redux";
 import './CreateSpot.css'
 import { createNewSpot } from "../../../store/spots";
 import validator from 'validator'
 
-
-
-
+export const randomLatLng = [
+    [38.90, -121.29],
+    [39.75, -120.50],
+    [37.65, -122.15],
+    [39.15, -119.75],
+    [40.85, -118.30],
+]
 
 function CreateSpotForm({ setShowModal }) {
     const dispatch = useDispatch();
@@ -34,6 +38,11 @@ function CreateSpotForm({ setShowModal }) {
         setShowModal(false)
     }
 
+    useEffect(() => {
+        const random = Math.floor(Math.random() * 6)
+        setLat(randomLatLng[random][0].toFixed(2))
+        setLng(randomLatLng[random][1].toFixed(2))
+    }, [])
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -144,7 +153,7 @@ function CreateSpotForm({ setShowModal }) {
                 />
                 <label className="create-spot-label">Description</label>
                 <textarea
-                    style={{ height: '75px' }}
+                    style={{ minHeight: '75px' }}
                     className="create-spot-input"
                     type="text"
                     value={description}
