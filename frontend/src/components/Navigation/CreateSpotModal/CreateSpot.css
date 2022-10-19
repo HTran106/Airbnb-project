@@ -49,3 +49,7 @@
     border: none;
     border-radius: 3px;
 }
+
+.create-spot-input {
+    min-height: 1.5em;
+}
