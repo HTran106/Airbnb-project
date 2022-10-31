@@ -11,6 +11,7 @@ const MyReviewsComponent = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const ref = useRef();
+    const closePopup = () => ref.current.close()
 
 
     const [reviewBody, setReviewBody] = useState('');
@@ -151,8 +152,7 @@ const MyReviewsComponent = () => {
                                                             setStarThree('fa-regular fa-star');
                                                             setStarFour('fa-regular fa-star');
                                                             setStarFive('fa-regular fa-star');
-                                                            history.go('/my/account')
-
+                                                            closePopup()
                                                         }
                                                     }}
                                                 >Update</button>
@@ -188,4 +188,3 @@ const MyReviewsComponent = () => {
 }
 
 export default MyReviewsComponent
-
