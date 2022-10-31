@@ -11,6 +11,15 @@ const SearchBar = () => {
 
     const handleSearch = e => {
         e.preventDefault()
+        const todaysDate = new Date()
+        if (checkIn < todaysDate) {
+            alert('Please enter a valid check in date')
+            return
+        }
+        if (checkOut < todaysDate) {
+            alert('Please enter a valid check out date')
+            return
+        }
 
 
         if (location.length && checkIn && checkOut) {
