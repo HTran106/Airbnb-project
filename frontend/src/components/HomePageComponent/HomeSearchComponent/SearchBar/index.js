@@ -12,19 +12,16 @@ const SearchBar = () => {
     const handleSearch = e => {
         e.preventDefault()
         const todaysDate = new Date()
-        if (checkIn < todaysDate) {
-            alert('Please enter a valid check in date')
-            return
-        }
-        if (checkOut < todaysDate) {
-            alert('Please enter a valid check out date')
-            return
-        }
-
+        const checkInDate = new Date(checkIn)
+        const checkOutDate = new Date(checkOut)
 
         if (location.length && checkIn && checkOut) {
             history.push(`/search/${location}/${checkIn}/${checkOut}`)
         } else if (checkIn) {
+            if (checkInDate < todaysDate) {
+                window.alert('Please enter a valid check-in date')
+                return
+            }
             if (checkOut) {
                 if (checkOut < checkIn) {
                     alert('Please select a valid date range')
@@ -34,6 +31,8 @@ const SearchBar = () => {
             } else {
                 window.alert("Please select a check out date")
             }
+        } else if (checkOut && !checkIn) {
+            window.alert("Please select a check in date")
         } else if (location.length) {
             history.push(`/search/${location}`)
         } else {
@@ -53,7 +52,7 @@ const SearchBar = () => {
                             type='text'
                             value={location}
                             onChange={e => setLocation(e.target.value)}
-                            placeholder='Anywhere'
+                            placeholder='e.g. San Francisco, Big Sur, Oceanside.  Leave blank for all fields to search all'
                         ></input>
                     </div>
                 </div>
