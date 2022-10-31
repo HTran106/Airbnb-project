@@ -51,7 +51,7 @@ const SearchBar = () => {
                             type='text'
                             value={location}
                             onChange={e => setLocation(e.target.value)}
-                            placeholder='e.g. San Francisco, Big Sur, Oceanside.  Leave blank for all fields to search all.'
+                            placeholder='e.g. San Francisco, Big Sur, Oceanside.  Leave all fields blank to search all.'
                         ></input>
                     </div>
                 </div>
