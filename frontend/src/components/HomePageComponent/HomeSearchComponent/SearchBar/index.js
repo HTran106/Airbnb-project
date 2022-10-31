@@ -13,7 +13,6 @@ const SearchBar = () => {
         e.preventDefault()
         const todaysDate = new Date()
         const checkInDate = new Date(checkIn)
-        const checkOutDate = new Date(checkOut)
 
         if (location.length && checkIn && checkOut) {
             history.push(`/search/${location}/${checkIn}/${checkOut}`)

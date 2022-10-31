@@ -129,3 +129,19 @@ html[data-scroll='0'] .github-button {
     width: 85%;
     background-color: transparent;
 }
+
+.welcome-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.will-do {
+    color: white;
+    border: none;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    background: linear-gradient(.25turn, rgb(121, 95, 168) 1%, rgb(71, 31, 144));
+}

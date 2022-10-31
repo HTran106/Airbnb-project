@@ -11,7 +11,6 @@ import ProfileComponent from "./components/ProfileComponent";
 import BookmarkComponent from "./components/ProfileComponent/BookmarkComponent";
 import ErrorPage from "./components/404Component";
 
-
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
