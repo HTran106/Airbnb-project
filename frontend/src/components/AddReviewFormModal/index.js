@@ -9,7 +9,7 @@ function AddReviewFormModal({ spot }) {
 
     return (
         <>
-            {user && <button className='update-button' style={{ marginLeft: '-1.3em' }} onClick={() => setShowModal(true)}>Add Review</button>}
+            {user && <button id='add-review' className='update-button' style={{ marginLeft: '-1.3em' }} onClick={() => setShowModal(true)}>Add Review</button>}
             {showModal && (
                 <AddReviewModal onClose={() => setShowModal(false)}>
                     <AddReviewForm spot={spot} />
