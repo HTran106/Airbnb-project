@@ -91,6 +91,7 @@ html[data-scroll='0'] .luxe {
 .github-linked {
     display: flex;
     align-items: center;
+    padding-top: .4em;
 }
 
 html[data-scroll='0'] .github-button {
@@ -102,6 +103,7 @@ html[data-scroll='0'] .github-button {
     border: none;
     width: 6em;
     height: 100%;
+
 }
 
 .github-logo {

@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 import CreateSpotFormModal from '../CreateSpotModal'
 
 
-const LoginButton = ({ openPopup }) => {
+const LoginButton = ({setShowPopup, openPopup }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [openMenu, setOpenMenu] = useState(false)
