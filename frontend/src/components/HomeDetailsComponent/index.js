@@ -64,7 +64,7 @@ const HomeDetailsComponent = ({ setNavBar, setLocation }) => {
                                 </div>
                                 <div className='fa-solid fa-star avg-reviews-area'>
                                     <span className='ratings-font'>
-                                        {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null} · <a href={spot?.numReviews !== 0 ? '#reviews' : null}>{spot?.numReviews} reviews</a>
+                                        {spot?.avgStarRatings !== 'NaN' ? spot?.avgStarRatings : null} · <a href={'#reviews'}>{spot?.numReviews} reviews</a>
                                         <span> · {spot?.city}, {spot?.state}</span>
                                     </span>
                                 </div>
