@@ -38,9 +38,13 @@ const SearchPageComponent = ({ setLocation }) => {
                         <SpotCardComponent spot={spot} key={spot?.id} />
                     )) :
                         <>
-                            <h1>There are no spots matching your search</h1>
+                            <div className='no-spots-word-container'>
+                                <span className='no-spots-word'>There are no spots matching your search</span>
+                            </div>
                             <br></br>
-                            <h2>Here are some other popular destinations:</h2>
+                            <div className='other-spots-word-container'>
+                                <span className='other-spots-word'>Here are some other popular destinations:</span>
+                            </div>
                             {allSpots.map(spot => (
                                 <SpotCardComponent spot={spot} key={spot?.id} />
                             ))}
