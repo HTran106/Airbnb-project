@@ -10,12 +10,12 @@
 }
 
 .profile-image {
-    width: 2em;
-    height: 2em;
+    width: 1.9em;
+    height: 1.9em;
     border-radius: 50%;
-    margin-left: 1em;
+    margin-left: 1.2em;
     margin-right: -.5em;
-    box-shadow: 0px 0px 0px 1px black;
+    box-shadow: 0px 0px 0px 1px rgb(229, 227, 227);
 }
 
 html:not([data-scroll='0']) .login-button {

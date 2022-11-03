@@ -44,7 +44,7 @@ const LoginButton = ({ openPopup }) => {
     if (sessionUser) {
         return (
             <div className='login-button-container'>
-                <button onClick={handleOnClick} className="login-button fa-solid fa-bars">
+                <button style={{ paddingRight: '1em' }} onClick={handleOnClick} className="login-button fa-solid fa-bars">
                     {sessionUser?.profileImage ?
                         <img className='profile-image' src={sessionUser?.profileImage} alt='profile pic' /> :
                         <span className='profile-pic fa-solid fa-circle-user fa-2xl'></span>
