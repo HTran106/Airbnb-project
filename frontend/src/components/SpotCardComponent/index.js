@@ -1,12 +1,9 @@
 import './SpotCardComponent.css';
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
-import { fetchOneSpot } from '../../store/spots';
 
 const SpotCardComponent = ({ spot }) => {
     const history = useHistory()
-    const dispatch = useDispatch()
 
     const [index, setIndex] = useState(0)
     const [showArrow, setShowArrow] = useState(false)

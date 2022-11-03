@@ -41,7 +41,6 @@ const LoginButton = ({ openPopup }) => {
         history.push('/my/account')
     }
 
-    console.log(sessionUser)
     if (sessionUser) {
         return (
             <div className='login-button-container'>
