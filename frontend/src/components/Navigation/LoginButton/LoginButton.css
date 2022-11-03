@@ -4,6 +4,16 @@
     height: 3em;
     border-radius: 25% / 50%;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    padding-left: 1em;
 }
 
 html:not([data-scroll='0']) .login-button {

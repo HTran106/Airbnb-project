@@ -41,11 +41,13 @@ const LoginButton = ({ openPopup }) => {
         history.push('/my/account')
     }
 
+    console.log(sessionUser)
     if (sessionUser) {
         return (
             <div className='login-button-container'>
                 <button onClick={handleOnClick} className="login-button fa-solid fa-bars">
-                    <span className='profile-pic fa-solid fa-circle-user fa-2xl'></span>
+                    <img className='profile-image' src={sessionUser?.profileImage} />
+                    {/* <span className='profile-pic fa-solid fa-circle-user fa-2xl'></span> */}
                 </button>
                 {openMenu && (
                     <div className='opened-menu-container'>
