@@ -17,3 +17,7 @@
     font-size: 15px;
 }
 
+.current-booking-txt-container {
+    display: flex;
+    justify-content: center;
+}

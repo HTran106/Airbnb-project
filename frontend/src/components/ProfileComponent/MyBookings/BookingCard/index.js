@@ -33,9 +33,13 @@ const BookingCard = ({ booking }) => {
                         >{booking?.Spot?.city}
                         </span>
                         {new Date(booking?.startDate) <= todaysDate && new Date(booking?.endDate) >= todaysDate ?
-                            <span className='current-booking-txt'>Current Booking</span> :
+                            <div className="current-booking-txt-container">
+                                <span className='current-booking-txt'>Current Booking</span>
+                            </div> :
                             new Date(booking?.endDate) < todaysDate ?
-                                <span className='current-booking-txt'>Past Booking</span> :
+                                <div className="current-booking-txt-container">
+                                    <span className='current-booking-txt'>Past Booking</span>
+                                </div> :
                                 <div className='edit-delete-container'>
                                     <span
                                         onClick={() => setShowCalendar(!showCalendar)}

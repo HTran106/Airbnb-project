@@ -18,7 +18,8 @@ const ProfileComponent = ({ setLocation }) => {
     const reviews = Object.values(useSelector(state => state.reviews))
     const spots = Object.values(useSelector(state => state.spots))
     const numBookmarks = Object.values(useSelector(state => state.bookmarks)).length
-    const bookings = Object.values(useSelector(state => state.bookings))
+    let bookings = Object.values(useSelector(state => state.bookings))
+    bookings = bookings.sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
 
     const [showReviews, setShowReviews] = useState(true)
     const [showSpots, setShowSpots] = useState(false)
