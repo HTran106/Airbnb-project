@@ -46,8 +46,10 @@ const LoginButton = ({ openPopup }) => {
         return (
             <div className='login-button-container'>
                 <button onClick={handleOnClick} className="login-button fa-solid fa-bars">
-                    <img className='profile-image' src={sessionUser?.profileImage} />
-                    {/* <span className='profile-pic fa-solid fa-circle-user fa-2xl'></span> */}
+                    {sessionUser?.profileImage ?
+                        <img className='profile-image' src={sessionUser?.profileImage} /> :
+                        <span className='profile-pic fa-solid fa-circle-user fa-2xl'></span>
+                    }
                 </button>
                 {openMenu && (
                     <div className='opened-menu-container'>
