@@ -59,7 +59,8 @@ router.get('/bookings', requireAuth, async (req, res) => {
                     }
                 ]
             },
-        ]
+        ],
+        order: [['startDate', 'ASC']]
     })
 
     if (bookings) {
