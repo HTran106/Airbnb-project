@@ -17,7 +17,7 @@ const ModalHomePreviewComponent = ({ setLocation, data }) => {
                                 <span>{address}</span>
                             </div>
                             {image1 && (
-                                <img src={validator.isURL(image1) ? image1 : null} alt='img1'></img>
+                                <img src={validator.isURL(image1) ? image1 : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'} alt='img1'></img>
                             )}
                             {city && state && country && (
                                 <div className='city-state-country-container'>
@@ -32,21 +32,21 @@ const ModalHomePreviewComponent = ({ setLocation, data }) => {
                             <div className='host-spot-photos-container'>
                                 <div className='host-spot-photos-top'>
                                     {image2 && (
-                                        <img src={validator.isURL(image2) ? image2 : null} alt='img2'></img>
+                                        <img src={validator.isURL(image2) ? image2 : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'} alt='img2'></img>
                                     )}
                                     {image3 && (
-                                        <img style={{ marginLeft: '.3em' }} src={image3} alt='img3'></img>
+                                        <img style={{ marginLeft: '.3em' }} src={validator.isURL(image3) ? image3 : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'} alt='img3'></img>
                                     )}
                                 </div>
                                 <div className='host-spot-photos-bottom'>
                                     {image4 && (
-                                        <img style={{ paddingTop: '.3em', paddingRight: '.2em' }} src={validator.isURL(image4) ? image4 : null} alt='img4'></img>
+                                        <img style={{ paddingTop: '.3em', paddingRight: '.2em' }} src={validator.isURL(image4) ? image4 : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'} alt='img4'></img>
                                     )}
                                     {image5 && (
-                                        <img style={{ paddingTop: '.3em', paddingLeft: '.15em' }} src={validator.isURL(image5) ? image5 : null} alt='img5' />
+                                        <img style={{ paddingTop: '.3em', paddingLeft: '.15em' }} src={validator.isURL(image5) ? image5 : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'} alt='img5' />
                                     )}
                                     {image6 && (
-                                        <img style={{ paddingTop: '.3em', paddingLeft: '.3em' }} src={validator.isURL(image6) ? image6 : null} alt='img5' />
+                                        <img style={{ paddingTop: '.3em', paddingLeft: '.3em' }} src={validator.isURL(image6) ? image6 : 'https://tse2.mm.bing.net/th?id=OIP.hV6MoBaE8NYeMCugmhd7_QHaEo&pid=Api&P=0'} alt='img5' />
                                     )}
                                 </div>
                             </div>

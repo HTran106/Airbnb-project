@@ -45,9 +45,13 @@ function CreateSpotForm({ setShowModal }) {
     ]
 
     useEffect(() => {
-        const random = Math.floor(Math.random() * 6)
-        setLat(randomLatLng[random][0]?.toFixed(2))
-        setLng(randomLatLng[random][1]?.toFixed(2))
+        if (randomLatLng) {
+            const random = Math.floor(Math.random() * 6)
+            if (randomLatLng[random]) {
+                setLat(randomLatLng[random][0]?.toFixed(2))
+                setLng(randomLatLng[random][1]?.toFixed(2))
+            }
+        }
     }, [])
 
     const closeModal = e => {
