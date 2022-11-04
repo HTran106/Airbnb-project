@@ -5,16 +5,6 @@ import './CreateSpot.css'
 import { createNewSpot } from "../../../store/spots";
 import validator from 'validator'
 
-export const randomLatLng = [
-    [38.90, -121.29],
-    [39.75, -120.50],
-    [37.65, -122.15],
-    [39.15, -119.75],
-    [40.85, -118.30],
-]
-
-const random = Math.floor(Math.random() * 6)
-
 function CreateSpotForm({ setShowModal }) {
     const dispatch = useDispatch();
 
@@ -24,8 +14,8 @@ function CreateSpotForm({ setShowModal }) {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
-    const [lat, setLat] = useState('');
-    const [lng, setLng] = useState('');
+    const [lat, setLat] = useState(37.65);
+    const [lng, setLng] = useState(-122.15);
     const [price, setPrice] = useState('');
     const [image1, setImage1] = useState('');
     const [image2, setImage2] = useState('');
@@ -39,13 +29,6 @@ function CreateSpotForm({ setShowModal }) {
     const closeModal = e => {
         setShowModal(false)
     }
-
-    useEffect(() => {
-        if (randomLatLng[random]) {
-            setLat(randomLatLng[random][0]?.toFixed(2))
-            setLng(randomLatLng[random][1]?.toFixed(2))
-        }
-    }, [])
 
     const handleSubmit = async e => {
         e.preventDefault();

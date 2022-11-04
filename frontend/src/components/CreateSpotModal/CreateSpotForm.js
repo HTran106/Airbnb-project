@@ -4,10 +4,7 @@ import { useDispatch } from "react-redux";
 import './CreateSpot.css'
 import { createNewSpot } from "../../store/spots";
 import validator from 'validator'
-import { randomLatLng } from "../Navigation/CreateSpotModal/CreateSpotForm";
 
-
-const random = Math.floor(Math.random() * 6)
 
 function CreateSpotForm({ setShowModal }) {
     const dispatch = useDispatch();
@@ -18,8 +15,8 @@ function CreateSpotForm({ setShowModal }) {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
-    const [lat, setLat] = useState('');
-    const [lng, setLng] = useState('');
+    const [lat, setLat] = useState(37.65);
+    const [lng, setLng] = useState(-122.15);
     const [price, setPrice] = useState('');
     const [image1, setImage1] = useState('');
     const [image2, setImage2] = useState('');
@@ -43,13 +40,6 @@ function CreateSpotForm({ setShowModal }) {
         image5,
         image6
     ]
-
-    useEffect(() => {
-        if (randomLatLng[random]) {
-            setLat(randomLatLng[random][0]?.toFixed(2))
-            setLng(randomLatLng[random][1]?.toFixed(2))
-        }
-    }, [])
 
     const closeModal = e => {
         setShowModal(false)
