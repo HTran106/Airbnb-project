@@ -67,7 +67,7 @@ const ModalHomePreviewComponent = ({ setLocation, data }) => {
                                 </div>
                             </div>
                             <IncludedComponent />
-                            {lat.length > 0 && lng.length > 0 && (
+                            {lat && lng && (
                                 <GoogleMapComponentSpot lat={lat} lng={lng} city={city} state={state} />
                             )}
                         </div>
