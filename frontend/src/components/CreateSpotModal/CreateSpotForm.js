@@ -7,7 +7,7 @@ import validator from 'validator'
 import { randomLatLng } from "../Navigation/CreateSpotModal/CreateSpotForm";
 
 
-
+const random = Math.floor(Math.random() * 6)
 
 function CreateSpotForm({ setShowModal }) {
     const dispatch = useDispatch();
@@ -45,12 +45,9 @@ function CreateSpotForm({ setShowModal }) {
     ]
 
     useEffect(() => {
-        if (randomLatLng) {
-            const random = Math.floor(Math.random() * 6)
-            if (randomLatLng[random]) {
-                setLat(randomLatLng[random][0]?.toFixed(2))
-                setLng(randomLatLng[random][1]?.toFixed(2))
-            }
+        if (randomLatLng[random]) {
+            setLat(randomLatLng[random][0]?.toFixed(2))
+            setLng(randomLatLng[random][1]?.toFixed(2))
         }
     }, [])
 
