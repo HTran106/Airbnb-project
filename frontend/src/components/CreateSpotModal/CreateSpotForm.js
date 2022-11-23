@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ModalHomePreviewComponent from './ModalHomePreviewComponent';
 import { useDispatch } from "react-redux";
 import './CreateSpot.css'
