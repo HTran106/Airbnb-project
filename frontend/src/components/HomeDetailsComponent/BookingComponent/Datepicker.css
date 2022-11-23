@@ -664,9 +664,10 @@
 .react-datepicker__input-container {
     display: flex;
     justify-content: center;
+    padding-left: .9em;
     /* position: relative;
-    display: inline-block;
-    width: 100%; */
+    display: inline-block; */
+    width: 100%;
 }
 
 .right-input {
