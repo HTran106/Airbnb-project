@@ -6,12 +6,11 @@
     /* border-bottom: 1px solid rgb(221, 221, 221) */
 }
 
-.booking-card-container {
+/* .booking-card-container {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     height: 13em;
-}
+} */
 
 .booking-card {
     display: grid;
