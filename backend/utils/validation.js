@@ -98,3 +98,4 @@ const validateReview = [
 
 
 module.exports = { handleValidationErrors, validateLogin, validateSignup, validateReview, validateSpot }
+//
