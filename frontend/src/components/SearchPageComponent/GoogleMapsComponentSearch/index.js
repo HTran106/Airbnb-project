@@ -11,6 +11,11 @@ const GoogleMapComponentSearch = ({ spots, allSpots }) => {
         googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     })
 
+    const moneyFormatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    })
+
     const center = useMemo(() => {
         if (lat && lng) {
             return { lat, lng }
@@ -40,7 +45,7 @@ const GoogleMapComponentSearch = ({ spots, allSpots }) => {
                                             style={{ backgroundColor: 'white', borderRadius: '1em', height: '2em' }}
                                         >
                                             <span className='info-box-price'>
-                                                ${spot?.price?.toLocaleString("en-US")}
+                                                ${moneyFormatter.format(spot?.price)}
                                             </span>
                                         </div>
                                     </InfoBox>
@@ -129,24 +134,24 @@ export default GoogleMapComponentSearch;
 
 // ZOOMED OUT NO SPOTS
 
-    // (<GoogleMap zoom={2.5} center={{ lat: 36.53, lng: -116.93 }} mapContainerClassName="search-map-container">
-    //     {spots?.map(spot => {
-    //         const position = { lat: +spot?.lat, lng: +spot?.lng }
-    //         return (
-    //             <div key={spot?.id} id={`spot${spot?.id}`}>
-    //                 <InfoBox
-    //                     position={position}
-    //                 >
-    //                     <div
-    //                         id={spot.id} className='info-box-container'
-    //                         style={{ backgroundColor: 'white', borderRadius: '1em', height: '2em' }}
-    //                     >
-    //                         <span className='info-box-price'>
-    //                             ${spot?.price?.toLocaleString("en-US")}
-    //                         </span>
-    //                     </div>
-    //                 </InfoBox>
-    //             </div>
-    //         )
-    //     })}
-    // </GoogleMap>)
+// (<GoogleMap zoom={2.5} center={{ lat: 36.53, lng: -116.93 }} mapContainerClassName="search-map-container">
+//     {spots?.map(spot => {
+//         const position = { lat: +spot?.lat, lng: +spot?.lng }
+//         return (
+//             <div key={spot?.id} id={`spot${spot?.id}`}>
+//                 <InfoBox
+//                     position={position}
+//                 >
+//                     <div
+//                         id={spot.id} className='info-box-container'
+//                         style={{ backgroundColor: 'white', borderRadius: '1em', height: '2em' }}
+//                     >
+//                         <span className='info-box-price'>
+//                             ${spot?.price?.toLocaleString("en-US")}
+//                         </span>
+//                     </div>
+//                 </InfoBox>
+//             </div>
+//         )
+//     })}
+// </GoogleMap>)
