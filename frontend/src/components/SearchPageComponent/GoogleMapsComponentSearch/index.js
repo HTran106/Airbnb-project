@@ -45,7 +45,7 @@ const GoogleMapComponentSearch = ({ spots, allSpots }) => {
                                             style={{ backgroundColor: 'white', borderRadius: '1em', height: '2em' }}
                                         >
                                             <span className='info-box-price'>
-                                                ${moneyFormatter.format(spot?.price)}
+                                                {moneyFormatter.format(spot?.price)}
                                             </span>
                                         </div>
                                     </InfoBox>
@@ -67,7 +67,7 @@ const GoogleMapComponentSearch = ({ spots, allSpots }) => {
                                         style={{ backgroundColor: 'white', borderRadius: '1em', height: '2em' }}
                                     >
                                         <span className='info-box-price'>
-                                            ${moneyFormatter.format(spot?.price)}
+                                            {moneyFormatter.format(spot?.price)}
                                         </span>
                                     </div>
                                 </InfoBox>
@@ -89,7 +89,7 @@ const GoogleMapComponentSearch = ({ spots, allSpots }) => {
                                             style={{ backgroundColor: 'white', borderRadius: '1em', height: '2em' }}
                                         >
                                             <span className='info-box-price'>
-                                                ${moneyFormatter.format(spot?.price)}
+                                                {moneyFormatter.format(spot?.price)}
                                             </span>
                                         </div>
                                     </InfoBox>
