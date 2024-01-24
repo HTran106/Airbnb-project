@@ -8,6 +8,11 @@ const SpotCardComponent = ({ spot }) => {
     const [index, setIndex] = useState(0)
     const [showArrow, setShowArrow] = useState(false)
 
+    const moneyFormatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    })
+
     const handleLeft = e => {
         e.preventDefault()
         setIndex(prev => prev - 1)
@@ -63,7 +68,7 @@ const SpotCardComponent = ({ spot }) => {
                     <span className='spot-card-location'>{spot?.city}, {spot?.state}</span>
                 </div>
                 <div onClick={handleOnClick} className='spot-card-info'>
-                    <span className='spot-card-price'>{spot?.price?.toLocaleString("en-US", { style: 'currency', currency: 'USD' })} night</span>
+                    <span className='spot-card-price'>{moneyFormatter.format(spot?.price)} night</span>
                 </div>
             </div>
         </>
