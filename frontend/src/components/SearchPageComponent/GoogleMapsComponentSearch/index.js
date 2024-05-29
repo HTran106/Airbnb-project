@@ -155,4 +155,4 @@ export default GoogleMapComponentSearch;
 //         )
 //     })}
 // </GoogleMap>)
-// 
+//
