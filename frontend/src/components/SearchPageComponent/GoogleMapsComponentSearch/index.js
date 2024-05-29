@@ -133,7 +133,7 @@ export default GoogleMapComponentSearch;
 
 
 // ZOOMED OUT NO SPOTS
-
+//
 // (<GoogleMap zoom={2.5} center={{ lat: 36.53, lng: -116.93 }} mapContainerClassName="search-map-container">
 //     {spots?.map(spot => {
 //         const position = { lat: +spot?.lat, lng: +spot?.lng }
