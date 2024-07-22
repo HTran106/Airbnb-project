@@ -68,7 +68,7 @@ const SpotCardComponent = ({ spot }) => {
                     <span className='spot-card-location'>{spot?.city}, {spot?.state}</span>
                 </div>
                 <div onClick={handleOnClick} className='spot-card-info'>
-                    <span className='spot-card-price'>{moneyFormatter.format(spot?.price)} night</span>
+                    <span className='spot-card-price'>{moneyFormatter.format(spot?.price)}/night</span>
                 </div>
             </div>
         </>
